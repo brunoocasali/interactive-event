@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hashtag:</strong>
+  <%= @event.hashtag %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @event.image %>
+</p>
+
+<p>
+  <strong>Start at:</strong>
+  <%= @event.start_at %>
+</p>
+
+<p>
+  <strong>End at:</strong>
+  <%= @event.end_at %>
+</p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @event.kind %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @event.user %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

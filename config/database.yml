@@ -8,9 +8,9 @@ default: &default
 
 development:
   <<: *default
-  database: repense_asi_development
+  database: interactive_wedding_development
 
 test:
   <<: *default
-  database: repense_asi_test<%= ENV['TEST_ENV_NUMBER'] %>
+  database: interactive_wedding_test<%= ENV['TEST_ENV_NUMBER'] %>
 
