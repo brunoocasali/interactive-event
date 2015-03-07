@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  resources :items
-
-  resources :services
-
-  resources :events
+  root 'welcome#index'
 
   devise_for :users
 
-  # root 'welcome#index'
+  get 'welcome/index'
+  resources :items
+  resources :services
+  resources :events
+
 end

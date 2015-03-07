@@ -3,7 +3,7 @@ FactoryGirl.define do
     name { Forgery(:name).full_name }
     email { Forgery(:email).address }
     phone { Forgery(:address).phone }
-    password { Forgery(:basic).password }
+    password { Forgery(:basic).password(at_least: 8) }
   end
 
 end

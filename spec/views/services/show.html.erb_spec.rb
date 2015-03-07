@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "services/show", :type => :view do
+RSpec.describe "services/show", type: :view do
   before(:each) do
     @service = assign(:service, Service.create!(
       :name => "Name"

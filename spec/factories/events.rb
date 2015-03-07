@@ -9,4 +9,15 @@ FactoryGirl.define do
 
     association :user
   end
+
+  factory :invalid_event, parent: :event do
+    hash_tag nil
+    title nil
+    image nil
+    start_at nil
+    end_at nil
+    kind nil
+
+    user nil
+  end
 end

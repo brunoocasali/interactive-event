@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "services/index", :type => :view do
+RSpec.describe "services/index", type: :view do
   before(:each) do
     assign(:services, [
       Service.create!(
