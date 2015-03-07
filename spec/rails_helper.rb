@@ -17,8 +17,6 @@ require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
-require 'capybara-screenshot/rspec'
-require 'capybara/poltergeist'
 require 'awesome_print'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
@@ -39,7 +37,7 @@ Capybara.default_wait_time = 5
 Capybara.javascript_driver = :poltergeist
 
 # Keep up to the number of screenshots specified in the hash
-Capybara::Screenshot.prune_strategy = { keep: 20 }
+# Capybara::Screenshot.prune_strategy = { keep: 20 }
 
 RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
@@ -60,7 +58,7 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
 
 
-  config.before(:each) do
+  config.before(:each, type: :controller) do
     @current_user = FactoryGirl.create(:user)
     login_as @current_user
   end

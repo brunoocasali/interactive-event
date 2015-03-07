@@ -2,7 +2,7 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ''
+      t.string :email, limit: 50,              null: false, default: ''
       t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
@@ -56,9 +56,9 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
     create_table :items do |t|
       t.references :service, index: true
       t.references :event, index: true
-      t.integer :status
+      t.integer :status, index: true
       t.text :text
-      t.string :image_link
+      t.string :image_link, limit: 340
 
       t.timestamps null: false
     end
