@@ -1,12 +1,12 @@
 FactoryGirl.define do
   factory :event do
-    hashtag "MyString"
-title "MyString"
-image "MyString"
-start_at "2015-03-07 00:28:16"
-end_at "2015-03-07 00:28:16"
-kind 1
-user nil
-  end
+    hash_tag { "##{Forgery(:basic).text}" }
+    title { Forgery(:lorem_ipsum).words 10 }
+    image { Forgery(:lorem_ipsum).words 23 }
+    start_at { Forgery(:date).date }
+    end_at { Forgery(:date).date }
+    kind { EventKind.list.sample }
 
+    association :user
+  end
 end

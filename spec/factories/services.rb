@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :service do
-    name "MyString"
+    name { Forgery(:lorem_ipsum).words 2 }
   end
-
 end
