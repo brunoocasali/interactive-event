@@ -44,7 +44,7 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
     create_table :events do |t|
       t.string :hash_tag, null: false, limit: 30
       t.string :title, null: false, limit: 75
-      t.string :image, limit: 45
+      t.string :image, limit: 225
       t.datetime :start_at, null: false
       t.datetime :end_at, null: false
       t.integer :kind, null: false, index: true

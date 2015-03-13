@@ -19,7 +19,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'awesome_print'
 
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+#Dir[Rails.root.join('spec/factories/**/*.rb')].each { |f| require f }
 
 # Loading forgeries from a custom path
 Forgery.load_from! "#{Forgery.rails_root}/spec/support/forgery"

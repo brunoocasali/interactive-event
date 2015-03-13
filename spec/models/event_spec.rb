@@ -28,6 +28,9 @@ RSpec.describe Event, type: :model do
     it { is_expected.to have_db_column(:title).of_type(:string)
                             .with_options(limit: 75, null: false) }
 
+    it { is_expected.to have_db_column(:image).of_type(:string)
+                            .with_options(limit: 225, null: false) }
+
     it { is_expected.to have_db_column(:start_at).of_type(:datetime)
                             .with_options(null: false) }
     it { is_expected.to have_db_column(:end_at).of_type(:datetime)
