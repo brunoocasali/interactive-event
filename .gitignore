@@ -1,6 +1,7 @@
 Gemfile.lock
 *.swp
 *.*~
+Gemfile.lock
 /.bundle
 /log/*.log
 /tmp
