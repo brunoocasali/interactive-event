@@ -4,14 +4,14 @@ default: &default
   pool: 5
   host: localhost
   port: 5432
-  username: postgres
-  password: '[ 09 archbruno ]'
+  username: bruno
+  password: '[ 09 osbruno ]'
 
 development:
   <<: *default
-  database: interactive_wedding_development
+  database: interactive_event_development
 
 test:
   <<: *default
-  database: interactive_wedding_test<%= ENV['TEST_ENV_NUMBER'] %>
+  database: interactive_event_test<%= ENV['TEST_ENV_NUMBER'] %>
 

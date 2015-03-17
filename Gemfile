@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.2.0'
 
 gem 'rails', '4.2.0'
+
 gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 gem 'enumerate_it'
