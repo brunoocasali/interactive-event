@@ -17,8 +17,7 @@ class EventsController < ApplicationController
     respond_with(@event)
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @event = Event.new(event_params)

@@ -10,13 +10,13 @@ RSpec.describe Event, type: :model do
   context 'model validations' do
     it { is_expected.to validate_presence_of(:user) }
 
-    it { is_expected.to validate_presence_of(:kind) }
-    it { is_expected.to validate_inclusion_of(:kind).in_array(EventKind.list) }
-
     it { is_expected.to validate_presence_of(:hash_tag) }
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:start_at) }
     it { is_expected.to validate_presence_of(:end_at) }
+
+    it { is_expected.to validate_presence_of(:kind) }
+    it { is_expected.to validate_inclusion_of(:kind).in_array(EventKind.list) }
   end
 
   context 'model attributes' do
@@ -29,7 +29,7 @@ RSpec.describe Event, type: :model do
                             .with_options(limit: 75, null: false) }
 
     it { is_expected.to have_db_column(:image).of_type(:string)
-                            .with_options(limit: 225, null: false) }
+                            .with_options(limit: 225) }
 
     it { is_expected.to have_db_column(:start_at).of_type(:datetime)
                             .with_options(null: false) }
