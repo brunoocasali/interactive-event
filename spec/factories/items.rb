@@ -4,7 +4,16 @@ FactoryGirl.define do
     text { Forgery(:basic).text }
     image_link { Forgery(:lorem_ipsum).words 23 }
 
-    association :service
-    association :event
+    service
+    event
+  end
+
+  factory :invalid_item, parent: :item do
+    status nil
+    text nil
+    image_link nil
+
+    service nil
+    event nil
   end
 end

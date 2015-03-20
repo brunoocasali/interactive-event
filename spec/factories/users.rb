@@ -5,5 +5,4 @@ FactoryGirl.define do
     phone { Forgery(:address).phone }
     password { Forgery(:basic).password(at_least: 8) }
   end
-
 end

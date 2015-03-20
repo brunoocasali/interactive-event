@@ -48,21 +48,19 @@ RSpec.describe EventsController, type: :controller do
     context 'with valid params' do
       it 'creates a new Event' do
         expect {
-          post :create, {event: valid_attributes}, valid_session
+          post :create, { event: valid_attributes }, valid_session
         }.to change(Event, :count).by(1)
       end
 
       it 'assigns a newly created event as @event' do
-        post :create, {event: valid_attributes}, valid_session
-
-        p valid_attributes
+        post :create, { event: valid_attributes }, valid_session
 
         expect(assigns(:event)).to be_a(Event)
         expect(assigns(:event)).to be_persisted
       end
 
       it 'redirects to the created event' do
-        post :create, {event: valid_attributes}, valid_session
+        post :create, { event: valid_attributes }, valid_session
 
         expect(response).to redirect_to(Event.last)
       end

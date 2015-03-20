@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
   validates :hash_tag, presence: true
   validates :start_at, presence: true
   validates :title, presence: true
-  validates :user, presence: true
+  validates :user, presence: true, associated: true
 
   has_enumeration_for :kind, with: EventKind, required: true
 end

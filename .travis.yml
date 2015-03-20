@@ -19,4 +19,3 @@ deploy:
   app: telao
   api_key:
     secure: XhFF5UEvdovHNK5wMyQaPuCCpoFsvdaDImlz50NvIqs7MT0izPkM99JaldafkvzzbAqs90X4cIcA+woivTByusgH0UOT9B91nxK8lYmVeuK4ThRb+xJ5Y0vXrqXE9qFGV/+5Lj8IunHhECHrw6PjP2TVDL2z5gl9erSUIh67xTE
-    
