@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe EventsController, type: :controller do
 
-  let(:valid_attributes) { attributes_for :event }
+  let(:valid_attributes) { attributes_for :event, user_id: @current_user.id }
   let(:invalid_attributes) { attributes_for :invalid_event }
   let(:valid_session) { {} }
 
@@ -91,7 +91,12 @@ RSpec.describe EventsController, type: :controller do
         put :update, {id: event.to_param, event: new_attributes}, valid_session
         event.reload
 
-        skip('Add assertions for updated state')
+        expect(event.hash_tag).to eq(new_attributes[:hash_tag])
+        expect(event.title).to eq(new_attributes[:title])
+        expect(event.image).to eq(new_attributes[:image])
+        expect(event.start_at).to eq(new_attributes[:start_at])
+        expect(event.end_at).to eq(new_attributes[:end_at])
+        expect(event.kind).to eq(new_attributes[:kind])
       end
 
       it 'assigns the requested event as @event' do

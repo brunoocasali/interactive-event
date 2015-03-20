@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe ItemsController, type: :controller do
 
-  let(:valid_attributes) { attributes_for :item }
+  let!(:event) { create(:event) }
+  let!(:service) { create(:service) }
+  let(:valid_attributes) { attributes_for :item, event_id: event.id, service_id: service.id }
   let(:invalid_attributes) { attributes_for :invalid_item }
   let(:valid_session) { {} }
 
