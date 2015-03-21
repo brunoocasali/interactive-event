@@ -1,30 +1,25 @@
 language: ruby
 cache: bundler
-
 rvm:
-  - 2.2.1
-
+- 2.2.1
 addons:
   code_climate:
     repo_token: 6dc582455b3529d44dde0bf265ef5903a05cbbeb20341f4c6825bfaa7a111493
   postgresql: 9.3
-
 env:
-  - DB=postgres
-
+- DB=postgres
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake db:test:prepare
-  - bundle exec rspec spec/
-
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec spec/
 before_script:
-  - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database travis_ci_test;' -U postgres
-
-bundler_args: --binstubs=./bundler_stubs
-
+- cp config/database.yml.travis config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+bundler_args: "--binstubs=./bundler_stubs"
 deploy:
   provider: heroku
-  app: telao
   api_key:
-    secure: XhFF5UEvdovHNK5wMyQaPuCCpoFsvdaDImlz50NvIqs7MT0izPkM99JaldafkvzzbAqs90X4cIcA+woivTByusgH0UOT9B91nxK8lYmVeuK4ThRb+xJ5Y0vXrqXE9qFGV/+5Lj8IunHhECHrw6PjP2TVDL2z5gl9erSUIh67xTE
+    secure: Ia36DG3qwkP9m/T8poznvUL8s7iHu72NRm9LqWgY/Yl0vcEOCx2Lfh3jNYRL+6bbvNUHd6Eyg4tp/U1U11JK1LP31AcV013PazCtu3MCofYBB5sNZQSrdDm17a9xAeVbrGuywAQnzAF48n+0GPtJ8/ANU/JRfCsoGLrZg+8AlSQ=
+  app: telao
+  on:
+    repo: brunoocasali/interactive-event

@@ -14,7 +14,6 @@ gem 'responders', '~> 2.0.2'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'unicorn'
 gem 'bower-rails'
 gem 'sass'
 
@@ -35,5 +34,6 @@ group :development, :test do
 end
 
 group :production do
+  gem 'unicorn'
   gem 'rails_12factor'
 end
