@@ -18,9 +18,8 @@ script:
   - bundle exec rspec spec/
 
 before_script:
-  #- cp config/database.yml.travis config/database.yml
-  #- psql -c 'create database travis_ci_test;' -U postgres
-  - "./script/travis/setup_database.sh"
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
 
 deploy:
   provider: heroku
