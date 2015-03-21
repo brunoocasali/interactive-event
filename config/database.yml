@@ -11,6 +11,10 @@ development:
   <<: *default
   database: interactive_event_development
 
+production:
+  <<: *default
+  database: interactive_event_production
+
 test:
   <<: *default
   database: interactive_event_test<%= ENV['TEST_ENV_NUMBER'] %>
