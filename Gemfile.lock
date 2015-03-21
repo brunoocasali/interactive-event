@@ -72,6 +72,9 @@ GEM
     devise-i18n-views (0.3.4)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    dotenv (2.0.0)
+    dotenv-rails (2.0.0)
+      dotenv (= 2.0.0)
     enumerate_it (1.2.6)
       activesupport (>= 3.0.0)
     erubis (2.7.0)
@@ -217,6 +220,7 @@ DEPENDENCIES
   database_cleaner
   devise
   devise-i18n-views (~> 0.3.3)
+  dotenv-rails
   enumerate_it
   factory_girl_rails (~> 4.0)
   forgery

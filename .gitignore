@@ -1,13 +1,10 @@
 Gemfile.lock
 *.swp
 *.*~
-Gemfile.lock
 /.bundle
+.env
 /log/*.log
 /tmp
-tmp/**/*
-tmp/*
-tmp
 db/*.sqlite3
 db/*.sqlite3-journal
 db/schema.rb
@@ -24,7 +21,5 @@ node_modules
 stdout
 
 ### RubyMine ###
-*.iml
-
 ## Directory-based project format:
 .idea/
