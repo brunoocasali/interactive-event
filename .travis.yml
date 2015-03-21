@@ -10,13 +10,19 @@ addons:
 env:
   - DB=postgres
 
+script: 
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/
+  
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
+
+bundler_args: --binstubs=./bundler_stubs
 
 deploy:
   provider: heroku
   app: telao
   api_key:
     secure: XhFF5UEvdovHNK5wMyQaPuCCpoFsvdaDImlz50NvIqs7MT0izPkM99JaldafkvzzbAqs90X4cIcA+woivTByusgH0UOT9B91nxK8lYmVeuK4ThRb+xJ5Y0vXrqXE9qFGV/+5Lj8IunHhECHrw6PjP2TVDL2z5gl9erSUIh67xTE
-    
