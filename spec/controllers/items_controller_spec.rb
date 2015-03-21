@@ -2,13 +2,15 @@ require 'rails_helper'
 
 RSpec.describe ItemsController, type: :controller do
 
-  let(:valid_attributes) { create(:item) }
-  let(:invalid_attributes) { create(:item) }
+  let!(:event) { create(:event) }
+  let!(:service) { create(:service) }
+  let(:valid_attributes) { attributes_for :item, event_id: event.id, service_id: service.id }
+  let(:invalid_attributes) { attributes_for :invalid_item }
   let(:valid_session) { {} }
 
   describe 'GET #index' do
     it 'assigns all items as @items' do
-      item = Item.create! valid_attributes
+      item = create :item, valid_attributes
 
       get :index, {}, valid_session
 
@@ -18,9 +20,9 @@ RSpec.describe ItemsController, type: :controller do
 
   describe 'GET #show' do
     it 'assigns the requested item as @item' do
-      item = Item.create! valid_attributes
+      item = create :item, valid_attributes
 
-      get :show, {id: item.to_param}, valid_session
+      get :show, { id: item.to_param }
 
       expect(assigns(:item)).to eq(item)
     end
@@ -28,7 +30,7 @@ RSpec.describe ItemsController, type: :controller do
 
   describe 'GET #new' do
     it 'assigns a new item as @item' do
-      get :new, {}, valid_session
+      get :new, {}
 
       expect(assigns(:item)).to be_a_new(Item)
     end
@@ -36,9 +38,9 @@ RSpec.describe ItemsController, type: :controller do
 
   describe 'GET #edit' do
     it 'assigns the requested item as @item' do
-      item = Item.create! valid_attributes
+      item = create :item, valid_attributes
 
-      get :edit, {id: item.to_param}, valid_session
+      get :edit, { id: item.to_param }
 
       expect(assigns(:item)).to eq(item)
     end
@@ -48,7 +50,7 @@ RSpec.describe ItemsController, type: :controller do
     context 'with valid params' do
       it 'creates a new Item' do
         expect {
-          post :create, {item: valid_attributes}, valid_session
+          post :create, { item: valid_attributes }, valid_session
         }.to change(Item, :count).by(1)
       end
 
@@ -83,21 +85,23 @@ RSpec.describe ItemsController, type: :controller do
 
   describe 'PUT #update' do
     describe 'with valid params' do
-      let(:new_attributes) {
-        skip('Add a hash of attributes valid for your model')
-      }
+      let(:new_attributes) { attributes_for :item }
 
       it 'updates the requested item' do
-        item = Item.create! valid_attributes
+        item = create :item, valid_attributes
 
-        put :update, {id: item.to_param, item: new_attributes}, valid_session
+        put :update, { id: item.to_param, item: new_attributes }, valid_session
         item.reload
 
-        skip('Add assertions for updated state')
+        expect(item.status).to eq(new_attributes[:status])
+        expect(item.text).to eq(new_attributes[:text])
+        expect(item.image_link).to eq(new_attributes[:image_link])
+        #expect(item.service.id).to eq(new_attributes[:service][:id])
+        #expect(item.event.id).to eq(new_attributes[:event][:id])
       end
 
       it 'assigns the requested item as @item' do
-        item = Item.create! valid_attributes
+        item = create :item, valid_attributes
 
         put :update, {id: item.to_param, item: valid_attributes}, valid_session
 
@@ -105,7 +109,7 @@ RSpec.describe ItemsController, type: :controller do
       end
 
       it 'redirects to the item' do
-        item = Item.create! valid_attributes
+        item = create :item, valid_attributes
 
         put :update, {id: item.to_param, item: valid_attributes}, valid_session
 
@@ -115,7 +119,7 @@ RSpec.describe ItemsController, type: :controller do
 
     describe 'with invalid params' do
       it 'assigns the item as @item' do
-        item = Item.create! valid_attributes
+        item = create :item, valid_attributes
 
         put :update, {id: item.to_param, item: invalid_attributes}, valid_session
 
@@ -123,7 +127,7 @@ RSpec.describe ItemsController, type: :controller do
       end
 
       it "re-renders the 'edit' template" do
-        item = Item.create! valid_attributes
+        item = create :item, valid_attributes
 
         put :update, {id: item.to_param, item: invalid_attributes}, valid_session
 
@@ -134,7 +138,7 @@ RSpec.describe ItemsController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'destroys the requested item' do
-      item = Item.create! valid_attributes
+      item = create :item, valid_attributes
 
       expect {
         delete :destroy, {id: item.to_param}, valid_session
@@ -142,7 +146,7 @@ RSpec.describe ItemsController, type: :controller do
     end
 
     it 'redirects to the items list' do
-      item = Item.create! valid_attributes
+      item = create :item, valid_attributes
 
       delete :destroy, {id: item.to_param}, valid_session
 

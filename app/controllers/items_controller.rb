@@ -8,17 +8,14 @@ class ItemsController < ApplicationController
     respond_with(@items)
   end
 
-  def show
-    respond_with(@item)
-  end
-
   def new
     @item = Item.new
     respond_with(@item)
   end
 
-  def edit
-  end
+  def show; end
+
+  def edit; end
 
   def create
     @item = Item.new(item_params)

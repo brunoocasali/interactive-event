@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe EventsController, type: :controller do
 
-  let(:valid_attributes) { attributes_for :event }
+  let(:valid_attributes) { attributes_for :event, user_id: @current_user.id }
   let(:invalid_attributes) { attributes_for :invalid_event }
   let(:valid_session) { {} }
 
@@ -48,21 +48,19 @@ RSpec.describe EventsController, type: :controller do
     context 'with valid params' do
       it 'creates a new Event' do
         expect {
-          post :create, {event: valid_attributes}, valid_session
+          post :create, { event: valid_attributes }, valid_session
         }.to change(Event, :count).by(1)
       end
 
       it 'assigns a newly created event as @event' do
-        post :create, {event: valid_attributes}, valid_session
-
-        p valid_attributes
+        post :create, { event: valid_attributes }, valid_session
 
         expect(assigns(:event)).to be_a(Event)
         expect(assigns(:event)).to be_persisted
       end
 
       it 'redirects to the created event' do
-        post :create, {event: valid_attributes}, valid_session
+        post :create, { event: valid_attributes }, valid_session
 
         expect(response).to redirect_to(Event.last)
       end
@@ -93,7 +91,12 @@ RSpec.describe EventsController, type: :controller do
         put :update, {id: event.to_param, event: new_attributes}, valid_session
         event.reload
 
-        skip('Add assertions for updated state')
+        expect(event.hash_tag).to eq(new_attributes[:hash_tag])
+        expect(event.title).to eq(new_attributes[:title])
+        expect(event.image).to eq(new_attributes[:image])
+        expect(event.start_at).to eq(new_attributes[:start_at])
+        expect(event.end_at).to eq(new_attributes[:end_at])
+        expect(event.kind).to eq(new_attributes[:kind])
       end
 
       it 'assigns the requested event as @event' do
