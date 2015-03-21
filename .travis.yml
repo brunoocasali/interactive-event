@@ -28,3 +28,5 @@ deploy:
   app: telao
   on:
     repo: brunoocasali/interactive-event
+  run:
+      - "rake db:create db:migrate"
