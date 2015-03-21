@@ -1,9 +1,5 @@
 language: ruby
 cache: bundler
-  directories:
-    - $CACHE_DIR
-before_cache:
-  - rm -f $CACHE_DIR/.tiny_tiny_marker
 
 rvm:
   - 2.2.1
@@ -22,8 +18,9 @@ script:
   - bundle exec rspec spec/
 
 before_script:
-  - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database travis_ci_test;' -U postgres
+  #- cp config/database.yml.travis config/database.yml
+  #- psql -c 'create database travis_ci_test;' -U postgres
+  - "./script/travis/setup_database.sh"
 
 deploy:
   provider: heroku
