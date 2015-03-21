@@ -14,6 +14,7 @@ gem 'responders', '~> 2.0.2'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'puma'
 gem 'sass'
 
 group :development, :test do
@@ -33,6 +34,5 @@ group :development, :test do
 end
 
 group :production do
-  gem 'puma'
   gem 'rails_12factor'
 end
