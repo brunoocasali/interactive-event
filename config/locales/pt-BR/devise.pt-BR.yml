@@ -1,0 +1,59 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+pt-BR:
+  devise:
+    confirmations:
+      confirmed: "Sua conta foi confirmada com sucesso."
+      send_instructions: "VocÃª receberÃ¡ um email para confirmar sua conta em alguns minutis."
+      send_paranoid_instructions: "Caso seu endereÃ§o de email jÃ¡ exista em nossa base, vocÃª receberÃ¡ um email com instruÃ§Ãµes sobre como ativar sua conta."
+    failure:
+      already_authenticated: "VocÃª jÃ¡ estÃ¡ logado."
+      inactive: "Sua conta ainda nÃ£o foi ativada."
+      invalid: "Email ou senha invÃ¡lidos."
+      locked: "Sua conta estÃ¡ travada."
+      last_attempt: "VocÃª tem mais uma tentativa antes que sua conta seja travada."
+      not_found_in_database: "Email ou senha invÃ¡lidos."
+      timeout: "Para sua seguranÃ§a sua sessÃ£o expirou. Por favor, faÃ§a login novamente."
+      unauthenticated: "VocÃª precisa se logar ou registrar antes de prosseguir."
+      unconfirmed: "VocÃª precisa confirmar sua conta antes de prosseguir."
+    mailer:
+      confirmation_instructions:
+        subject: "InstruÃ§Ãµes para confirmaÃ§Ã£o"
+      reset_password_instructions:
+        subject: "InstruÃ§Ãµes para reiniciar sua senha"
+      unlock_instructions:
+        subject: "InstruÃ§Ãµes para destravar sua senha"
+    omniauth_callbacks:
+      failure: "NÃ£o pudemos autenticÃ¡-lo em %{kind} por causa de \"%{reason}\"."
+      success: "Autenticado com sucesso na conta %{kind}."
+    passwords:
+      no_token: "VocÃª nÃ£o pode acessar essa pÃ¡gina vindo do email para reiniciar sua senha. Se vocÃª estÃ¡ vindo do email para reiniciar sua senha, por favor, certifique-se de estar usando a URL correta."
+      send_instructions: "VocÃª receberÃ¡ um email com instruÃ§Ãµes de como reiniciar sua senha em alguns minutos."
+      send_paranoid_instructions: "Se o seu endereÃ§o de email estiver em nossa base de dados, em alguns minutos vocÃª receberÃ¡ um link para recuperar sua senha em seu email."
+      updated: "VocÃª alterou sua senha com sucesso. VocÃª estÃ¡ logado."
+      updated_not_active: "Sua senha foi alterado com sucesso."
+    registrations:
+      destroyed: "AtÃ© mais! Sua conta foi cancelada com sucesso. Esperamos vÃª-lo novamente em breve."
+      signed_up: "Bem-vindo! VocÃª se registrou com sucesso."
+      signed_up_but_inactive: "VocÃª se registrou com sucesso. No entanto, nÃ£o podemos logÃ¡-lo, pois vocÃª ainda nÃ£o ativou sua conta."
+      signed_up_but_locked: "VocÃª se registrou com sucesso. No entanto, nÃ£o podemos logÃ¡-lo, pois sua conta estÃ¡ travada."
+      signed_up_but_unconfirmed: "Uma mensagem com um link de confirmaÃ§Ã£o foi enviada para seu endereÃ§o de email. Por favor abra o link para ativar sua conta."
+      update_needs_confirmation: "Sua conta foi atualizada, mas precisamos verificar seu endereÃ§o de email. Por favor cheque seu email e clique no link de confirmaÃ§Ã£o para confirmar seu novo endereÃ§o de email."
+      updated: "VocÃª atualizou sua conta com sucesso."
+    sessions:
+      signed_in: "Logado com sucesso."
+      signed_out: "Saiu com sucesso."
+    unlocks:
+      send_instructions: "VocÃª receberÃ¡ um email com instruÃ§Ãµes sobre como destravar sua conta em alguns minutos."
+      send_paranoid_instructions: "Se sua conta existir, vocÃª receberÃ¡ um email com instruÃ§Ãµes sobre como destravÃ¡-la em alguns minutos."
+      unlocked: "Sua conta foi destrava com sucesso. Por favor, faÃ§a login para continuar."
+  errors:
+    messages:
+      already_confirmed: "jÃ¡ foi confirmada, por favor faÃ§a login"
+      confirmation_period_expired: "precisa ser confirmada dentro de %{period}, por favor peÃ§a uma nova"
+      expired: "expirou, por favor solicite uma nova"
+      not_found: "nÃ£o encontrada"
+      not_locked: "nÃ£o estava travada"
+      not_saved:
+        one: "1 erro impediu a gravaÃ§Ã£o de %{resource}:"
+        other: "%{count} erros impediram a gravaÃ§Ã£o de %{resource}:"

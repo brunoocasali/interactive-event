@@ -33,7 +33,7 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
       t.string :name, limit: 30
       t.string :phone, limit: 15
 
-      t.timestamps
+      t.timestamps null: false
     end
 
     add_index :users, :email,                unique: true

@@ -7,7 +7,7 @@
     <%= f.input :image %>
     <%= f.input :start_at %>
     <%= f.input :end_at %>
-    <%= f.input :kind %>
+    <%= f.input :kind, collection: EventKind.to_a %>
     <%= f.association :user, as: :hidden, value: current_user %>
   </div>
 
