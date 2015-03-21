@@ -14,7 +14,6 @@ gem 'responders', '~> 2.0.2'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'bower-rails'
 gem 'sass'
 
 group :development, :test do
