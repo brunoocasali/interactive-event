@@ -94,8 +94,8 @@ RSpec.describe EventsController, type: :controller do
         expect(event.hash_tag).to eq(new_attributes[:hash_tag])
         expect(event.title).to eq(new_attributes[:title])
         expect(event.image).to eq(new_attributes[:image])
-        expect(event.start_at).to eq(new_attributes[:start_at])
-        expect(event.end_at).to eq(new_attributes[:end_at])
+        expect(event.start_at.to_date).to eql(new_attributes[:start_at])
+        expect(event.end_at.to_date).to eql(new_attributes[:end_at])
         expect(event.kind).to eq(new_attributes[:kind])
       end
 
