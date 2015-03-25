@@ -10,7 +10,15 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
+// Bower packages
+//= require velocity/velocity.min
+//= require moment/min/moment-with-locales.min
+//= require angular/angular.min
+//= require angular-resource/angular-resource.min
+//= require angular-route/angular-route.min
+//= require lumx/dist/lumx
+//= require main
+//= require angular/controllers/HomeCtrl
+//= require jquery/dist/jquery.min
+//
 //= require_tree .

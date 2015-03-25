@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
-
 gem 'rails', '4.2.0'
 
 gem 'pg'
@@ -11,15 +9,15 @@ gem 'devise'
 gem 'devise-i18n-views', '~> 0.3.3'
 gem 'simple_form', '~> 3.1.0'
 gem 'responders', '~> 2.0.2'
-gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sass'
-gem 'dotenv-rails'
+gem 'dotenv'
+gem 'unicorn'
 
 group :development, :test do
+  gem 'bower'
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'rspec-rails', '~> 3.1.0'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'forgery'

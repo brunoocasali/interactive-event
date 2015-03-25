@@ -1,11 +1,36 @@
-<h2>Log in</h2>
+<h2 class="fs-display-3 display-block">Login in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+  <div flex-item>
+    <lx-text-field label="Email" error="!emailValidation(textFields.firstEmail)">
+      <%= f.input :email, required: false, autofocus: true, label: false, :'ng-model' => 'textFields.firstEmail' %>
+    </lx-text-field>
   </div>
+
+  <div flex-item>
+    <lx-text-field label="Password">
+      <%= f.input :password, label: false, required: false %>
+    </lx-text-field>
+  </div>
+
+  <div flex-item>
+    <div class="checkbox">
+      <%= f.input :remember_me, class: 'checkbox__input', as: :boolean if devise_mapping.rememberable? %>
+    </div>
+  </div>
+  <div class="checkbox">
+    <input type="checkbox" id="checkbox1" class="checkbox__input">
+    <label for="checkbox1" class="checkbox__label">Checkbox</label>
+  </div>
+  <div class="checkbox mt+">
+    <input type="checkbox" id="checkbox2" class="checkbox__input" checked>
+    <label for="checkbox2" class="checkbox__label">Checkbox checked with help</label>
+    <span class="checkbox__help">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere faucibus efficitur.</span>
+  </div>
+
+
+
 
   <div class="form-actions">
     <%= f.button :submit, "Log in" %>
