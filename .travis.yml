@@ -18,15 +18,10 @@ script:
   - bundle exec rspec spec/
 
 before_script:
-  - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database travis_ci_test;' -U postgres
-
-language: node_js
-node_js:
-  - "0.10"
-before_script:
   - npm install -g bower
   - bower install
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
 
 deploy:
   provider: heroku
