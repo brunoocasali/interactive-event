@@ -2,7 +2,7 @@
   "name": "rails-stack",
   "version": "0.1.2",
   "homepage": "https://github.com/Cabuum/rails-stack",
-  "directory"  : "vendor/assets/components",
+  "directory"  : "bower_components",
    "dependencies": {
     "lumx": "*",
     "angular-route": "*",
@@ -17,7 +17,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "vendor/assets/components",
+    "bower_components",
     "test",
     "tests"
   ]
