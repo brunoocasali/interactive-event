@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "homepage": "https://github.com/Cabuum/rails-stack",
   "directory"  : "bower_components",
-   "dependencies": {
+  "dependencies": {
     "lumx": "*",
     "angular-route": "*",
     "angular-resource": "*",

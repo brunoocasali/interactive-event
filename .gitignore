@@ -3,7 +3,7 @@ Gemfile.lock
 *.*~
 /.bundle
 .env
-vendor/assets/components
+bower_components
 /log/*.log
 /tmp
 db/*.sqlite3
