@@ -17,7 +17,6 @@ coverage
 ._.DS_Store
 *.mwb.baknode_modules
 node_modules
-/bower_components/
 stdout
 
 ### RubyMine ###

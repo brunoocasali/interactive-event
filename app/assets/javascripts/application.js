@@ -12,7 +12,6 @@
 //
 // Bower packages
 //= require_self
-//= require d3/d3
-//= require underscore/underscore
-//
+//= require materialize
+//= require jquery
 //= require_tree .
