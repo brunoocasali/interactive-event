@@ -13,6 +13,5 @@
  * Bower
  *
  *= require_tree .
- *= require materialize/dist/css/materialize.min
  *= require_self
  */
