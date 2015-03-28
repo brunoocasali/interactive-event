@@ -12,6 +12,6 @@
 //
 // Bower packages
 //= require_self
-//= require jquery
-//= require materialize
+//= require jquery/dist/jquery.min
+//= require materialize/dist/js/materialize.min
 //= require_tree .
