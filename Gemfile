@@ -14,9 +14,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sass'
 gem 'dotenv'
 gem 'unicorn'
+gem 'bower'
 
 group :development, :test do
-  gem 'bower'
   gem 'byebug'
   gem 'rspec-rails', '~> 3.1.0'
   gem 'factory_girl_rails', '~> 4.0'
