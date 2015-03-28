@@ -12,12 +12,12 @@ config/unicorn.rb
 public/system/*
 public/upload/*
 public/assets/*
-app/assets/components
 coverage
 .DS_Store
 ._.DS_Store
 *.mwb.baknode_modules
 node_modules
+/bower_components/
 stdout
 
 ### RubyMine ###

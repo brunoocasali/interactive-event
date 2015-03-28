@@ -12,5 +12,7 @@
 //
 // Bower packages
 //= require_self
-//= require components/underscore/underscore-min
+//= require d3/d3
+//= require underscore/underscore
+//
 //= require_tree .

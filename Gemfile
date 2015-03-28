@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sass'
 gem 'dotenv'
 gem 'unicorn'
+gem 'sprockets'
 gem 'bower'
 
 group :development, :test do
