@@ -1,5 +1,4 @@
 language: ruby
-cache: bundler
 
 rvm:
   - 2.2.1
@@ -20,8 +19,8 @@ script:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
-  - npm install -g bower
-  - bower install
+  - "npm install -g bower"
+  - "bower install --save"
 
 deploy:
   provider: heroku
