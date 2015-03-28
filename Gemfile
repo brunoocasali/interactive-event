@@ -14,7 +14,7 @@ source 'https://rubygems.org' do
   gem 'jbuilder', '~> 2.0'
   gem 'sass'
   gem 'dotenv'
-  gem 'unicorn'
+  gem 'passenger'
 
   group :development, :test do
     gem 'byebug'
