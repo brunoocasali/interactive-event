@@ -1,5 +1,13 @@
 class CreateModelsBasedOnEer < ActiveRecord::Migration
   def change
+    create_table :roles do |t|
+      t.string :name, null: false, limit: 20
+      t.string :description, limit: 255
+      t.string :key, null: false, limit: 10
+
+      t.timestamps null: false
+    end
+
     create_table :users do |t|
       ## Database authenticatable
       t.string :email, limit: 50, null: false, default: ''
@@ -32,6 +40,7 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
 
       t.string :name, limit: 30
       t.string :phone, limit: 15
+      t.references :role, index: true, foreign_key: true
 
       t.timestamps null: false
     end

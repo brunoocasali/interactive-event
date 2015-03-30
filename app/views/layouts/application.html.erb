@@ -8,9 +8,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
-    <%= yield %>
-  </div>
+<div class="container">
+  <%= yield %>
+</div>
 <%= javascript_include_tag 'application' %>
+
+<script>
+  $(function() {
+    <% if notice %>
+      toast('<%= notice %>', 4000);
+    <% end %>
+  });
+</script>
 </body>
 </html>

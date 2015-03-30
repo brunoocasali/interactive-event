@@ -48,6 +48,9 @@ pt-BR:
       send_instructions: "Você receberá um email com instruções sobre como destravar sua conta em alguns minutos."
       send_paranoid_instructions: "Se sua conta existir, você receberá um email com instruções sobre como destravá-la em alguns minutos."
       unlocked: "Sua conta foi destrava com sucesso. Por favor, faça login para continuar."
+    buttons:
+      sign_out: Sair
+      sign_in: Entrar
   errors:
     messages:
       already_confirmed: "já foi confirmada, por favor faça login"

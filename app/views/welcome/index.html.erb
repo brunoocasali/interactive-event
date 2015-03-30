@@ -3,7 +3,5 @@
 
 <p class="flow-text"><%= notice %></p>
 
-<% if user_signed_in? %>
-  <% #link_to "My Profile", user_root_path %>
-  <%= link_to('Logout', destroy_user_session_path) %>
-<%end%>
+<%= link_to 'Edit profile', edit_user_registration_path %>
+<%= link_to t('devise.buttons.sign_out'), destroy_user_session_path %>
