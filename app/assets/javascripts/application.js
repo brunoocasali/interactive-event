@@ -12,6 +12,6 @@
 //
 // Bower packages
 //= require_self
-//= require materialize
 //= require jquery
+//= require materialize
 //= require_tree .
