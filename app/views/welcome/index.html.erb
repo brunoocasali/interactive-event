@@ -1,2 +1,9 @@
 <h1 class="fs-display-5 display-block">Welcome</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<p class="flow-text">Eu sou um texto de boas vindas muito mas muito legal!</p>
+
+<p class="flow-text"><%= notice %></p>
+
+<% if user_signed_in? %>
+  <% #link_to "My Profile", user_root_path %>
+  <%= link_to('Logout', destroy_user_session_path) %>
+<%end%>
