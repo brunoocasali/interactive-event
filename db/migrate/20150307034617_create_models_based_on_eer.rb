@@ -2,7 +2,7 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :email, limit: 50,              null: false, default: ''
+      t.string :email, limit: 50, null: false, default: ''
       t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
@@ -48,14 +48,14 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
       t.datetime :start_at, null: false
       t.datetime :end_at, null: false
       t.integer :kind, null: false, index: true
-      t.references :user, null: false, index: true
+      t.references :user, null: false, index: true, foreign_key: true
 
       t.timestamps null: false
     end
 
     create_table :items do |t|
-      t.references :service, index: true
-      t.references :event, index: true
+      t.references :service, index: true, foreign_key: true
+      t.references :event, index: true, foreign_key: true
       t.integer :status, index: true
       t.text :text
       t.string :image_link, limit: 340
@@ -70,14 +70,8 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
     end
 
     create_table :events_services, id: false do |t|
-      t.belongs_to :event, index: true
-      t.belongs_to :service, index: true
+      t.belongs_to :event, index: true, foreign_key: true
+      t.belongs_to :service, index: true, foreign_key: true
     end
-
-    add_foreign_key :items, :services
-    add_foreign_key :items, :events
-    add_foreign_key :events, :users
-    add_foreign_key :events_services, :events
-    add_foreign_key :events_services, :services
   end
 end
