@@ -4,5 +4,7 @@ FactoryGirl.define do
     email { Forgery(:email).address }
     phone { Forgery(:address).phone }
     password { Forgery(:basic).password(at_least: 8) }
+
+    role
   end
 end
