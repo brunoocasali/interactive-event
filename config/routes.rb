@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
-  resources :roles
-
   root 'welcome#index'
 
-  devise_for :users, controllers: { registrations: 'registrations' },
-             path_names: { sign_in: 'login', sign_out: 'logout'}
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout'},
+             controllers: { registrations: 'registrations',
+                            confirmations: 'confirmations' }
 
-  get 'welcome/index'
-
-  namespace :admin do
-    root 'users#index'
-    resources :users
+  scope '/admin' do
+    resources :users do
+      patch '/confirm' => 'confirmations#confirm'
+    end
   end
 
-  resources :items, :services, :events
+  resources :events, :items, :roles, :services
 end

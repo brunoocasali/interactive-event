@@ -20,6 +20,7 @@ RSpec.describe Item, type: :model do
     it { is_expected.to have_db_column(:status).of_type(:integer) }
 
     it { is_expected.to have_db_column(:text).of_type(:text) }
+
     it { is_expected.to have_db_column(:image_link).of_type(:string)
                             .with_options(limit: 340) }
   end
