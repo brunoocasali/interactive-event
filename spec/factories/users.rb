@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :users do
+  factory :user do
     name { Forgery(:name).full_name }
     email { Forgery(:email).address }
     phone { Forgery(:address).phone }

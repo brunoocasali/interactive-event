@@ -17,9 +17,9 @@ class User < ActiveRecord::Base
     self.role = Role.find_by key: :common if self.role.nil?
   end
 
-  def password_required?
-    super if confirmed?
-  end
+  # def password_required?
+  #   super if confirmed?
+  # end
 
   def password_match?
     self.errors[:password] << "can't be blank" if password.blank?

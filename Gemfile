@@ -22,7 +22,6 @@ source 'https://rubygems.org' do
     gem 'factory_girl_rails', '~> 4.0'
     gem 'forgery'
     gem 'awesome_print'
-    gem 'fuubar'
     gem 'shoulda-matchers', '~> 2.7.0'
     gem 'spring'
     gem 'capybara'

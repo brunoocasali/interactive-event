@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   context 'database associations' do
-    it { is_expected.to belong_to(:users) }
+    it { is_expected.to belong_to(:user) }
 
     it { is_expected.to have_and_belong_to_many(:services) }
   end
 
   context 'model validations' do
-    it { is_expected.to validate_presence_of(:users) }
+    it { is_expected.to validate_presence_of(:user) }
 
     it { is_expected.to validate_presence_of(:hash_tag) }
     it { is_expected.to validate_presence_of(:title) }
