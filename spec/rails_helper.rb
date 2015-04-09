@@ -43,7 +43,7 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
 
   config.before(:each, type: :controller) do
-    @current_user = FactoryGirl.create(:users)
+    @current_user = FactoryGirl.create(:user)
     login_as @current_user
   end
 
