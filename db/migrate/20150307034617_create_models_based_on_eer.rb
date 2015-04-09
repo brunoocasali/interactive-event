@@ -57,7 +57,7 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
       t.datetime :start_at, null: false
       t.datetime :end_at, null: false
       t.integer :kind, null: false, index: true
-      t.references :users, null: false, index: true, foreign_key: true
+      t.references :user, null: false, index: true, foreign_key: true
 
       t.timestamps null: false
     end
