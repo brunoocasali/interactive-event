@@ -1,15 +1,17 @@
 class RolesController < ApplicationController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
-
   def index
     @roles = Role.all
     respond_with(@roles)
   end
 
   def show
-    respond_with(@role)
+    if @role.users.length == 0
+      @assosciated_users = 'None'
+    else
+      @assosciated_users = @role.users.map(&:name).join(', ')
+    end
   end
 
   def new
@@ -37,11 +39,12 @@ class RolesController < ApplicationController
   end
 
   private
-    def set_role
-      @role = Role.find(params[:id])
-    end
 
-    def role_params
-      params.require(:role).permit(:name, :description)
-    end
+  def set_role
+    @role = Role.find(params[:id])
+  end
+
+  def role_params
+    params.require(:role).permit(:name, :description)
+  end
 end
