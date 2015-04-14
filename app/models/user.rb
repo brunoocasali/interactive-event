@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :events
 
-  validates :role,
-            presence: true, associated: true
+  validates :role, presence: true, associated: true
+
   validates :phone, :name, :email,
             presence: true
 
@@ -18,13 +18,13 @@ class User < ActiveRecord::Base
   end
 
   def only_if_unconfirmed
-    pending_any_confirmation {yield}
+    pending_any_confirmation { yield }
   end
 
   def password_match?
     self.errors[:password] << "can't be blank" if password.blank?
     self.errors[:password_confirmation] << "can't be blank" if password_confirmation.blank?
-    self.errors[:password_confirmation] << "does not match password" if password != password_confirmation
+    self.errors[:password_confirmation] << 'does not match password' if password != password_confirmation
     password == password_confirmation && !password.blank?
   end
 end
