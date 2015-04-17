@@ -10,15 +10,11 @@ addons:
 
 env:
   - DB=postgres
-  - "TEST_GROUP=1"
-  - "TEST_GROUP=2"
-  - "TEST_GROUP=3"
-  - "TEST_GROUP=4"
-  - "TEST_GROUP=5"
-  - "TEST_GROUP=6"
 
 script:
-  - bundle exec parallel_test spec/ -n 6 --only-group $TEST_GROUP --group-by filesize --type rspec
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/
 
 before_script:
   - cp config/database.yml.travis config/database.yml
