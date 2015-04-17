@@ -2,7 +2,8 @@
 *.*~
 /.bundle
 /.env
-/config/env/*.env
+/config/env/development.env
+/config/env/production.env
 /log/*.log
 /tmp
 db/*.sqlite3
