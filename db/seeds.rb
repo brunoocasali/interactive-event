@@ -1,6 +1,6 @@
-admin = Role.create(key: :admin, name: 'Administrador',
+admin = Role.create(key: :admin, name: 'Admin',
                     description: 'Pode cadastrar usuários além do que o usuário comum pode fazer.')
-Role.create!(key: :common, name: 'Comum',
+Role.create!(key: :common, name: 'Common',
              description: 'Pode criar eventos e alterar seu perfil.')
 root = Role.create(key: :root, name: 'Root',
                    description: 'Master of System, pode fazer até chover!')
