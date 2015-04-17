@@ -1,7 +1,8 @@
 *.swp
 *.*~
 /.bundle
-.env
+/.env
+/config/env/*.env
 /log/*.log
 /tmp
 db/*.sqlite3
