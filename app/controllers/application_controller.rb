@@ -1,14 +1,13 @@
 class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!
   protect_from_forgery with: :exception
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = 'Access denied!'
-    redirect_to root_url
+    redirect_to root_url, notice: 'Access denied!'
   end
 
   respond_to :html, :json
-  before_action :authenticate_user!
 
   protected
 

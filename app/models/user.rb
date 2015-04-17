@@ -3,22 +3,29 @@ class User < ActiveRecord::Base
          :trackable, :validatable, :timeoutable, :lockable
 
   belongs_to :role
-
   has_many :events
-
   validates :role, presence: true, associated: true
-
-  validates :phone, :name, :email,
-            presence: true
-
+  validates :phone, :name, :email, presence: true
   before_save :assign_role
 
   def assign_role
     self.role = Role.find_by key: :common if self.role.nil?
   end
 
-  def only_if_unconfirmed
-    pending_any_confirmation { yield }
+  def admin?
+    self.role.name == 'Admin'
+  end
+
+  def root?
+    self.role.name == 'Root'
+  end
+
+  def common?
+    self.role.name == 'Common'
+  end
+
+  def password_required?
+    super if confirmed?
   end
 
   def password_match?

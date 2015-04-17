@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  devise_for :'users-backup', path_names: { sign_in: 'login', sign_out: 'logout'},
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout'},
              controllers: { confirmations: 'confirmations' }
-
-  resources :events, :items, :roles, :services
 
   scope :profiles do
     get :dashboard, to: 'profiles#dashboard', as: :user_root
@@ -23,5 +21,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root 'welcome#index', as: :authenticated_root
   end
+
+  resources :events, :items, :roles, :services
 end
 

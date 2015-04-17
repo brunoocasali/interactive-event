@@ -2,9 +2,11 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user.admin?
+    if user.root?
       can :manage, :all
-    elsif user.seller?
+    elsif user.admin?
+        can :manage, :all
+    elsif user.common?
       can :read, Item
       can :create, Item
       can :update, Item do |item|
@@ -13,7 +15,7 @@ class Ability
       can :destroy, Item do |item|
         item.try(:user) == user
       end
-    elsif user.regular?
+    elsif user.common?
       can :read, Item
     end
   end
