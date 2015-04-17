@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Role, type: :model do
   context 'database associations' do
-    it { is_expected.to have_many(:'users_backup') }
+    it { is_expected.to have_many(:users) }
   end
 
   context 'model validations' do

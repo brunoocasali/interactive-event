@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
-         :trackable, :validatable, :timeoutable, :lockable
+         :trackable, :validatable, :timeoutable, :lockable, :confirmable
 
   belongs_to :role
   has_many :events
@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
 
   def password_required?
     super if confirmed?
+  end
+
+  def confirmation_required?
+    false
   end
 
   def password_match?
