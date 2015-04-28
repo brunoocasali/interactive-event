@@ -5,10 +5,10 @@
     <%= f.input :hash_tag %>
     <%= f.input :title %>
     <%= f.input :image %>
-    <%= f.input :start_at %>
-    <%= f.input :end_at %>
+    <%= f.input :start_at, date_form_helper %>
+    <%= f.input :end_at, date_form_helper %>
     <%= f.input :kind, collection: EventKind.to_a %>
-    <%= f.association :user, as: :hidden, value: current_user %>
+    <%= f.association :user, as: :hidden, input_html: { value: current_user_id } %>
   </div>
 
   <div class="form-actions">

@@ -1,8 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
-
   def index
     @items = Item.all
     respond_with(@items)

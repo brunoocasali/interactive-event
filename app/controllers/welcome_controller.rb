@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
-  def index
-  end
+  skip_before_action only: :index
+
+  def index; end
 end

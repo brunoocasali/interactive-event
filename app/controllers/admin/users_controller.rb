@@ -17,6 +17,7 @@ class Admin::UsersController < Admin::AdminController
     else
       @last_login = "never"
     end
+    respond_with([@user, @last_login, @joined_on], location: admin_user_path(@user))
   end
 
   # GET /users/new
@@ -83,6 +84,7 @@ class Admin::UsersController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :name, :role_id)
+      params.require(:user).permit(:email, :phone, :password,
+                                   :password_confirmation, :name, :role_id)
     end
 end

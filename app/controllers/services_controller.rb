@@ -1,8 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
-
   def index
     @services = Service.all
     respond_with(@services)
@@ -17,8 +15,7 @@ class ServicesController < ApplicationController
     respond_with(@service)
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @service = Service.new(service_params)
