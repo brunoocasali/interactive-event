@@ -25,10 +25,10 @@ RSpec.describe ApplicationHelper, type: :helper do
     #   end
     # end
 
-    context 'when is unauthenticated' do
-      it 'needs to return nothing' do
-        expect(helper.current_user_id).to be_nil
-      end
-    end
+    # context 'when is unauthenticated' do
+    #   it 'needs to return nothing' do
+    #     expect(helper.current_user_id).to be_nil
+    #   end
+    # end
   end
 end

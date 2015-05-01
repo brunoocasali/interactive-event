@@ -15,6 +15,7 @@ source 'https://rubygems.org' do
   gem 'sass'
   gem 'cancancan', '~> 1.10'
   gem 'passenger'
+  gem 'twitter'
 
   group :development, :test do
     gem 'parallel_tests'
