@@ -1,2 +1,10 @@
 <h1>Helloo, You're the Best Admin, in the World!</h1>
 <p>Have a good day!</p>
+
+<p>Administrate:</p>
+<%= render 'admin/shared/admin' if current_user.admin? || current_user.root? %>
+<%= render 'admin/shared/root' if current_user.root? %>
+
+<p>Your session:</p>
+<%= link_to 'Edit profile', edit_user_registration_path %>
+<%= link_to t('devise.buttons.sign_out'), destroy_user_session_path %>

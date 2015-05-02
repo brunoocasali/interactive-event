@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, notice: 'Access denied!'
   end
 
+  def after_sign_in_path_for(resource)
+    (resource.admin? || resource.root?) ? admin_root_path : root_path
+  end
+
   respond_to :html, :json
 
   protected
