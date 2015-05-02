@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ApplicationHelper, type: :helper do
-
   context 'methods' do
     it 'have the date_form_helper method?' do
       expect(helper).to respond_to(:date_form_helper)
@@ -14,7 +13,8 @@ RSpec.describe ApplicationHelper, type: :helper do
 
   describe '.date_form_helper' do
     it 'returns a hash' do
-      expect(helper.date_form_helper).to eq({ as: :string, input_html: { class: :datepicker } })
+      expect(helper.date_form_helper).to eq(as: :string,
+                                            input_html: { class: :datepicker })
     end
   end
 
