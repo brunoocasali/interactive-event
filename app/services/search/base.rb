@@ -1,8 +1,16 @@
-class SearchService
+module Search
+  class Base
+    class << self
+      def start_finder(event: required)
+        event.services.map(&:key).each do |key|
+          send("find_with_#{key}!", event: event)
+        end
+      end
 
-  def self.search(event: required)
-    # seleciona os devidos searches e manda para suas respectivas implementações
-
+      def find_with_twitter!(event: required)
+        TwitterService.find_tweets_with(event.hash_tag)
+      end
+    end
   end
 end
 

@@ -74,6 +74,7 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
 
     create_table :services do |t|
       t.string :name
+      t.string :key
 
       t.timestamps null: false
     end

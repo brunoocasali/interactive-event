@@ -40,4 +40,17 @@ RSpec.describe Event, type: :model do
     it { is_expected.to have_db_index(:kind) }
     it { is_expected.to have_db_index(:user_id) }
   end
+
+  context 'scope methods' do
+    describe 'will_happen' do
+      it { expect(described_class).to respond_to(:will_happen) }
+
+      it 'needs to return some objects' do
+        event = create(:event, start_at: DateTime.now + 1)
+        event2 = create(:event, start_at: DateTime.now - 2)
+
+        expect(described_class.will_happen).to match_array([event])
+      end
+    end
+  end
 end

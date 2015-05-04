@@ -5,6 +5,10 @@ Role.create!(key: :common, name: 'Common',
 root = Role.create(key: :root, name: 'Root',
                    description: 'Master of System, pode fazer até chover!')
 
+Service.create!(name: 'Twitter', key: :twitter)
+Service.create!(name: 'Facebook', key: :facebook)
+Service.create!(name: 'Instagram', key: :instagram)
+
 User.create!(
     name: 'Romiel Gralak',
     email: 'rg2producoes@gmail.com',
