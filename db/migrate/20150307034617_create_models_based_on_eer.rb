@@ -74,10 +74,12 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
 
     create_table :services do |t|
       t.string :name
-      t.string :key
+      t.string :key, index: true
 
       t.timestamps null: false
     end
+
+    add_index :services, :key, unique: true
 
     create_table :events_services, id: false do |t|
       t.belongs_to :event, index: true, foreign_key: true

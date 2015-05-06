@@ -14,4 +14,8 @@ RSpec.describe Service, type: :model do
     it { is_expected.to have_db_column(:name).of_type(:string) }
     it { is_expected.to have_db_column(:key).of_type(:string) }
   end
+
+  context 'database indexes' do
+    it { is_expected.to have_db_index(:key).unique(true) }
+  end
 end

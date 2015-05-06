@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   context 'database associations' do
+    it { is_expected.to have_many(:items) }
+
     it { is_expected.to belong_to(:user) }
 
     it { is_expected.to have_and_belong_to_many(:services) }

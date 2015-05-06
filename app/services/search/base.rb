@@ -1,15 +1,19 @@
 module Search
   class Base
-    class << self
-      def start_finder(event: required)
-        event.services.map(&:key).each do |key|
-          send("find_with_#{key}!", event: event)
-        end
-      end
+    attr_accessor :event
 
-      def find_with_twitter!(event: required)
-        TwitterService.find_tweets_with(event.hash_tag)
-      end
+    def initialize(event)
+      @event = event
+
+      start_finder
+    end
+
+    def start_finder
+      @event.services.map(&:key).each { |key| send("find_with_#{key}!") }
+    end
+
+    def find_with_twitter!
+      TwitterService.find_tweets_with(@event.hash_tag, $twitter_client)
     end
   end
 end

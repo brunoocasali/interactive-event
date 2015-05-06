@@ -1,31 +1,26 @@
-# module Search
-#   class TwitterService
-#     # Isso é legal chamar dentro de um job
-#     def self.find_tweets_with(hash_tag)
-#       $twitter_client.search(hash_tag, result_type: :recent).take(5).each do |tweet|
-#         puts tweet.text
-#       end
-#     end
-#   end
-# end
-#
-
-
 module Search
   class TwitterService
-    # Isso é legal chamar dentro de um job
-    def self.find_tweets_with(hash_tag)
-      # list = $twitter_client.search(hash_tag, result_type: :recent).take(500)
-      #
-      # loop do
-      #   puts " --some \n"
-      #   break if true
-      # end
+    def self.find_tweets_with(event, client = $twitter_client)
+      last_id = event.items.last ? event.items.last.id : 1
 
-      $twitter_client.search(hash_tag, result_type: :recent).each do |tweet|
-        puts tweet.text
-        break if tweet.id.to_s == '595337603660021760'
+      ActiveRecord::Base.transaction do
+        client.search(event.hash_tag, result_type: :recent).each_with_index do |tweet, i|
+          event.items << make_a_item_by(tweet)
+
+          break if tweet.id.to_s == last_id or i > 500
+        end
+
+        event.save!
       end
+    end
+
+    private
+
+    def self.make_a_item_by(tweet)
+      Item.new id: tweet.id,
+               text: tweet.text,
+               status: ItemStatus::LISTED,
+               service: Search::TWITTER
     end
   end
 end
