@@ -1,3 +1,3 @@
-class Search::FacebookService
-
+module Search
+  class FacebookService; end
 end

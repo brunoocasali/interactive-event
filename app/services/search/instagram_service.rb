@@ -1,5 +1,3 @@
 module Search
-  class InstagramService
-
-  end
+  class InstagramService; end
 end
