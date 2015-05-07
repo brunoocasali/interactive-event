@@ -1,7 +1,5 @@
 module Search
   class Base
-    attr_accessor :event
-
     def initialize(event)
       @event = event
 
@@ -13,7 +11,7 @@ module Search
     end
 
     def find_with_twitter!
-      TwitterService.find_tweets_with(@event.hash_tag, $twitter_client)
+      TwitterService.find_tweets_for(@event, $twitter_client)
     end
   end
 end

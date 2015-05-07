@@ -26,7 +26,7 @@ RSpec.describe Event, type: :model do
                             .with_options(null: false) }
 
     it { is_expected.to have_db_column(:hash_tag).of_type(:string)
-                            .with_options(limit: 30, null: false) }
+                            .with_options(limit: 75, null: false) }
     it { is_expected.to have_db_column(:title).of_type(:string)
                             .with_options(limit: 75, null: false) }
     it { is_expected.to have_db_column(:image).of_type(:string)
@@ -44,14 +44,24 @@ RSpec.describe Event, type: :model do
   end
 
   context 'scope methods' do
-    describe 'will_happen' do
+    describe '.will_happen' do
       it { expect(described_class).to respond_to(:will_happen) }
 
       it 'needs to return some objects' do
         event = create(:event, start_at: DateTime.now + 1)
-        event2 = create(:event, start_at: DateTime.now - 2)
+        create(:event, start_at: DateTime.now - 2)
 
         expect(described_class.will_happen).to match_array([event])
+      end
+    end
+
+    describe '#tweets' do
+      it { expect(described_class).to respond_to(:will_happen) }
+
+      it 'only tweets objects' do
+        event = create(:event, services: %w(create(:twitter_service)))
+
+        expect(described_class.tweets).to match_array([event])
       end
     end
   end

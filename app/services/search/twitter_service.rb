@@ -1,26 +1,20 @@
 module Search
   class TwitterService
-    def self.find_tweets_with(event, client = $twitter_client)
-      last_id = event.items.last ? event.items.last.id : 1
+    def self.find_tweets_for(event, client = $twitter_client)
+      last = event.items.last.try(&:id)
 
-      ActiveRecord::Base.transaction do
-        client.search(event.hash_tag, result_type: :recent).each_with_index do |tweet, i|
-          event.items << make_a_item_by(tweet)
+      client.search(event.hash_tag, result_type: :recent).each_with_index do |tweet, i|
+        event.items << make_a_item_by(tweet)
 
-          break if tweet.id.to_s == last_id or i > 500
-        end
-
-        event.save!
+        break if tweet.id.to_s == last or i > 500
       end
     end
 
-    private
-
     def self.make_a_item_by(tweet)
-      Item.new id: tweet.id,
+      Item.new(id: tweet.id,
                text: tweet.text,
                status: ItemStatus::LISTED,
-               service: Search::TWITTER
+               service: ServiceKind::TWITTER) if tweet
     end
   end
 end

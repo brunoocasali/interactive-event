@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
+  self.primary_key = :id
+
   belongs_to :event
-  belongs_to :service
 
   validates :event, presence: true, associated: true
   validates :service, presence: true, associated: true

@@ -3,8 +3,6 @@ class Event < ActiveRecord::Base
 
   belongs_to :user
 
-  has_and_belongs_to_many :services
-
   # TODO: Validates a presence of a hash_tag! with a " # " character.
   # TODO: create a before_save method to do this!! ^^
 
@@ -21,6 +19,6 @@ class Event < ActiveRecord::Base
   scope :will_happen, -> (date = DateTime.now) { where('start_at >= ?', date - 1) }
 
   def tweets
-    items.where(service: Search::TWITTER)
+    items.where("#{ServiceKind::TWITTER} = ANY (services)")
   end
 end

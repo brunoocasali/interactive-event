@@ -22,6 +22,6 @@ Rails.application.routes.draw do
     root 'welcome#index', as: :authenticated_root
   end
 
-  resources :events, :items, :roles, :services
+  resources :events, :items, :roles
 end
 
