@@ -5,8 +5,6 @@ RSpec.describe Event, type: :model do
     it { is_expected.to have_many(:items) }
 
     it { is_expected.to belong_to(:user) }
-
-    it { is_expected.to have_and_belong_to_many(:services) }
   end
 
   context 'model validations' do
@@ -56,12 +54,17 @@ RSpec.describe Event, type: :model do
     end
 
     describe '#tweets' do
-      it { expect(described_class).to respond_to(:will_happen) }
+      subject { create(:event, services: %w(ServiceKind::TWITTER)) }
+
+      it { expect(subject).to respond_to(:tweets) }
 
       it 'only tweets objects' do
-        event = create(:event, services: %w(create(:twitter_service)))
+        tweet = create(:item, service: ServiceKind::TWITTER)
+        post = create(:item, service: ServiceKind::FACEBOOK)
 
-        expect(described_class.tweets).to match_array([event])
+        subject.items << post << tweet
+
+        expect(subject.tweets).to match_array([tweet])
       end
     end
   end

@@ -1,24 +1,23 @@
 FactoryGirl.define do
   factory :item do
     id { Forgery('credit_card').number }
-    status { ItemStatus.list.sample }
     text { Forgery(:basic).text }
-    image_link { Forgery(:lorem_ipsum).words 23 }
+    image_link { Forgery(:internet).domain_name }
 
-    service
+    status { ItemStatus.list.sample }
+    service { ServiceKind.list.sample }
+
     event
   end
 
   factory :invalid_item, parent: :item do
-    status nil
+    id nil
     text nil
     image_link nil
 
+    status nil
     service nil
-    event nil
-  end
 
-  factory :tweet_item, parent: :item do
-    association :service, factory: :twitter_service
+    event nil
   end
 end

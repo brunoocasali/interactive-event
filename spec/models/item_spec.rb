@@ -2,13 +2,14 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
   context 'database associations' do
-    it { is_expected.to belong_to(:service) }
     it { is_expected.to belong_to(:event) }
   end
 
   context 'model validations' do
-    it { is_expected.to validate_presence_of(:service) }
     it { is_expected.to validate_presence_of(:event) }
+
+    it { is_expected.to validate_presence_of(:service) }
+    it { is_expected.to validate_inclusion_of(:service).in_array(ServiceKind.list) }
 
     it { is_expected.to validate_presence_of(:status) }
     it { is_expected.to validate_inclusion_of(:status).in_array(ItemStatus.list) }
@@ -16,7 +17,7 @@ RSpec.describe Item, type: :model do
 
   context 'model attributes' do
     it { is_expected.to have_db_column(:event_id).of_type(:integer) }
-    it { is_expected.to have_db_column(:service_id).of_type(:integer) }
+    it { is_expected.to have_db_column(:service).of_type(:integer) }
     it { is_expected.to have_db_column(:status).of_type(:integer) }
 
     it { is_expected.to have_db_column(:text).of_type(:text) }
@@ -28,6 +29,6 @@ RSpec.describe Item, type: :model do
   context 'database indexes' do
     it { is_expected.to have_db_index(:status) }
     it { is_expected.to have_db_index(:event_id) }
-    it { is_expected.to have_db_index(:service_id) }
+    it { is_expected.to have_db_index(:service) }
   end
 end

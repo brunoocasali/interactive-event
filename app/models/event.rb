@@ -14,11 +14,9 @@ class Event < ActiveRecord::Base
 
   has_enumeration_for :kind, with: EventKind, required: true
 
-  # after_create { Search::Base::start_finder(self) }
-
   scope :will_happen, -> (date = DateTime.now) { where('start_at >= ?', date - 1) }
 
   def tweets
-    items.where("#{ServiceKind::TWITTER} = ANY (services)")
+    items.twitter
   end
 end

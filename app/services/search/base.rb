@@ -7,7 +7,9 @@ module Search
     end
 
     def start_finder
-      @event.services.map(&:key).each { |key| send("find_with_#{key}!") }
+      @event.services.map(&:to_i).each do |key|
+        send("find_with_#{ ServiceKind.key_for(key) }!")
+      end
     end
 
     def find_with_twitter!

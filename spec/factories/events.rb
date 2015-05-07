@@ -7,18 +7,9 @@ FactoryGirl.define do
     end_at { Forgery(:date).date }
 
     kind { EventKind.list.sample }
+    services { [ ServiceKind.list.sample ] }
 
     user
-    #
-    # factory :event_with_tweets do
-    #   after(:create) do |event|
-    #     create(:item, event: event, service: create(:service, key: :twitter))
-    #   end
-    # end
-  end
-
-  factory :event_with_tweets, parent: :event do |event|
-    items { build_list :tweet_item, 3 }
   end
 
   factory :invalid_event, parent: :event do
@@ -28,6 +19,7 @@ FactoryGirl.define do
     start_at nil
     end_at nil
     kind nil
+    services nil
 
     user nil
   end

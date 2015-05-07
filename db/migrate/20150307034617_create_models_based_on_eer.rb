@@ -65,7 +65,7 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
 
     create_table :items, id: false do |t|
       t.string :id, null: false
-      t.text :services, array: true, default: []
+      t.integer :service, index: true, null: false
       t.references :event, index: true, foreign_key: true
       t.integer :status, index: true
       t.text :text
