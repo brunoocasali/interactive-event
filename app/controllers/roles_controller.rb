@@ -7,11 +7,13 @@ class RolesController < ApplicationController
   end
 
   def show
-    if @role.users.length == 0
-      @assosciated_users = 'None'
+    if @role.users.size == 0
+      @associated_users = 'None'
     else
-      @assosciated_users = @role.users.map(&:name).join(', ')
+      @associated_users = @role.users.map(&:name).join(', ')
     end
+
+    respond_with(@role, @associated_users, location: @role)
   end
 
   def new
@@ -44,6 +46,6 @@ class RolesController < ApplicationController
   end
 
   def role_params
-    params.require(:role).permit(:name, :description)
+    params.require(:role).permit(:name, :description, :key)
   end
 end
