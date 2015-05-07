@@ -6,6 +6,5 @@ class Item < ActiveRecord::Base
   validates :event, presence: true, associated: true
 
   has_enumeration_for :status, with: ItemStatus, required: true
-  has_enumeration_for :service, with: ServiceKind, required: true,
-                      create_scopes: true
+  has_enumeration_for :service, with: ServiceKind, required: true, create_scopes: true
 end

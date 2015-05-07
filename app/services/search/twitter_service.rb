@@ -6,7 +6,7 @@ module Search
       client.search(event.hash_tag, result_type: :recent).each_with_index do |tweet, i|
         event.items << make_a_item_by(tweet)
 
-        break if tweet.id.to_s == last or i > 500
+        break if tweet.id_str == last || i > 500
       end
     end
 
