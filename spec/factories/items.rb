@@ -1,19 +1,23 @@
 FactoryGirl.define do
   factory :item do
-    status { ItemStatus.list.sample }
+    id { Forgery('credit_card').number }
     text { Forgery(:basic).text }
-    image_link { Forgery(:lorem_ipsum).words 23 }
+    image_link { Forgery(:internet).domain_name }
 
-    service
+    status { ItemStatus.list.sample }
+    service { ServiceKind.list.sample }
+
     event
   end
 
   factory :invalid_item, parent: :item do
-    status nil
+    id nil
     text nil
     image_link nil
 
+    status nil
     service nil
+
     event nil
   end
 end

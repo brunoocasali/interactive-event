@@ -7,6 +7,7 @@ FactoryGirl.define do
     end_at { Forgery(:date).date }
 
     kind { EventKind.list.sample }
+    services { [ ServiceKind.list.sample ] }
 
     user
   end
@@ -18,6 +19,7 @@ FactoryGirl.define do
     start_at nil
     end_at nil
     kind nil
+    services nil
 
     user nil
   end

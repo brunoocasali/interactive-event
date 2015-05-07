@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   context 'database associations' do
-    it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_many(:items) }
 
-    it { is_expected.to have_and_belong_to_many(:services) }
+    it { is_expected.to belong_to(:user) }
   end
 
   context 'model validations' do
@@ -24,7 +24,7 @@ RSpec.describe Event, type: :model do
                             .with_options(null: false) }
 
     it { is_expected.to have_db_column(:hash_tag).of_type(:string)
-                            .with_options(limit: 30, null: false) }
+                            .with_options(limit: 75, null: false) }
     it { is_expected.to have_db_column(:title).of_type(:string)
                             .with_options(limit: 75, null: false) }
     it { is_expected.to have_db_column(:image).of_type(:string)
@@ -39,5 +39,35 @@ RSpec.describe Event, type: :model do
   context 'database indexes' do
     it { is_expected.to have_db_index(:kind) }
     it { is_expected.to have_db_index(:user_id) }
+  end
+
+  context 'scope methods' do
+    describe '.will_happen' do
+      it { expect(described_class).to respond_to(:will_happen) }
+
+      it 'needs to return some objects' do
+        event = create(:event, start_at: DateTime.now + 1)
+        create(:event, start_at: DateTime.now - 2)
+
+        expect(described_class.will_happen).to match_array([event])
+      end
+    end
+
+    describe '#tweets' do
+      subject { create(:event, services: %w(ServiceKind::TWITTER)) }
+
+      it { expect(subject).to respond_to(:tweets) }
+
+      it 'only tweets objects' do
+        tweet = create(:item, service: ServiceKind::TWITTER)
+        # TODO: When add the new searcher methods uncomment this lines to
+        # improve testability
+        # post = create(:item, service: ServiceKind::FACEBOOK)
+
+        subject.items << tweet # << post
+
+        expect(subject.tweets).to match_array([tweet])
+      end
+    end
   end
 end

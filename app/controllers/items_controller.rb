@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params)
+    @item.update(item_params.except! :id)
     respond_with(@item)
   end
 
@@ -37,7 +37,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:service_id, :event_id, :status, :text,
-                                   :image_link)
+      params.require(:item).permit(:id, :service, :event_id, :status, :text, :image_link)
     end
 end

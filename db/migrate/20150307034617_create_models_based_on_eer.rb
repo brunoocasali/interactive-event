@@ -51,19 +51,21 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
     add_index :users, :unlock_token,         unique: true
 
     create_table :events do |t|
-      t.string :hash_tag, null: false, limit: 30
+      t.string :hash_tag, null: false, limit: 75
       t.string :title, null: false, limit: 75
       t.string :image, limit: 225
       t.datetime :start_at, null: false
       t.datetime :end_at, null: false
       t.integer :kind, null: false, index: true
       t.references :user, null: false, index: true, foreign_key: true
+      t.text :services, array: true, default: []
 
       t.timestamps null: false
     end
 
-    create_table :items do |t|
-      t.references :service, index: true, foreign_key: true
+    create_table :items, id: false do |t|
+      t.string :id, null: false
+      t.integer :service, index: true, null: false
       t.references :event, index: true, foreign_key: true
       t.integer :status, index: true
       t.text :text
@@ -72,15 +74,6 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    create_table :services do |t|
-      t.string :name
-
-      t.timestamps null: false
-    end
-
-    create_table :events_services, id: false do |t|
-      t.belongs_to :event, index: true, foreign_key: true
-      t.belongs_to :service, index: true, foreign_key: true
-    end
+    add_index :items, :id, unique: true
   end
 end

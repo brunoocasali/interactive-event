@@ -28,6 +28,5 @@ deploy:
   on:
     repo: brunoocasali/interactive-event
   run:
-      - "rake db:create"
-      - "rake db:migrate"
+      - "rake db:create db:migrate"
       - restart

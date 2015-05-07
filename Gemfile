@@ -16,6 +16,7 @@ source 'https://rubygems.org' do
   gem 'cancancan', '~> 1.10'
   gem 'passenger'
   gem 'twitter'
+  gem 'rufus-scheduler'
 
   group :development, :test do
     gem 'parallel_tests'

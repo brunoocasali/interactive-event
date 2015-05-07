@@ -1,0 +1,6 @@
+en:
+  enumerations:
+    service_kind:
+      twitter: "Twitter"
+      instagram: "Instagram"
+      facebook: "Facebook"
