@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe ItemsController, type: :controller do
 
   let!(:event) { create(:event) }
-  let!(:service) { create(:service) }
-  let(:valid_attributes) { attributes_for :item, event_id: event.id, service_id: service.id }
+  let(:valid_attributes) { attributes_for :item, event_id: event.id }
   let(:invalid_attributes) { attributes_for :invalid_item }
   let(:valid_session) { {} }
 
@@ -96,8 +95,7 @@ RSpec.describe ItemsController, type: :controller do
         expect(item.status).to eq(new_attributes[:status])
         expect(item.text).to eq(new_attributes[:text])
         expect(item.image_link).to eq(new_attributes[:image_link])
-        #expect(item.service.id).to eq(new_attributes[:service][:id])
-        #expect(item.event.id).to eq(new_attributes[:event][:id])
+        expect(item.service).to eq(new_attributes[:service])
       end
 
       it 'assigns the requested item as @item' do
