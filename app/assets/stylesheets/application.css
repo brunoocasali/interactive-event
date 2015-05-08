@@ -12,7 +12,8 @@
  *
  * Bower
  *
- *= require_tree .
  *= require materialize
+ *= require style
  *= require_self
+ *= require_tree .
  */
