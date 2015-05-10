@@ -8,6 +8,15 @@ Rails.application.routes.draw do
     get :dashboard, to: 'profiles#dashboard', as: :user_root
   end
 
+  resources :monitoring, controller: :monitorings, only: :none, param: :hash_tag do
+    get :index, on: :collection
+
+    member do
+      get :approved
+      get :candidates
+    end
+  end
+
   namespace :admin do
     root 'welcome#index'
 
@@ -22,6 +31,5 @@ Rails.application.routes.draw do
     root 'welcome#index', as: :authenticated_root
   end
 
-  resources :events, :items, :roles
+  resources :events, :roles
 end
-
