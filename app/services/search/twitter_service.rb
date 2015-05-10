@@ -18,15 +18,20 @@ module Search
                service: ServiceKind::TWITTER) if tweet
     end
 
+    # TODO: Refactor this code, I guess there is Ruby's mother fucker methods! :P
     def self.make_an_author_by(user)
-      if Author.find_by(id: user.id, service: ServiceKind::TWITTER)
-        Author.new(id: user.id,
-                   profile_image_url: user.profile_image_url,
-                   name: user.name,
-                   screen_name: user.screen_name,
-                   profile_url: user.profile_url,
-                   service: ServiceKind::TWITTER)
+      author = Author.find_by(id: user.id, service: ServiceKind::TWITTER)
+
+      unless author
+        author = Author.new(id: user.id,
+                            profile_image_url: user.profile_image_url,
+                            name: user.name,
+                            screen_name: user.screen_name,
+                            profile_url: "https://twitter.com/#{user.screen_name}",
+                            service: ServiceKind::TWITTER)
       end
+
+      author
     end
   end
 end

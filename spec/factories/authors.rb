@@ -1,9 +1,11 @@
 FactoryGirl.define do
   factory :author do
-    id ""
-profile_image_url "MyString"
-name "MyString"
-screen_name "MyString"
-  end
+    id { rand(1..9999) }
+    profile_image_url { Forgery(:internet).domain_name }
+    name { Forgery(:name).full_name }
+    screen_name { Forgery(:name).full_name.underscore }
+    profile_url { Forgery(:internet).domain_name }
 
+    service { ServiceKind.list.sample }
+  end
 end

@@ -8,6 +8,7 @@ FactoryGirl.define do
     service { ServiceKind.list.sample }
 
     event
+    author
   end
 
   factory :invalid_item, parent: :item do

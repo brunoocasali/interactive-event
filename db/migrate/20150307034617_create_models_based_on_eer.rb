@@ -79,7 +79,7 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
       t.string :id, null: false, limit: 30
       t.string :profile_image_url
       t.integer :service, index: true, null: false
-      t.string :name, limit: 50
+      t.string :name, limit: 50, null: false
       t.string :screen_name, limit: 20
       t.string :profile_url
 
