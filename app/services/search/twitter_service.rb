@@ -11,11 +11,11 @@ module Search
     end
 
     def self.make_a_item_by(tweet)
-        Item.new(id: tweet.id,
-                 text: tweet.text,
-                 status: ItemStatus::LISTED,
-                 author: make_an_author_by(tweet.user),
-                 service: ServiceKind::TWITTER) if tweet
+      Item.new(id: tweet.id,
+               text: tweet.text,
+               status: ItemStatus::LISTED,
+               author: make_an_author_by(tweet.user),
+               service: ServiceKind::TWITTER) if tweet
     end
 
     # TODO: Refactor this code, I guess there is Ruby's mother fucker methods! :P

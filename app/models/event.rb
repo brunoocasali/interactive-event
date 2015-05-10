@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
   end
 
   def drop_hash_tag
-    return false unless self.errors.empty?
+    return false unless errors.empty?
     hash_tag.sub! '#', ''
   end
 

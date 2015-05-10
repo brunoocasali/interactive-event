@@ -13,17 +13,28 @@ RSpec.describe Author, type: :model do
   end
 
   context 'model attributes' do
-    it { is_expected.to have_db_column(:id).of_type(:integer).with_options(null: false) }
+    it do
+      is_expected.to have_db_column(:id).of_type(:integer).
+                         with_options(null: false)
+    end
 
-    it { is_expected.to have_db_column(:service).of_type(:integer)
-                            .with_options(null: false) }
+    it do
+      is_expected.to have_db_column(:service).of_type(:integer).
+                         with_options(null: false)
+    end
+
+    it do
+      is_expected.to have_db_column(:name).of_type(:string).
+                         with_options(limit: 50, null: false)
+    end
+
+    it do
+      is_expected.to have_db_column(:screen_name).of_type(:string).
+                         with_options(limit: 40)
+    end
 
     it { is_expected.to have_db_column(:profile_image_url).of_type(:string) }
     it { is_expected.to have_db_column(:profile_url).of_type(:string) }
-    it { is_expected.to have_db_column(:name).of_type(:string)
-                            .with_options(limit: 50, null: false) }
-    it { is_expected.to have_db_column(:screen_name).of_type(:string)
-                            .with_options(limit: 40) }
   end
 
   context 'database indexes' do

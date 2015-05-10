@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe MonitoringsController, type: :controller do
   render_views
 
-  let(:valid_attributes) { attributes_for :event, hash_tag: '#trololo', user_id: @current_user.id }
+  let(:valid_attributes) do
+    attributes_for :event, hash_tag: '#trololo', user_id: @current_user.id
+  end
 
   describe 'GET #index' do
     it 'returns http success' do
