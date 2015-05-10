@@ -3,14 +3,13 @@ class Event < ActiveRecord::Base
 
   belongs_to :user
 
-  # TODO: Validates a presence of a hash_tag! with a " # " character.
-  # TODO: create a before_save method to do this!! ^^
-
   validates :end_at, presence: true
   validates :hash_tag, presence: true
   validates :start_at, presence: true
   validates :title, presence: true
   validates :user, presence: true, associated: true
+
+  after_validation :drop_hash_tag
 
   has_enumeration_for :kind, with: EventKind, required: true
 
@@ -18,5 +17,14 @@ class Event < ActiveRecord::Base
 
   def tweets
     items.twitter
+  end
+
+  def drop_hash_tag
+    return false unless self.errors.empty?
+    hash_tag.sub! '#', ''
+  end
+
+  def tag
+    "##{hash_tag}"
   end
 end

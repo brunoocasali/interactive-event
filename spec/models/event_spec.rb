@@ -70,4 +70,28 @@ RSpec.describe Event, type: :model do
       end
     end
   end
+
+  context 'hooks methods' do
+    describe '#drop_hash_tag' do
+      it { expect(described_class.new).to respond_to(:drop_hash_tag) }
+
+      it 'needs to remove hash_tag from tag' do
+        event = create(:event, hash_tag: '#trololo')
+
+        expect(event.hash_tag).to eq('trololo')
+      end
+    end
+  end
+
+  context 'presenter methods' do
+    describe '#tag' do
+      it { expect(described_class.new).to respond_to(:tag) }
+
+      it 'needs to show a string with complete hash_tag' do
+        event = create(:event, hash_tag: '#trololo')
+
+        expect(event.tag).to eq('#trololo')
+      end
+    end
+  end
 end
