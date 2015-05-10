@@ -21,7 +21,9 @@ RSpec.describe Search::TwitterService, type: :service do
   end
 
   describe '.make_a_item_by' do
-    let(:tweet) { Twitter::Tweet.new(id: '596008529309278208', text: 'a text tweet') }
+    let(:tweet) { Twitter::Tweet.new(id: '596008529309278208', text: 'a text tweet',
+                                     user: { id: '2345643', profile_url: 'http://twitter.com/brunoocasali',
+                                             screen_name: 'brunoocasali', name: 'Bruno Casali' }) }
     let(:invalid_tweet) { nil }
 
     context 'when tweet is valid' do
@@ -30,7 +32,9 @@ RSpec.describe Search::TwitterService, type: :service do
 
         expect(tweet).to be_a(Twitter::Tweet)
         expect(last).to be_a(Item)
+        expect(last.author).to be_a(Author)
         expect(last).to_not be_nil
+        expect(last.author).to_not be_nil
         expect(last.id).to eq(tweet.id)
         expect(last.text).to eq(tweet.text)
         expect(last.status).to eq(ItemStatus::LISTED)
@@ -45,5 +49,32 @@ RSpec.describe Search::TwitterService, type: :service do
         expect(last).to be_nil
       end
     end
+  end
+
+  describe '.make_an_author_by' do
+    let(:tweet) { Twitter::Tweet.new(id: '596008529309278208', text: 'a text tweet',
+                                     user: { id: 2345643, profile_url: 'http://twitter.com/brunoocasali',
+                                             screen_name: 'brunoocasali', name: 'Bruno Casali' }) }
+    let(:invalid_tweet) { nil }
+
+    context 'when tweet is valid' do
+      it 'create a new valid Item' do
+        author = subject.make_an_author_by(tweet.user)
+
+        expect(author).to be_a(Author)
+        expect(author).to_not be_nil
+        expect(author.id).to eq(tweet.user.id)
+        expect(author.screen_name).to eq(tweet.user.screen_name)
+        expect(author.service).to eq(ServiceKind::TWITTER)
+      end
+    end
+
+    # context 'when tweet is invalid' do
+    #   it 'does not create a Item' do
+    #     last = subject.make_an_author_by(invalid_tweet)
+    #
+    #     expect(last).to be_nil
+    #   end
+    # end
   end
 end

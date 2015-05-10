@@ -23,12 +23,12 @@ module Search
       author = Author.find_by(id: user.id, service: ServiceKind::TWITTER)
 
       unless author
-        author = Author.new(id: user.id,
-                            profile_image_url: user.profile_image_url,
-                            name: user.name,
-                            screen_name: user.screen_name,
-                            profile_url: "https://twitter.com/#{user.screen_name}",
-                            service: ServiceKind::TWITTER)
+        author = Author.create!(id: user.id,
+                                profile_image_url: user.profile_image_url,
+                                name: user.name,
+                                screen_name: user.screen_name,
+                                profile_url: "https://twitter.com/#{user.screen_name}",
+                                service: ServiceKind::TWITTER)
       end
 
       author

@@ -4,7 +4,6 @@ class Author < ActiveRecord::Base
   has_many :items
 
   validates :name, presence: true
-  validates :id, presence: true
 
   has_enumeration_for :service, with: ServiceKind, required: true
 end

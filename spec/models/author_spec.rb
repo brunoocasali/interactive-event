@@ -6,7 +6,6 @@ RSpec.describe Author, type: :model do
   end
 
   context 'model validations' do
-    it { is_expected.to validate_presence_of(:id) }
     it { is_expected.to validate_presence_of(:name) }
 
     it { is_expected.to validate_presence_of(:service) }
@@ -14,20 +13,20 @@ RSpec.describe Author, type: :model do
   end
 
   context 'model attributes' do
+    it { is_expected.to have_db_column(:id).of_type(:integer).with_options(null: false) }
+
     it { is_expected.to have_db_column(:service).of_type(:integer)
                             .with_options(null: false) }
 
-    it { is_expected.to have_db_column(:id).of_type(:string)
-                            .with_options(limit: 30, null: false) }
-    it { is_expected.to have_db_column(:name).of_type(:string)
-                            .with_options(limit: 50) }
     it { is_expected.to have_db_column(:profile_image_url).of_type(:string) }
     it { is_expected.to have_db_column(:profile_url).of_type(:string) }
+    it { is_expected.to have_db_column(:name).of_type(:string)
+                            .with_options(limit: 50, null: false) }
     it { is_expected.to have_db_column(:screen_name).of_type(:string)
-                            .with_options(limit: 20) }
+                            .with_options(limit: 40) }
   end
 
   context 'database indexes' do
-    it { is_expected.to have_db_index([:id, :service]) }
+    it { is_expected.to have_db_index([:id, :service]).unique(true) }
   end
 end
