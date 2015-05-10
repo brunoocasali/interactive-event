@@ -67,6 +67,7 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
       t.string :id, null: false
       t.integer :service, index: true, null: false
       t.references :event, index: true, foreign_key: true
+      t.references :author, index: true, foreign_key: true
       t.integer :status, index: true
       t.text :text
       t.string :image_link, limit: 340
@@ -74,6 +75,18 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
       t.timestamps null: false
     end
 
+    create_table :authors, id: false do |t|
+      t.string :id, null: false, limit: 30
+      t.string :profile_image_url
+      t.integer :service, index: true, null: false
+      t.string :name, limit: 50
+      t.string :screen_name, limit: 20
+      t.string :profile_url
+
+      t.timestamps null: false
+    end
+
     add_index :items, :id, unique: true
+    add_index :authors, [:id, :service], unique: true
   end
 end

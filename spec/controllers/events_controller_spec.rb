@@ -91,7 +91,7 @@ RSpec.describe EventsController, type: :controller do
         put :update, {id: event.to_param, event: new_attributes}, valid_session
         event.reload
 
-        expect(event.hash_tag).to eq(new_attributes[:hash_tag])
+        expect(event.tag).to eq(new_attributes[:hash_tag])
         expect(event.title).to eq(new_attributes[:title])
         expect(event.image).to eq(new_attributes[:image])
         expect(event.start_at.to_date).to eql(new_attributes[:start_at])

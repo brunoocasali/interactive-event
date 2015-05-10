@@ -13,5 +13,6 @@ class MonitoringsController < ApplicationController
 
   def set_event
     @event = Event.find_by_hash_tag(params[:hash_tag])
+    @items = @event.items
   end
 end
