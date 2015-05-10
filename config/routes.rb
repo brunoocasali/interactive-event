@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     get :index, on: :collection
 
     member do
+      post 'destroy/:item_id', as: :destroy_item, to: 'monitorings#destroy'
+      post 'approve/:item_id', as: :approve_item, to: 'monitorings#approve'
+
       get :approved
       get :candidates
     end

@@ -1,0 +1,4 @@
+<li class="waves-effect">
+  <%= link_to_unless current_page.first?, raw('<i class="mdi-navigation-chevron-left"></i>'), url,
+                     rel: :prev, remote: remote %>
+</li>

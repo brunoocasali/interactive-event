@@ -1,18 +1,19 @@
 <div class="row">
   <div class="col s4">
-    <h2 class="red-text"><%= @event.tag %></h2>
+    <h3 class="red-text"><%= @event.tag %></h3>
   </div>
   <div class="col s4">
-    <h4>Candidates</h4>
+    <h3>Candidates</h3>
   </div>
   <div class="col s4">
     <p>
-      <a class="waves-effect waves-light btn-large"><i class="mdi-hardware-keyboard-arrow-left left"></i>approved</a>
+      <%= link_to raw('<i class="mdi-hardware-keyboard-arrow-left left"></i>approved'),
+                  approved_monitoring_url, class: 'waves-effect waves-light btn-large' %>
     </p>
   </div>
 </div>
 
-<table>
+<table class="striped">
   <thead>
   <tr>
     <th>Text</th>
@@ -24,15 +25,23 @@
   <tbody>
   <% @items.each do |item| %>
     <tr>
-      <td><%= item.service %></td>
-      <td><%= item.event %></td>
-      <td><%= item.status %></td>
+      <td><%= item.author.screen_name %></td>
       <td><%= item.text %></td>
       <td><%= item.image_link %></td>
-      <td><%= link_to 'Show', item %></td>
-      <td><%= link_to 'Edit', edit_item_path(item) %></td>
-      <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= button_to 'Approve!',
+                        approve_item_monitoring_path(@event.hash_tag, item), class: 'blue btn' %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
+
+<!--<div class="center-align">-->
+
+<!--</div>-->
+
+<div class="row">
+  <div class="col s8 offset-s4">
+    <%= paginate @items %>
+  </div>
+</div>
+

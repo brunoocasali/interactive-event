@@ -12,6 +12,7 @@
  *
  * Bower
  *
+ *= require font-awesome
  *= require materialize
  *= require style
  *= require_self
