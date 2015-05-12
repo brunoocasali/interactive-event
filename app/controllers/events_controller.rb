@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event.update(event_params)
+    @event.update_attributes(event_params)
     respond_with(@event)
   end
 
@@ -38,7 +38,14 @@ class EventsController < ApplicationController
   end
 
   def event_params
+    remove_blank(params)
+
     params.require(:event).permit(:hash_tag, :title, :image, :start_at,
-                                  :end_at, :kind, :user_id, :services)
+                                  :end_at, :kind, :user_id, services: [])
+  end
+
+  def remove_blank(params)
+    params[:event][:services] ||= []
+    params[:event][:services].reject!(&:empty?).collect!(&:to_i)
   end
 end

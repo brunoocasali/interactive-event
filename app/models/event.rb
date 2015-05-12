@@ -1,6 +1,5 @@
 class Event < ActiveRecord::Base
   has_many :items
-
   belongs_to :user
 
   validates :end_at, presence: true

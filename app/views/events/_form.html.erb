@@ -7,7 +7,8 @@
     <%= f.input :image %>
     <%= f.input :start_at, date_form_helper %>
     <%= f.input :end_at, date_form_helper %>
-    <%= f.input :services, as: :check_boxes, collection: ServiceKind.to_a#, input_html: { class: 'checkbox' } %>
+    <%= f.input :services, as: :check_boxes, collection: ServiceKind.to_a,
+                include_blank: false, checked: @event.services %>
     <%= f.input :kind, collection: EventKind.to_a %>
     <%= f.association :user, as: :hidden, input_html: { value: current_user_id } %>
   </div>
