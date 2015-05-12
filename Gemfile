@@ -13,6 +13,7 @@ source 'https://rubygems.org' do
   gem 'turbolinks'
   gem 'jbuilder', '~> 2.0'
   gem 'sass'
+  gem 'jquery-rails'
   gem 'cancancan', '~> 1.10'
   gem 'passenger'
   gem 'twitter'

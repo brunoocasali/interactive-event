@@ -35,5 +35,13 @@
   <%= @event.user %>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  <%= link_to raw('<i class="large mdi-editor-mode-edit"></i>'),
+              edit_event_path(@event), class: 'btn-large btn-floating green' %>
+  <ul>
+    <li>
+      <%= link_to raw('<i class="large mdi-navigation-arrow-back"></i>'),
+                  events_path, class: 'btn-floating blue' %>
+    </li>
+  </ul>
+</div>

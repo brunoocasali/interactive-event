@@ -9,13 +9,13 @@
         <i class="<%= show_as_icon(event) %>"></i>
         <span class="title"><%= event.title %></span>
         <p class="grey-text"><i class="mdi-action-today"></i> <%= event.start_at.to_s(:short) %></p>
-        <p>
+        <span>
         <h5 class="secondary-content red-text"> <%= event.tag %>
           <a href="#" data-activates='dropdown' class="dropdown-button">
             <i class="black-text mdi-navigation-more-vert"></i>
           </a>
         </h5>
-        </p>
+        </span>
 
         <!-- Drop down Structure -->
         <ul id='dropdown' class='dropdown-content'>
