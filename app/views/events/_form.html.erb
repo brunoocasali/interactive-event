@@ -1,19 +1,67 @@
 <%= simple_form_for(@event) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :hash_tag %>
-    <%= f.input :title %>
-    <%= f.input :image %>
-    <%= f.input :start_at, date_form_helper %>
-    <%= f.input :end_at, date_form_helper %>
-    <%= f.input :services, as: :check_boxes, collection: ServiceKind.to_a,
-                include_blank: false, checked: @event.services %>
-    <%= f.input :kind, collection: EventKind.to_a %>
+  <div class="row">
     <%= f.association :user, as: :hidden, input_html: { value: current_user_id } %>
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.input :hash_tag, class: 'validate' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.input :title, class: 'validate' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.input :start_at, date_form_helper %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.input :end_at, date_form_helper %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <%= f.input :kind, collection: EventKind.to_a %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <div class="file-field input-field">
+            <input class="file-path validate" type="text"/>
+            <div class="btn">
+              <span>File</span>
+              <%= f.input :image, as: :file %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.input :services, as: :check_boxes, collection: ServiceKind.to_a,
+                      include_blank: false, checked: @event.services %>
+        </div>
+      </div>
+    </form>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+
+
+
+  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <%= button_tag(type: :submit, class: 'btn-floating btn-large red') do %>
+      <%= content_tag(:i, nil, class: 'mdi-navigation-check') %>
+    <% end -%>
+    <ul>
+      <li>
+        <%= link_to raw('<i class="large mdi-navigation-arrow-back"></i>'),
+                    events_path, class: 'btn-floating green' %>
+      </li>
+    </ul>
   </div>
+
 <% end %>
