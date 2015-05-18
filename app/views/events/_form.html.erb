@@ -35,15 +35,17 @@
             <input class="file-path validate" type="text"/>
             <div class="btn">
               <span>File</span>
-              <%= f.input :image, as: :file %>
+              <%= f.input :image, as: :file, label: false %>
             </div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
+          <p><label for="services">Provedores de Busca:</label></p>
           <%= f.input :services, as: :check_boxes, collection: ServiceKind.to_a,
-                      include_blank: false, checked: @event.services %>
+                      include_blank: false, label: false, checked: @event.services,
+                      item_wrapper_class: 'col s3' %>
         </div>
       </div>
     </form>

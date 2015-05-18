@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   belongs_to :role
   has_many :events
+
   validates :role, presence: true, associated: true
   validates :phone, :name, :email, presence: true
   before_save :assign_role

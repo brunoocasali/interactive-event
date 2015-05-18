@@ -2,8 +2,7 @@
 <p>Have a good day!</p>
 
 <p>Administrate:</p>
-<%= render 'admin/shared/admin' if current_user.admin? || current_user.root? %>
-<%= render 'admin/shared/root' if current_user.root? %>
+<%= render "admin/shared/#{current_user.role.key}" %>
 
 <p>Your session:</p>
 <%= link_to 'Edit profile', edit_user_registration_path %>
