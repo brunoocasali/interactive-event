@@ -45,6 +45,7 @@ RSpec.describe EventsController, type: :controller do
   describe 'POST #create' do
     context 'with valid params' do
       it 'creates a new Event' do
+        p valid_attributes
         expect {
           post :create, { event: valid_attributes }
         }.to change(Event, :count).by(1)
