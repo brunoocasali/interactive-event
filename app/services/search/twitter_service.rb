@@ -4,9 +4,9 @@ module Search
       last = event.items.last.try(&:id)
 
       client.search(event.hash_tag, result_type: :recent).each_with_index do |tweet, i|
-        event.items << make_a_item_by(tweet)
+        break if tweet.id.to_s.eql?(last) or i.eql?(500)
 
-        break if tweet.id.to_s == last || i > 500
+        event.items << make_a_item_by(tweet)
       end
     end
 
@@ -25,7 +25,7 @@ module Search
       unless author
         author = Author.create!(id: user.id,
                                 profile_image_url: user.profile_image_url,
-                                name: user.name,
+                                name: (user.name.nil? ? 'username!' : user.name),
                                 screen_name: user.screen_name,
                                 profile_url: "https://twitter.com/#{user.screen_name}",
                                 service: ServiceKind::TWITTER)

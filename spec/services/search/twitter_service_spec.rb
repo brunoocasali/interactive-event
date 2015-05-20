@@ -8,15 +8,15 @@ RSpec.describe Search::TwitterService, type: :service do
     it { is_expected.to respond_to(:find_tweets_for) }
   end
 
-  # TODO: test the i > 500 option too.
   describe '.find_tweets_for' do
     it 'needs to return the crawled items from web' do
-      event = create :event, hash_tag: '#just_testing_the_web_crawler_with_this_ridiculous_hashtag',
-                     services: [ ServiceKind::TWITTER ]
+      event = create :event, hash_tag: '#justin', services: [ ServiceKind::TWITTER ]
+
+      expect(event.items.count).to eq(0)
 
       subject.find_tweets_for(event)
 
-      expect(event.items.count).to eq(1)
+      expect(event.items.count).to eq(500)
     end
   end
 

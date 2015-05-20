@@ -78,11 +78,11 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
     create_table :authors, id: false do |t|
       t.column :id, :bigint, null: false, index: true
       t.integer :service, index: true, null: false
-      t.string :name, null: false, limit: 50
+      t.string :name, null: false, limit: 50, default: ''
 
-      t.string :profile_image_url
-      t.string :screen_name, limit: 40
-      t.string :profile_url
+      t.string :profile_image_url, default: ''
+      t.string :screen_name, limit: 40, default: ''
+      t.string :profile_url, default: ''
 
       t.timestamps null: false
     end
