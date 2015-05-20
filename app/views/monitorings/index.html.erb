@@ -1,0 +1,25 @@
+<h1>Monitor your Events!</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Hash Tag</th>
+    <th>Title</th>
+    <th>Start at</th>
+    <th>Kind</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @events.each do |event| %>
+    <tr>
+      <td><%= event.hash_tag %></td>
+      <td><%= event.title %></td>
+      <td><%= event.start_at %></td>
+      <td><%= event.kind_humanize %></td>
+      <td><%= link_to 'monitor!', candidates_monitoring_url(event.hash_tag) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

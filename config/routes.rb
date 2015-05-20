@@ -8,6 +8,18 @@ Rails.application.routes.draw do
     get :dashboard, to: 'profiles#dashboard', as: :user_root
   end
 
+  resources :monitoring, controller: :monitorings, only: :none, param: :hash_tag do
+    get :index, on: :collection
+
+    member do
+      post 'destroy/:item_id', as: :destroy_item, to: 'monitorings#destroy'
+      post 'approve/:item_id', as: :approve_item, to: 'monitorings#approve'
+
+      get :approved
+      get :candidates
+    end
+  end
+
   namespace :admin do
     root 'welcome#index'
 
@@ -22,6 +34,5 @@ Rails.application.routes.draw do
     root 'welcome#index', as: :authenticated_root
   end
 
-  resources :events, :items, :roles
+  resources :events, :roles
 end
-

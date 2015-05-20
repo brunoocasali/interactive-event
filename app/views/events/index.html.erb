@@ -1,39 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Events</h1>
+<h4>Listing Events</h4>
 
-<table>
-  <thead>
-    <tr>
-      <th>Hashtag</th>
-      <th>Title</th>
-      <th>Image</th>
-      <th>Start at</th>
-      <th>End at</th>
-      <th>Kind</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<ul class="collection">
+  <% @events.each do |event| %>
+    <li class="collection-item avatar waves-effect full-width">
+      <%= link_to event do -%>
+        <i class="<%= show_as_icon(event) %>"></i>
+        <span class="title"><%= event.title %></span>
+        <p class="grey-text"><i class="mdi-action-today"></i> <%= event.start_at.to_s(:short) %></p>
+        <span>
+        <h5 class="secondary-content red-text"> <%= event.tag %>
+          <a href="#" data-activates='dropdown' class="dropdown-button">
+            <i class="black-text mdi-navigation-more-vert"></i>
+          </a>
+        </h5>
+        </span>
 
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.hash_tag %></td>
-        <td><%= event.title %></td>
-        <td><%= event.image %></td>
-        <td><%= event.start_at %></td>
-        <td><%= event.end_at %></td>
-        <td><%= event.kind %></td>
-        <td><%= event.user %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <!-- Drop down Structure -->
+        <ul id='dropdown' class='dropdown-content'>
+          <li><%= link_to 'Edit', edit_event_path(event) %></li>
+          <li><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        </ul>
+      <% end %>
+    </li>
+  <% end -%>
+</ul>
 
-<br>
+<br />
 
-<%= link_to 'New Event', new_event_path %>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  <%= link_to raw('<i class="mdi-content-add"></i>'), new_event_path,
+              class: 'btn-floating btn-large red' %>
+</div>
