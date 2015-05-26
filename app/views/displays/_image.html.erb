@@ -1,2 +1,48 @@
-<h1>Displays#_image</h1>
-<p>Find me in app/views/displays/_image.html.erb</p>
+<div class="row yellow">
+  <div class="col s4 ">
+    <div class="row">
+      <div class="col s12 left">
+        <h3>RG2 Produções</h3>
+      </div>
+    </div>
+    <div class="row center">
+      <div class="col s12">
+        <p class="flow-text">
+          Quer ver a sua foto aqui? <br/>
+          poste-a com a hashtag:
+        </p>
+      </div>
+    </div>
+    <div class="row center">
+      <div class="col s12">
+        <h3>
+          <span class="red-text">#carineeromiel</span>
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      &nbsp;
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="card-panel grey lighten-5 z-depth-1">
+          <div class="row valign-wrapper">
+            <div class="col s3">
+              <%= image_tag('yuna.jpg', class: 'circle responsive-img') %>
+            </div>
+            <div class="col s9">
+              <span class="black-text">
+                This is a square image. Add the 'circle' class to it to make it appear
+                circular asljkd aas dasf as vhfvhasgfhas fgyau a uaf yghf uiasguasss.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s8">
+    <%= image_tag('background2.png', class: 'responsive-img',
+                  style: 'height: 700px;') %>
+  </div>
+</div>
