@@ -4,7 +4,9 @@ class DisplaysController < ApplicationController
 
   layout 'display'
 
-  def show; end
+  def show
+    @item = @event.items.approved.sample
+  end
 
   private
 

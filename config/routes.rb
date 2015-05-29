@@ -18,7 +18,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :display, controller: :displays, only: :show, param: :hash_tag
+   resources :display, controller: :displays, only: :show, param: :hash_tag
+  #do
+  #   get '/:id', on: :member, action: :rand
+  # end
 
   namespace :admin do
     root 'welcome#index'

@@ -1,5 +1,7 @@
-<% content_for :title, "Title for specific page" %>
+<% content_for :title, @event.tag %>
 
-<%= render 'text' %>
-<%= render 'image' %>
+<% if @event.items.size > 0 %>
 
+  <%= render @item.image_link? ? 'image' : 'text' %>
+
+<% end %>

@@ -3,17 +3,14 @@
     <div class="row">
       <div class="s12 valign-wrapper">
         <div class="col s2">
-          <%= image_tag('yuna.jpg', class: 'circle responsive-img') %>
+          <%= image_tag(@item.author.profile_image_url, class: 'circle responsive-img', style: 'height: 150px') %>
         </div>
         <div class="col s10 ">
           <blockquote>
             <p class="grey-text flow-text">
-              This is an ex asd asdasdfasff blockasj
-              <span class="teal-text">#carineeromiel</span> dfash gf asfasf asgf
-              asjdf ja sgdfdf asjgdd. Gasddj  asf fasf asasfasjf sashf
-              gahsfasf asgdquote tag.
+              <%= @item.text %>
             </p>
-            <span class="blue-text flow-text">@brunoocasali</span>
+            <span class="blue-text flow-text"><%= @item.author.screen_name %></span>
           </blockquote>
         </div>
       </div>
@@ -30,7 +27,7 @@
         </span>
         </div>
         <div class="col s6">
-          <h1 class="red-text">#carineeromiel</h1>
+          <h1 class="red-text"><%= @item.event.tag %></h1>
         </div>
       </div>
     </div>

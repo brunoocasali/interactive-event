@@ -24,7 +24,7 @@ module Search
 
       unless author
         author = Author.create!(id: user.id,
-                                profile_image_url: user.profile_image_url,
+                                profile_image_url: user.profile_image_url.to_s.sub('_normal', ''),
                                 name: (user.name.nil? ? 'username!' : user.name),
                                 screen_name: user.screen_name,
                                 profile_url: "https://twitter.com/#{user.screen_name}",
