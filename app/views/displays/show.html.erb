@@ -1,0 +1,7 @@
+<% content_for :title, @event.tag %>
+
+<% if @event.items.size > 0 %>
+
+  <%= render @item.image_link? ? 'image' : 'text' %>
+
+<% end %>

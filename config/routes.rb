@@ -8,9 +8,7 @@ Rails.application.routes.draw do
     get :dashboard, to: 'profiles#dashboard', as: :user_root
   end
 
-  resources :monitoring, controller: :monitorings, only: :none, param: :hash_tag do
-    get :index, on: :collection
-
+  resources :monitoring, controller: :monitorings, only: :index, param: :hash_tag do
     member do
       post 'destroy/:item_id', as: :destroy_item, to: 'monitorings#destroy'
       post 'approve/:item_id', as: :approve_item, to: 'monitorings#approve'
@@ -19,6 +17,11 @@ Rails.application.routes.draw do
       get :candidates
     end
   end
+
+   resources :display, controller: :displays, only: :show, param: :hash_tag
+  #do
+  #   get '/:id', on: :member, action: :rand
+  # end
 
   namespace :admin do
     root 'welcome#index'

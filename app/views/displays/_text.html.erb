@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row" style="margin-top: 15%">
+    <div class="row">
+      <div class="s12 valign-wrapper">
+        <div class="col s2">
+          <%= image_tag(@item.author.profile_image_url, class: 'circle responsive-img', style: 'width: 150px; height: 150px;') %>
+        </div>
+        <div class="col s10 ">
+          <blockquote>
+            <p class="grey-text flow-text">
+              <%= @item.text %>
+            </p>
+            <span class="blue-text flow-text"><%= @item.author.screen_name %></span>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="padding: 5%">
+    </div>
+    <div class="row">
+      <div class="s12 valign-wrapper">
+        <div class="col s6">
+        <span class="flow-text">
+          Você também quer aparecer aqui? <br />
+          poste algo com a hashtag:
+        </span>
+        </div>
+        <div class="col s6">
+          <h1 class="red-text"><%= @item.event.tag %></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
