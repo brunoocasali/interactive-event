@@ -1,37 +1,44 @@
-<%= form_for(@user, url: admin_users_path) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%= simple_form_for(@user, url: admin_users_path) do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="row">
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.input :name, class: 'validate' %>
+      </div>
     </div>
-  <% end %>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.input :email, as: :email, class: 'validate' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.input :phone %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.association :role, collection: Role.all %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <%= f.input :password %>
+      </div>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <%= button_tag(type: :submit, class: 'btn-floating btn-large red') do %>
+      <%= content_tag(:i, nil, class: 'mdi-navigation-check') %>
+    <% end %>
+    <ul>
+      <li>
+        <%= link_to raw('<i class="large mdi-navigation-arrow-back"></i>'),
+                    admin_users_url, class: 'btn-floating green' %>
+      </li>
+    </ul>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :role_id %><br>
-    <%= collection_select(:user, :role_id, Role.all, :id, :name, prompt: true) %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password, placeholder: "Leave blank if unchanged" %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

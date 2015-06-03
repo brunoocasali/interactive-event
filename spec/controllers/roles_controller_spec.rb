@@ -15,36 +15,6 @@ RSpec.describe RolesController, type: :controller do
     end
   end
 
-  describe 'GET show' do
-    let(:role) { create(:role, valid_attributes) }
-
-    it 'assigns the requested role as @role and only associated name' do
-      role.users << @current_user
-
-      get :show, id: role.to_param
-
-      expect(assigns(:role)).to eq(role)
-      expect(assigns(:associated_users)).to eq("#{@current_user.name}")
-    end
-
-    it 'assigns the requested role as @role and return to names: "None"' do
-      get :show, id: role.to_param
-
-      expect(assigns(:role)).to eq(role)
-      expect(assigns(:associated_users)).to eq('None')
-    end
-
-    it 'assigns the requested role as @role and only associated name' do
-      a_user = create(:user)
-      role.users << @current_user << a_user
-
-      get :show, id: role.to_param
-
-      expect(assigns(:role)).to eq(role)
-      expect(assigns(:associated_users)).to eq("#{a_user.name}, #{@current_user.name}")
-    end
-  end
-
   describe 'GET new' do
     it 'assigns a new role as @role' do
       get :new

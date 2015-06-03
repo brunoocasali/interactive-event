@@ -18,10 +18,7 @@ Rails.application.routes.draw do
     end
   end
 
-   resources :display, controller: :displays, only: :show, param: :hash_tag
-  #do
-  #   get '/:id', on: :member, action: :rand
-  # end
+  resources :display, controller: :displays, only: :show, param: :hash_tag
 
   namespace :admin do
     root 'welcome#index'
@@ -37,5 +34,6 @@ Rails.application.routes.draw do
     root 'welcome#index', as: :authenticated_root
   end
 
-  resources :events, :roles
+  resources :events
+  resources :roles, except: :show
 end
