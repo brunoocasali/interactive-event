@@ -1,25 +1,16 @@
-<h1>Monitor your Events!</h1>
+<h4>Monitor your Events!</h4>
 
-<table>
-  <thead>
-  <tr>
-    <th>Hash Tag</th>
-    <th>Title</th>
-    <th>Start at</th>
-    <th>Kind</th>
-    <th></th>
-  </tr>
-  </thead>
+<br/>
 
-  <tbody>
+<ul class="collection">
   <% @events.each do |event| %>
-    <tr>
-      <td><%= event.hash_tag %></td>
-      <td><%= event.title %></td>
-      <td><%= event.start_at %></td>
-      <td><%= event.kind_humanize %></td>
-      <td><%= link_to 'monitor!', candidates_monitoring_url(event.hash_tag) %></td>
-    </tr>
+    <li class="collection-item avatar waves-effect full-width valign-wrapper">
+      <%= link_to candidates_monitoring_url(event.hash_tag) do -%>
+        <i class="<%= show_as_icon(event) %>"></i>
+        <span class="title"><%= event.tag %></span>
+        <p class="grey-text"><%= event.start_at %></p>
+        <i class="secondary-content mdi-action-visibility small black-text"></i>
+      <% end %>
+    </li>
   <% end %>
-  </tbody>
-</table>
+</ul>

@@ -28,7 +28,7 @@
     <tr>
       <td><%= item.author.screen_name %></td>
       <td><%= item.text %></td>
-      <td><%= item.image_link %></td>
+      <td><%= image_tag(item.image_link, size: '50x40') if item.image_link.present? %></td>
       <td><%= button_to 'Approve!',
                         approve_item_monitoring_path(@event.hash_tag, item), class: 'blue btn' %></td>
     </tr>
