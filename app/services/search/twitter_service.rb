@@ -14,6 +14,7 @@ module Search
       Item.new(id: tweet.id,
                text: tweet.text,
                status: ItemStatus::LISTED,
+               image_link: (tweet.media[0]['media_url_https'] if tweet.media.present?),
                author: make_an_author_by(tweet.user),
                service: ServiceKind::TWITTER) if tweet
     end
@@ -26,7 +27,7 @@ module Search
         author = Author.create!(id: user.id,
                                 profile_image_url: user.profile_image_url.to_s.sub('_normal', ''),
                                 name: (user.name.nil? ? 'username!' : user.name),
-                                screen_name: user.screen_name,
+                                screen_name: "@#{user.screen_name}",
                                 profile_url: "https://twitter.com/#{user.screen_name}",
                                 service: ServiceKind::TWITTER)
       end

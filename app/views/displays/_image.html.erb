@@ -27,24 +27,25 @@
       <div class="card-panel grey lighten-5 z-depth-1">
         <div class="row valign-wrapper">
           <div class="col s3">
-            <%= image_tag('yuna.jpg', class: 'circle responsive-img', style: 'margin-top: 15%') %>
+            <%= image_tag(@item.author.profile_image_url,
+                          class: 'circle responsive-img',
+                          style: 'margin-top: 15%; width: 150px; height: 150px;') %>
           </div>
           <div class="col s9">
-            <span class="blue-text" style="font-size: 18px">@brunoocasali</span>
+            <span class="blue-text" style="font-size: 18px"><%= @item.author.screen_name %></span>
             <br/>
-              <span style="font-size: 20px">
-                This is a square image. Add the 'circle' class to it to make it appear
-                circular asljkd aas dasf as vhfvhasgfhas fgyau a uaf yghf uiasguasss.
+              <span style="font-size: 20px"><%= @item.text %>
               </span>
           </div>
         </div>
         <div class="row right">
-          via: <span class="blue-text" style="text-decoration: underline">Facebook</span>
+          via: <span class="blue-text" style="text-decoration: underline"><%= @item.service_humanize %></span>
         </div>
       </div>
     </div>
   </div>
   <div class="col s8">
-    <%= image_tag('background2.png', class: 'responsive-img') %>
+    <%= image_tag(@item.image_link, class: 'responsive-img', size: '1024x768') %>
+
   </div>
 </div>

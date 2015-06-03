@@ -64,7 +64,7 @@ RSpec.describe Search::TwitterService, type: :service do
         expect(author).to be_a(Author)
         expect(author).to_not be_nil
         expect(author.id).to eq(tweet.user.id)
-        expect(author.screen_name).to eq(tweet.user.screen_name)
+        expect(author.screen_name).to eq("@#{tweet.user.screen_name}")
         expect(author.service).to eq(ServiceKind::TWITTER)
       end
     end

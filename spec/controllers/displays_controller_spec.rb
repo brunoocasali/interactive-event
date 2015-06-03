@@ -4,7 +4,10 @@ RSpec.describe DisplaysController, type: :controller do
 
   describe 'GET #show' do
     it 'returns http success' do
-      get :index
+      event = create(:event)
+
+      get :show, hash_tag: event.hash_tag
+
       expect(response).to have_http_status(:success)
     end
   end
