@@ -1,0 +1,30 @@
+<nav class="orange lighten-1" role="navigation">
+  <div class="nav-wrapper container">
+    <a href="#!" id="logo-container"><i class="mdi-social-whatshot"></i></a>
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <%= link_to admin_root_url do %>
+          <i class="mdi-action-dashboard white-text"></i>
+        <% end -%>
+      </li>
+      <li>
+        <a href="#" class='dropdown-button' data-activates='user-menu'>
+          <i class="mdi-action-settings white-text"></i>
+        </a>
+        <ul id='user-menu' class='dropdown-content text'>
+          <li>
+            <%= link_to edit_user_registration_path do %>
+              <i class="mdi-social-person circle"></i> profile
+            <% end %>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <%= link_to destroy_user_session_path do %>
+              <i class="mdi-action-exit-to-app"></i> <%= t('devise.buttons.sign_out') %>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

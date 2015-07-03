@@ -1,3 +1,25 @@
 <%= render 'admin/shared/common' %>
-<%= link_to 'Users', admin_users_path %>
-<%= link_to 'Events', events_path %>
+
+<div class="row">
+  <div class="col s6 m6">
+    <%= link_to admin_users_path, class: 'white-text' do %>
+      <div class="card-panel cyan">
+        <div class="valign-wrapper">
+          <i class="mdi-social-people large"></i>
+          <h5 class="center-align icon-block"> users!</h5>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col s6 m6">
+    <%= link_to events_path, class: 'black-text' do %>
+      <div class="card-panel green">
+        <div class="valign-wrapper">
+          <i class="mdi-action-event large"></i>
+          <h5 class="center-align icon-block"> events!</h5>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
