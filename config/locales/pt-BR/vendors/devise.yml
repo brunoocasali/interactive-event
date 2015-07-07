@@ -1,5 +1,5 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
-# Este arquivo deve ser colocado em config/locales/devise.pt-BR.yml
+# Este arquivo deve ser colocado em config/locales/devise.yml
 
 pt-BR:
   devise:

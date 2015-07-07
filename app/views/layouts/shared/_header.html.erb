@@ -1,6 +1,8 @@
 <nav class="orange lighten-1" role="navigation">
   <div class="nav-wrapper container">
-    <a href="#!" id="logo-container"><i class="mdi-social-whatshot"></i></a>
+    <%= link_to root_url, title: 'Go to homepage!' do %>
+      <i class="mdi-social-whatshot"></i>
+    <% end -%>
     <ul class="right hide-on-med-and-down">
       <li>
         <%= link_to admin_root_url do %>
