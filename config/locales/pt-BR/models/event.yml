@@ -1,10 +1,9 @@
-pt-BR:
+pt:
   activerecord:
     models:
       event:
         one: Evento
         other: Eventos
-
     attributes:
       event:
         hash_tag: Hashtag
