@@ -1,1 +1,23 @@
-<%= link_to 'Monitorings', monitoring_index_path %>
+<div class="row">
+  <div class="col s6 m6">
+    <%= link_to '#', class: 'black-text' do %>
+      <div class="card-panel">
+        <div class="valign-wrapper">
+          <i class="mdi-av-play-arrow large"></i>
+          <h5 class="center-align icon-block"> rolando agora!</h5>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col s6 m6">
+    <%= link_to monitoring_index_path, class: 'black-text' do %>
+      <div class="card-panel yellow">
+        <div class="valign-wrapper">
+          <i class="mdi-content-filter-list large"></i>
+          <h5 class="center-align icon-block"> monitor!</h5>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

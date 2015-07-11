@@ -1,29 +1,31 @@
-<p id="notice"><%= notice %></p>
+<h4>Listing Roles</h4>
+<br/>
+<ul class="collection">
+  <% @roles.each do |role| %>
+    <li class="collection-item avatar waves-effect full-width">
+      <i class="mdi-social-mood circle"></i>
+      <span class="title"><%= role.name %></span>
+      <p class="grey-text"><%= role.description %></p>
+        <span>
+        <h5 class="secondary-content red-text">
+          <a href="#" data-activates='dropdown' class="dropdown-button">
+            <i class="black-text mdi-navigation-more-vert"></i>
+          </a>
+        </h5>
+        </span>
 
-<h1>Listing Roles</h1>
+      <!-- Drop down Structure -->
+      <ul id='dropdown' class='dropdown-content'>
+        <li><%= link_to 'Edit', edit_role_path(role) %></li>
+        <li><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+  <% end %>
+  </li>
+</ul>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<br />
 
-  <tbody>
-    <% @roles.each do |role| %>
-      <tr>
-        <td><%= role.name %></td>
-        <td><%= role.description %></td>
-        <td><%= link_to 'Show', role %></td>
-        <td><%= link_to 'Edit', edit_role_path(role) %></td>
-        <td><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Role', new_role_path %>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+  <%= link_to raw('<i class="mdi-content-add"></i>'), new_admin_user_path,
+              class: 'btn-floating btn-large red' %>
+</div>

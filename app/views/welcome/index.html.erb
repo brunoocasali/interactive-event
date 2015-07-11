@@ -2,13 +2,14 @@
   <div class="nav-wrapper container">
     <a id="logo-container" href="#" class="brand-logo"><i class="mdi-social-whatshot"></i></a>
     <ul class="right hide-on-med-and-down">
-      <li><%= link_to 'Login', new_user_session_url %></li>
+      <li>
+        <% if current_user.nil? %>
+          <%= link_to 'Login', new_user_session_url %>
+        <% else %>
+          <%= link_to 'Dashboard', new_user_session_url %>
+        <% end %>
+      </li>
     </ul>
-
-    <ul id="nav-mobile" class="side-nav">
-      <li><%= link_to 'Login', new_user_session_url %></li>
-    </ul>
-    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
   </div>
 </nav>
 

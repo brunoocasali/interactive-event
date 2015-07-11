@@ -1,8 +1,0 @@
-en:
-  enumerations:
-    event_kind:
-      graduation: "Graduation"
-      wedding: "Wedding"
-      social_event: "Social_event"
-      fair: "Fair"
-      birthday: "Birthday"

@@ -1,2 +1,13 @@
 <%= render 'admin/shared/admin' %>
-<%= link_to 'Roles', roles_path %>
+<div class="row">
+  <div class="col s6 m6">
+    <%= link_to roles_path, class: 'white-text' do %>
+      <div class="card-panel pink">
+        <div class="valign-wrapper">
+          <i class="mdi-action-settings large"></i>
+          <h5 class="center-align icon-block"> roles!</h5>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

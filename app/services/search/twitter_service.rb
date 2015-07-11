@@ -14,7 +14,7 @@ module Search
       Item.new(id: tweet.id,
                text: tweet.text,
                status: ItemStatus::LISTED,
-               image_link: (tweet.media[0]['media_url_https'] if tweet.media.present?),
+               image_link: (tweet.media[0].media_url_https if tweet.media.present?),
                author: make_an_author_by(tweet.user),
                service: ServiceKind::TWITTER) if tweet
     end

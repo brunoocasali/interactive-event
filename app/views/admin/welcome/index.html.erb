@@ -1,9 +1,2 @@
-<h1>Helloo, You're the Best Admin, in the World!</h1>
-<p>Have a good day!</p>
-
-<p>Administrate:</p>
+<h2><%= current_user.role.name %> - Dashboard</h2>
 <%= render "admin/shared/#{current_user.role.key}" %>
-
-<p>Your session:</p>
-<%= link_to 'Edit profile', edit_user_registration_path %>
-<%= link_to t('devise.buttons.sign_out'), destroy_user_session_path %>

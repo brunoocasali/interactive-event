@@ -28,9 +28,8 @@
     <tr>
       <td><%= item.author.screen_name %></td>
       <td><%= item.text %></td>
-      <td><%= item.image_link %></td>
-      <td><%= button_to 'Remove!',
-                        destroy_item_monitoring_path(@event.hash_tag, item), class: 'red btn' %></td>
+      <td><%= image_tag(item.image_link, size: '50x40') %></td>
+      <td><%= button_to 'Remove!', destroy_item_monitoring_path(@event.hash_tag, item), class: 'red btn' %></td>
     </tr>
   <% end %>
   </tbody>

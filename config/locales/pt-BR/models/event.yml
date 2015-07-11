@@ -1,0 +1,16 @@
+pt:
+  activerecord:
+    models:
+      event:
+        one: Evento
+        other: Eventos
+    attributes:
+      event:
+        hash_tag: Hashtag
+        title: Título
+        image: Imagem
+        start_at: Inicia em
+        end_at: Termina em
+        kind: Tipo
+        user: Autor
+        services: Serviços de Busca
