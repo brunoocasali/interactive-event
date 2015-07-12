@@ -4,7 +4,7 @@ module GlobalizationHelper
   end
 
   def model_name_pluralized(model)
-    translate_model_name(model, 2)
+    model_name(model, 2)
   end
 
   def model_attribute(model, attribute, count = 1)

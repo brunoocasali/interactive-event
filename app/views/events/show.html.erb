@@ -1,47 +1,32 @@
-<p id="notice"><%= notice %></p>
+<h3 class="center-align"><%= @event.tag %></h3>
 
-<p>
-  <strong>Hashtag:</strong>
-  <%= @event.hash_tag %>
-</p>
+<div class="divider"></div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+<div class="flow-text">
+  <p>
+    <strong><%= ta Event, :title %>:</strong>
+    <%= @event.title %>
+  </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @event.image %>
-</p>
+  <p>
+    <strong><%= ta Event, :start_at %>:</strong>
+    <%= l @event.start_at.to_date, format: :long %>
+  </p>
 
-<p>
-  <strong>Start at:</strong>
-  <%= @event.start_at %>
-</p>
+  <p>
+    <strong><%= ta Event, :end_at %>:</strong>
+    <%= l @event.end_at.to_date, format: :long %>
+  </p>
 
-<p>
-  <strong>End at:</strong>
-  <%= @event.end_at %>
-</p>
+  <p>
+    <strong><%= ta Event, :kind %>:</strong>
+    <%= @event.kind_humanize %>
+  </p>
 
-<p>
-  <strong>Kind:</strong>
-  <%= @event.kind %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @event.user.name %>
-</p>
-
-<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-  <%= link_to raw('<i class="large mdi-editor-mode-edit"></i>'),
-              edit_event_path(@event), class: 'btn-large btn-floating green' %>
-  <ul>
-    <li>
-      <%= link_to raw('<i class="large mdi-navigation-arrow-back"></i>'),
-                  events_path, class: 'btn-floating blue' %>
-    </li>
-  </ul>
+  <p>
+    <strong><%= ta Event, :user %>:</strong>
+    <%= @event.user.name %>
+  </p>
 </div>
+
+<%= fab_to_edit url: edit_event_path(@event), back_url: events_path %>

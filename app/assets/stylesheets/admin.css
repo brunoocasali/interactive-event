@@ -36,3 +36,22 @@ main {
 .max-width{
     width: 100% !important;
 }
+
+
+@media screen and (max-height: 2080px){
+    .min-body{
+        min-height: 60em;
+    }
+}
+
+@media screen and (max-height: 1024px){
+    .min-body{
+        min-height: 40em;
+    }
+}
+
+
+.fab-position{
+    bottom: 45px;
+    right: 24px;
+}
