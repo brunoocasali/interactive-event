@@ -15,7 +15,7 @@ class Admin::UsersController < Admin::AdminController
     if @user.current_sign_in_at
       @last_login = @user.current_sign_in_at.to_formatted_s(:short)
     else
-      @last_login = 'never'
+      @last_login = 'nunca acessou!'
     end
     respond_with([@user, @last_login, @joined_on],
                  location: admin_user_path(@user))

@@ -19,17 +19,17 @@
   </p>
 
   <p>
-    <strong><%= 'Joined on:' %></strong>
+    <strong><%= t('views.users.joined_on') %>:</strong>
     <%= @joined_on %>
   </p>
 
   <p>
-    <strong><%= 'Last logged in on:' %></strong>
+    <strong><%= t('views.users.last_logged_in') %>:</strong>
     <%= @last_login %>
   </p>
 
   <p>
-    <strong><%= 'No. times logged in:' %></strong>
+    <strong><%= t('views.users.no_times_logged') %>:</strong>
     <%= @user.sign_in_count %>
   </p>
 </div>
