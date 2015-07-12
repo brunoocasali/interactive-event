@@ -1,2 +1,5 @@
-<h2><%= current_user.role.name %> - <%= t('views.dashboard.name') %></h2>
-<%= render "admin/shared/#{current_user.role.key}" %>
+<h2><%= t('views.dashboard.name') %></h2>
+
+<div class="row">
+  <%= render "admin/shared/#{current_user.role.key}" %>
+</div>

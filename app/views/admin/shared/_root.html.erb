@@ -1,14 +1,12 @@
 <%= render 'admin/shared/admin' %>
 
-<div class="row">
-  <div class="col s6 m6">
-    <%= link_to roles_path, class: 'white-text' do %>
-      <div class="card-panel pink">
-        <div class="valign-wrapper">
-          <i class="mdi-action-settings large"></i>
-          <h5 class="center-align center-block hide-on-small-only"><%= t('views.dashboard.role') %></h5>
-        </div>
+<div class="col l6 s12 m6">
+  <%= link_to roles_path, class: 'white-text' do %>
+    <div class="card-panel pink">
+      <div class="valign-wrapper">
+        <i class="mdi-action-settings large"></i>
+        <h5 class="center-align center-block "><%= t('views.dashboard.role') %></h5>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

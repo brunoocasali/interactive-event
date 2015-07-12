@@ -1,33 +1,34 @@
-<h4>Listing Users</h4>
-<br/>
+<h4><%= tmp(User) %></h4>
+
+<br />
+
 <ul class="collection">
-  <% @users.each do |user| %>
+  <% @users.each do |user| -%>
     <li class="collection-item avatar waves-effect full-width">
-      <%= link_to admin_user_path(user) do -%>
-        <i class="mdi-social-mood circle"></i>
+      <%= link_to admin_user_path(user), class: 'black-text' do -%>
+        <i class="light-blue mdi-social-mood circle"></i>
         <span class="title"><%= user.name %></span>
-        <p class="grey-text"><i class="mdi-content-mail"></i> <%= user.email %></p>
-        <span>
+
+        <p class="black-text">
+          <i class="mdi-content-mail"></i>
+          <%= user.email %>
+        </p>
+
         <h5 class="secondary-content red-text"> <%= user.role.name %>
           <a href="#" data-activates='dropdown' class="dropdown-button">
             <i class="black-text mdi-navigation-more-vert"></i>
           </a>
         </h5>
-        </span>
 
-        <!-- Drop down Structure -->
         <ul id='dropdown' class='dropdown-content'>
-          <li><%= link_to 'Edit', edit_admin_user_path(user) %></li>
-          <li><%= link_to 'Destroy', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          <li><%= link_to_edit edit_admin_user_path(user) %></li>
+          <li><%= link_to_destroy admin_user_path(user) %></li>
         </ul>
-      <% end %>
+      <% end -%>
     </li>
   <% end -%>
 </ul>
 
 <br />
 
-<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-  <%= link_to raw('<i class="mdi-content-add"></i>'), new_admin_user_path,
-              class: 'btn-floating btn-large red' %>
-</div>
+<%= fab_to_new new_admin_user_path %>
