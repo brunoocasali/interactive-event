@@ -29,16 +29,5 @@
     </div>
   </div>
 
-  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <%= button_tag(type: :submit, class: 'btn-floating btn-large red') do %>
-      <%= content_tag(:i, nil, class: 'mdi-navigation-check') %>
-    <% end %>
-    <ul>
-      <li>
-        <%= link_to raw('<i class="large mdi-navigation-arrow-back"></i>'),
-                    admin_users_url, class: 'btn-floating green' %>
-      </li>
-    </ul>
-  </div>
-
+  <%= fab_to_save back_url: admin_users_url %>
 <% end %>

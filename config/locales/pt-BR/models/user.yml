@@ -6,11 +6,8 @@ pt-BR:
         other: Usuários
     attributes:
       user:
-        hash_tag: '#hashtag'
-        title: Título
-        image: Imagem
-        start_at: Inicia em
-        end_at: Termina em
-        kind: Tipo
-        user: Autor
-        services: Serviços de Busca
+        name: Nome
+        email: Email
+        phone: Telefone
+        role: Tipo de Usuário
+        password: Senha
