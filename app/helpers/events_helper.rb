@@ -1,15 +1,14 @@
 module EventsHelper
   def show_as_icon(event)
-    kind = event.kind
-    if kind.eql? EventKind::GRADUATION
+    if event.graduation?
       'gray mdi-social-school circle'
-    elsif kind.eql? EventKind::FAIR
+    elsif event.fair?
       'blue mdi-action-today circle'
-    elsif kind.eql? EventKind::WEDDING
+    elsif event.wedding?
       'pink mdi-action-favorite-outline circle'
-    elsif kind.eql? EventKind::SOCIAL_EVENT
+    elsif event.social_event?
       'red mdi-social-whatshot circle'
-    elsif kind.eql? EventKind::BIRTHDAY
+    elsif event.birthday?
       'green mdi-social-cake circle'
     end
   end

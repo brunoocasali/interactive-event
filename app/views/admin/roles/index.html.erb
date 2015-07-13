@@ -1,0 +1,33 @@
+<h4><%= tmp(Role) %></h4>
+
+<br />
+
+<ul class="collection">
+  <% @roles.each do |role| %>
+    <li class="collection-item avatar waves-effect full-width">
+      <%= link_to edit_admin_role_path(role), class: 'black-text' do -%>
+        <i class="mdi-social-mood circle"></i>
+        <span class="title"><%= role.name %></span>
+
+        <p class="black-text">
+          <i class="mdi-action-today"></i>
+          <%= role.description %>
+        </p>
+
+        <h5 class="secondary-content red-text"> <%= role.key %>
+          <a href="#" data-activates='dropdown' class="dropdown-button">
+            <i class="black-text mdi-navigation-more-vert"></i>
+          </a>
+        </h5>
+
+        <ul id="dropdown" class="dropdown-content">
+          <li><%= link_to_destroy admin_role_path(role) %></li>
+        </ul>
+      <% end -%>
+    </li>
+  <% end %>
+</ul>
+
+<br />
+
+<%= fab_to_new(new_admin_role_url) %>
