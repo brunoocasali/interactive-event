@@ -10,6 +10,20 @@
         <% end %>
       </li>
     </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+      <li>
+        <% if current_user.nil? %>
+          <%= link_to t('devise.buttons.sign_in'), new_user_session_url %>
+        <% else %>
+          <%= link_to t('views.dashboard.name'), new_user_session_url %>
+        <% end %>
+      </li>
+    </ul>
+
+    <a href="#" data-activates="nav-mobile" class="button-collapse">
+      <i class="brand-logo mdi-navigation-menu"></i>
+    </a>
   </div>
 </nav>
 
