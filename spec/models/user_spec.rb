@@ -17,12 +17,18 @@ RSpec.describe User, type: :model do
   context 'model attributes' do
     it { is_expected.to have_db_column(:role_id).of_type(:integer) }
 
-    it { is_expected.to have_db_column(:email).of_type(:string)
-                            .with_options(limit: 50, null: false, unique: true) }
-    it { is_expected.to have_db_column(:name).of_type(:string)
-                            .with_options(limit: 30) }
-    it { is_expected.to have_db_column(:phone).of_type(:string)
-                            .with_options(limit: 15) }
+    it do
+      is_expected.to have_db_column(:email).of_type(:string)
+        .with_options(limit: 50, null: false, unique: true)
+    end
+    it do
+      is_expected.to have_db_column(:name).of_type(:string)
+        .with_options(limit: 30)
+    end
+    it do
+      is_expected.to have_db_column(:phone).of_type(:string)
+        .with_options(limit: 15)
+    end
   end
 
   context 'database indexes' do

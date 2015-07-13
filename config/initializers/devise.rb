@@ -4,8 +4,8 @@ Devise.setup do |config|
   config.secret_key = '5349ea4ac8ff48fb6433de2b4bd3a80eb0cc4c358ab332d9dbc6f62f43acb1d1b4efd6b031e7beda499448d69b84502d379220e5401f872d199d2e9ce1d3f1b5'
   config.mailer_sender = 'brunoocasali@gmail.com'
   require 'devise/orm/active_record'
-  config.case_insensitive_keys = [ :email ]
-  config.strip_whitespace_keys = [ :email ]
+  config.case_insensitive_keys = [:email]
+  config.strip_whitespace_keys = [:email]
   config.skip_session_storage = [:http_auth]
   config.stretches = Rails.env.test? ? 1 : 10
   config.confirm_within = 3.days
@@ -20,7 +20,7 @@ Devise.setup do |config|
   config.maximum_attempts = 3
   config.unlock_in = 1.hour
   config.last_attempt_warning = true
-  config.reset_password_keys = [ :email ]
+  config.reset_password_keys = [:email]
   config.reset_password_within = 6.hours
   config.sign_out_via = [:delete, :get]
 end

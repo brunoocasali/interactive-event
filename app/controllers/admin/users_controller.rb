@@ -79,13 +79,14 @@ class Admin::UsersController < Admin::AdminController
   end
 
   private
-    def needs_password?(user, params)
-      params[:password].present?
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:email, :phone, :password,
-                                   :password_confirmation, :name, :role_id)
-    end
+  def needs_password?(_user, params)
+    params[:password].present?
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:email, :phone, :password,
+                                 :password_confirmation, :name, :role_id)
+  end
 end

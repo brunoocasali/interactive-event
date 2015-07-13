@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' },
-             controllers: { confirmations: 'confirmations' }
+                     controllers: { confirmations: 'confirmations' }
 
   scope :profiles do
     get :dashboard, to: 'profiles#dashboard', as: :user_root

@@ -20,20 +20,32 @@ RSpec.describe Event, type: :model do
   end
 
   context 'model attributes' do
-    it { is_expected.to have_db_column(:user_id).of_type(:integer)
-                            .with_options(null: false) }
+    it do
+      is_expected.to have_db_column(:user_id).of_type(:integer)
+        .with_options(null: false)
+    end
 
-    it { is_expected.to have_db_column(:hash_tag).of_type(:string)
-                            .with_options(limit: 75, null: false) }
-    it { is_expected.to have_db_column(:title).of_type(:string)
-                            .with_options(limit: 75, null: false) }
-    it { is_expected.to have_db_column(:image).of_type(:string)
-                            .with_options(limit: 225) }
+    it do
+      is_expected.to have_db_column(:hash_tag).of_type(:string)
+        .with_options(limit: 75, null: false)
+    end
+    it do
+      is_expected.to have_db_column(:title).of_type(:string)
+        .with_options(limit: 75, null: false)
+    end
+    it do
+      is_expected.to have_db_column(:image).of_type(:string)
+        .with_options(limit: 225)
+    end
 
-    it { is_expected.to have_db_column(:start_at).of_type(:datetime)
-                            .with_options(null: false) }
-    it { is_expected.to have_db_column(:end_at).of_type(:datetime)
-                            .with_options(null: false) }
+    it do
+      is_expected.to have_db_column(:start_at).of_type(:datetime)
+        .with_options(null: false)
+    end
+    it do
+      is_expected.to have_db_column(:end_at).of_type(:datetime)
+        .with_options(null: false)
+    end
   end
 
   context 'database indexes' do

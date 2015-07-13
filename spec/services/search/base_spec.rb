@@ -17,7 +17,7 @@ RSpec.describe Search::Base, type: :service do
     end
 
     it 'calls the starter of twitter service' do
-      base = described_class.new(create(:event, services: [ ServiceKind::TWITTER ]))
+      base = described_class.new(create(:event, services: [ServiceKind::TWITTER]))
 
       allow(base).to receive(:find_with_twitter!).with(no_args)
     end
@@ -25,7 +25,7 @@ RSpec.describe Search::Base, type: :service do
 
   describe '.find_with_twitter!' do
     it 'needs to call specific class' do
-      event = create(:event, services: [ ServiceKind::TWITTER ])
+      event = create(:event, services: [ServiceKind::TWITTER])
 
       expect(Search::TwitterService).to receive(:find_tweets_for).with(event, $twitter_client)
 

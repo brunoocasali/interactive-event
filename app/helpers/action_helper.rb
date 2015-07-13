@@ -9,11 +9,11 @@ module ActionHelper
     content_tag :div, class: 'fixed-action-btn fab-position' do
       link_to(raw('<i class="large mdi-editor-mode-edit"></i>'), url, class: 'btn-large btn-floating green') +
 
-          content_tag(:ul) do
-            content_tag :li do
-              fab_to_back(back_url)
-            end
+        content_tag(:ul) do
+          content_tag :li do
+            fab_to_back(back_url)
           end
+        end
     end
   end
 
@@ -22,11 +22,11 @@ module ActionHelper
       button_tag(type: :submit, class: 'btn-floating btn-large red') do
         content_tag(:i, nil, class: 'mdi-navigation-check')
       end +
-          content_tag(:ul) do
-            content_tag :li do
-              fab_to_back(back_url)
-            end
+        content_tag(:ul) do
+          content_tag :li do
+            fab_to_back(back_url)
           end
+        end
     end
   end
 
@@ -42,14 +42,13 @@ module ActionHelper
 
   def link_to_destroy(url, html_options = {})
     html_options.reverse_merge!(
-        data: { confirm: t('views.crud.delete') },
-        method: :delete,
-        class: ''
+      data: { confirm: t('views.crud.delete') },
+      method: :delete,
+      class: ''
     )
 
     link_to t('views.crud.delete_link'), url, html_options
   end
-
 
   def link_to_cancel(url, html_options = {})
     html_options.reverse_merge!(class: 'back btn btn-link')
@@ -59,10 +58,9 @@ module ActionHelper
 
   def link_to_show(url, html_options = {})
     html_options.reverse_merge!(
-        class: 'show btn btn-default glyphicon glyphicon-eye pull-right'
+      class: 'show btn btn-default glyphicon glyphicon-eye pull-right'
     )
 
     link_to '', url, html_options
   end
 end
-

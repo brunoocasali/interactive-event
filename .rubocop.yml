@@ -1,0 +1,27 @@
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 110
+
+Metrics/MethodLength:
+  Max: 10
+
+Metrics/ModuleLength:
+  Max: 600
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - 'Gemfile.lock'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'log/**/*'
+    - 'spec/dummy/**/*'
+    - 'config/initializers/**/*'
+
+  RunRailsCops: true

@@ -33,6 +33,7 @@ source 'https://rubygems.org' do
     gem 'spring'
     gem 'capybara'
     gem 'database_cleaner'
+    gem 'rubocop', require: false
     gem 'simplecov', require: false
     gem 'codeclimate-test-reporter', require: false
   end
