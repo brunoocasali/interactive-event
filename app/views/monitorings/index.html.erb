@@ -1,13 +1,14 @@
-<h4>Monitor your Events!</h4>
-<hr />
+<h4><%= t('views.monitorings.title') %></h4>
+
+<br />
 
 <ul class="collection">
   <% @events.each do |event| %>
     <li class="collection-item avatar waves-effect full-width valign-wrapper">
-      <%= link_to candidates_monitoring_url(event.hash_tag) do -%>
+      <%= link_to candidates_monitoring_url(event.hash_tag), class: 'black-text' do -%>
         <i class="<%= show_as_icon(event) %>"></i>
         <span class="title"><%= event.tag %></span>
-        <p class="grey-text"><%= event.start_at %></p>
+        <p class="black-text"><%= l event.start_at, format: :short %></p>
         <i class="secondary-content mdi-action-visibility small black-text"></i>
       <% end %>
     </li>

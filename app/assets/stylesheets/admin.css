@@ -7,6 +7,10 @@ nav .brand-logo {
     margin: 5px;
 }
 
+.icon-toast{
+    margin-left: 8px;
+}
+
 p {
     line-height: 2rem;
 }

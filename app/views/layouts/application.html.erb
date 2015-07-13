@@ -20,12 +20,6 @@
   <%= render 'layouts/shared/sidebar' %>
 </div>
 <%= javascript_include_tag 'application' %>
-<script>
-  $(function() {
-    <% if notice %>
-    toast('<%= notice %>', 4000);
-    <% end %>
-  });
-</script>
+<%= notices 6000 %>
 </body>
 </html>
