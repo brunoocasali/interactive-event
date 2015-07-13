@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   protect_from_forgery with: :exception
 
+  responders :flash
+
   rescue_from CanCan::AccessDenied do |_exception|
     redirect_to root_url, notice: 'Access denied!'
   end
