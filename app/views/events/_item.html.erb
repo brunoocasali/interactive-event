@@ -1,0 +1,22 @@
+<li class="collection-item avatar waves-effect full-width">
+  <%= link_to event, class: 'black-text' do -%>
+    <i class="<%= show_as_icon(event) %>"></i>
+    <span class="title"><%= event.title %></span>
+
+    <p class="black-text">
+      <i class="mdi-action-today"></i>
+      <%= l event.start_at.to_date, format: :short %>
+    </p>
+
+    <h5 class="secondary-content red-text"> <%= event.tag %>
+      <a href="#" data-activates='dropdown' class="dropdown-button">
+        <i class="black-text mdi-navigation-more-vert"></i>
+      </a>
+    </h5>
+
+    <ul id='dropdown' class='dropdown-content'>
+      <li><%= link_to_edit edit_event_path(event) %></li>
+      <li><%= link_to_destroy event %></li>
+    </ul>
+  <% end -%>
+</li>

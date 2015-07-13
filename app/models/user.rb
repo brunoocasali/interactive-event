@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   validates :phone, :name, :email, presence: true
   before_save :assign_role
 
+  scope :allowed, -> { where.not(role_id: [Role.find_by_key(:root)]) }
+
   def assign_role
     self.role = Role.find_by key: :common if role.nil?
   end

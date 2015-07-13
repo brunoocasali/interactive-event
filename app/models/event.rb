@@ -14,6 +14,10 @@ class Event < ActiveRecord::Base
 
   scope :will_happen, -> (date = DateTime.now) { where('start_at >= ?', date - 1) }
 
+  def self.current
+    where(start_at: DateTime.yesterday..DateTime.now).first
+  end
+
   def tweets
     items.twitter
   end

@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::AdminController
   load_and_authorize_resource
 
   def index
-    @users = User.all
+    @users = User.allowed
   end
 
   def show
