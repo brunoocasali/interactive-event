@@ -1,13 +1,15 @@
-<div class="col l6 s12 m6">
-  <%= link_to display_url(Event.current.hash_tag), class: 'black-text' do %>
-    <div class="card-panel">
-      <div class="valign-wrapper">
-        <i class="mdi-av-play-arrow large"></i>
-        <h5 class="center-align center-block"><%= t('views.dashboard.rolling_now') %></h5>
+<% unless Event.current.nil? %>
+  <div class="col l6 s12 m6">
+    <%= link_to display_url(Event.current.hash_tag), class: 'black-text' do %>
+      <div class="card-panel">
+        <div class="valign-wrapper">
+          <i class="mdi-av-play-arrow large"></i>
+          <h5 class="center-align center-block"><%= t('views.dashboard.rolling_now') %></h5>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
 
 <div class="col l6 s12 m6">
   <%= link_to monitoring_index_path, class: 'black-text' do %>
