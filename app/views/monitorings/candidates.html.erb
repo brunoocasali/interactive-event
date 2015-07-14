@@ -1,40 +1,47 @@
 <div class="row">
-  <div class="col s4">
-    <h3 class="red-text"><%= @event.tag %></h3>
+  <div class="col s12 m8">
+    <h4 class="red-text"><%= @event.tag %></h4>
   </div>
-  <div class="col s4">
-    <h3>Candidates</h3>
-  </div>
-  <div class="col s4">
-    <p>
-      <%= link_to raw('<i class="mdi-hardware-keyboard-arrow-left left"></i>approved'),
-                  approved_monitoring_url, class: 'waves-effect waves-light btn-large' %>
-    </p>
+</div>
+<div class="row">
+  <div class="col s12 m4">
+    <h5>Candidatos</h5>
   </div>
 </div>
 
-<table class="striped">
-  <thead>
-  <tr>
-    <th>Author name</th>
-    <th>Text</th>
-    <th>Image</th>
-    <th colspan="1"></th>
-  </tr>
-  </thead>
-
-  <tbody>
+<ul class="collapsible" data-collapsible="accordion">
   <% @items.each do |item| %>
-    <tr>
-      <td><%= item.author.screen_name %></td>
-      <td><%= item.text %></td>
-      <td><%= image_tag(item.image_link, size: '50x40') if item.image_link.present? %></td>
-      <td><%= button_to 'Approve!',
-                        approve_item_monitoring_path(@event.hash_tag, item), class: 'blue btn' %></td>
-    </tr>
+    <li>
+      <div class="collapsible-header">
+        <div class="row">
+          <div class="col s7 m10 l10">
+            <i class="mdi-<%= item.image_link ? 'image-photo-camera' : 'editor-format-align-justify' %>"></i>
+            <%= item.author.screen_name %>
+          </div>
+          <%= link_to 'approve!', approve_item_monitoring_path(@event.hash_tag, item), class: 'btn blue', method: :post %>
+        </div>
+      </div>
+      <div class="collapsible-body">
+        <div class="row">
+          <% if item.image_link %>
+            <div class="col s12 m6 l6">
+              <p class="flow-text"><%= item.text %></p>
+            </div>
+            <div class="col s12 m6 l6">
+              <p>
+                <%= image_tag(item.image_link, size: '240x240', class: 'responsive') %>
+              </p>
+            </div>
+          <% else %>
+            <div class="col s12 m12 l12">
+              <p class="flow-text"><%= item.text %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </li>
   <% end %>
-  </tbody>
-</table>
+</ul>
 
 <div class="row">
   <div class="col offset-s3">
@@ -42,3 +49,19 @@
   </div>
 </div>
 
+<div class="fixed-action-btn fab-position">
+  <%= link_to approved_monitoring_url, title: 'aprovados!', class: 'btn-floating btn-large green' do %>
+    <i class="large mdi-navigation-check"></i>
+  <% end %>
+  <ul>
+    <li>
+      <%= link_to raw('<i class="large mdi-navigation-arrow-back"></i>'), monitoring_index_path,
+                  class: 'btn-floating blue', title: 'inicial de monitoramentos' %>
+    </li>
+    <li>
+      <%= link_to raw('<i class="large mdi-action-view-carousel"></i>'),
+                  display_url(@event.hash_tag),
+                  class: 'btn-floating yellow', title: 'Ver no telão!' %>
+    </li>
+  </ul>
+</div>

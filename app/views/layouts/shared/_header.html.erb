@@ -31,10 +31,13 @@
 
     <ul id="nav-mobile" class="side-nav">
       <li>
-        <%= link_to t('views.toolbar.profile'), edit_user_registration_path %>
+        <%= link_to t('views.toolbar.dashboard'), admin_root_url %>
       </li>
       <li>
-        <%= link_to t('devise.buttons.sign_out').capitalize, destroy_user_session_path %>
+        <%= link_to t('views.toolbar.profile'), edit_user_registration_url %>
+      </li>
+      <li>
+        <%= link_to t('devise.buttons.sign_out').capitalize, destroy_user_session_url %>
       </li>
     </ul>
 
