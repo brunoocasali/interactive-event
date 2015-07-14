@@ -6,6 +6,6 @@ pt-BR:
         other: Permissões
     attributes:
       role:
-        name: nome
+        name: Nome
         key: Chave de API
         description: Descrição

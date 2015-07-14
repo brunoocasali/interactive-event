@@ -1,6 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe RolesController, type: :controller do
+RSpec.describe Admin::RolesController, type: :controller do
+  render_views
+
   let(:valid_attributes) { attributes_for :role }
   let(:invalid_attributes) { attributes_for :invalid_role }
 
@@ -50,7 +52,7 @@ RSpec.describe RolesController, type: :controller do
       it 'redirects to the created role' do
         post :create, role: valid_attributes
 
-        expect(response).to redirect_to(Role.last)
+        expect(response).to redirect_to([:admin, Role.last])
       end
     end
 
@@ -97,7 +99,7 @@ RSpec.describe RolesController, type: :controller do
 
         put :update, id: role.to_param, role: valid_attributes
 
-        expect(response).to redirect_to(role)
+        expect(response).to redirect_to([:admin, role])
       end
     end
 
@@ -133,7 +135,7 @@ RSpec.describe RolesController, type: :controller do
 
       delete :destroy, id: role.to_param
 
-      expect(response).to redirect_to(roles_url)
+      expect(response).to redirect_to(admin_roles_url)
     end
   end
 end

@@ -18,7 +18,7 @@ class Admin::RolesController < ApplicationController
 
   def new
     @role = Role.new
-    respond_with(@role)
+    respond_with(:admin, @role)
   end
 
   def edit; end
@@ -26,17 +26,20 @@ class Admin::RolesController < ApplicationController
   def create
     @role = Role.new(role_params)
     @role.save
-    respond_with(@role)
+
+    respond_with(:admin,@role)
   end
 
   def update
     @role.update(role_params)
-    respond_with(@role)
+
+    respond_with(:admin, @role)
   end
 
   def destroy
     @role.destroy
-    respond_with(@role)
+
+    respond_with(:admin, @role)
   end
 
   private
