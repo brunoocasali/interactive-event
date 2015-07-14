@@ -6,6 +6,7 @@
 /config/env/production.env
 /log/*.log
 /tmp
+vendor/bundle/*
 db/*.sqlite3
 db/*.sqlite3-journal
 db/schema.rb
