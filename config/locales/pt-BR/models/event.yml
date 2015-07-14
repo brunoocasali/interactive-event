@@ -1,4 +1,4 @@
-pt:
+pt-BR:
   activerecord:
     models:
       event:
@@ -6,7 +6,7 @@ pt:
         other: Eventos
     attributes:
       event:
-        hash_tag: Hashtag
+        hash_tag: '#hashtag'
         title: Título
         image: Imagem
         start_at: Inicia em

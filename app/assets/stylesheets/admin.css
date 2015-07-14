@@ -7,6 +7,10 @@ nav .brand-logo {
     margin: 5px;
 }
 
+.icon-toast{
+    margin-left: 8px;
+}
+
 p {
     line-height: 2rem;
 }
@@ -35,4 +39,23 @@ main {
 
 .max-width{
     width: 100% !important;
+}
+
+
+@media screen and (max-height: 2080px){
+    .min-body{
+        min-height: 60em;
+    }
+}
+
+@media screen and (max-height: 1024px){
+    .min-body{
+        min-height: 40em;
+    }
+}
+
+
+.fab-position{
+    bottom: 45px;
+    right: 24px;
 }

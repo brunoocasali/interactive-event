@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' },
-             controllers: { confirmations: 'confirmations' }
+                     controllers: { confirmations: 'confirmations' }
 
-  scope :profiles do
-    get :dashboard, to: 'profiles#dashboard', as: :user_root
-  end
+  # scope :profiles do
+  #   get :dashboard, to: 'profiles#dashboard', as: :user_root
+  # end
 
   resources :monitoring, controller: :monitorings, only: :index, param: :hash_tag do
     member do
@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     root 'welcome#index'
 
     resources :users
+    resources :roles, except: :show
   end
 
   devise_scope :user do
@@ -35,5 +36,4 @@ Rails.application.routes.draw do
   end
 
   resources :events
-  resources :roles, except: :show
 end

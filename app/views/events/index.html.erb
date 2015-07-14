@@ -1,35 +1,13 @@
-<p id="notice"><%= notice %></p>
+<h4><%= tmp(Event) %></h4>
 
-<h4>Listing Events</h4>
+<br />
 
 <ul class="collection">
-  <% @events.each do |event| %>
-    <li class="collection-item avatar waves-effect full-width">
-      <%= link_to event do -%>
-        <i class="<%= show_as_icon(event) %>"></i>
-        <span class="title"><%= event.title %></span>
-        <p class="grey-text"><i class="mdi-action-today"></i> <%= event.start_at.to_s(:short) %></p>
-        <span>
-        <h5 class="secondary-content red-text"> <%= event.tag %>
-          <a href="#" data-activates='dropdown' class="dropdown-button">
-            <i class="black-text mdi-navigation-more-vert"></i>
-          </a>
-        </h5>
-        </span>
-
-        <!-- Drop down Structure -->
-        <ul id='dropdown' class='dropdown-content'>
-          <li><%= link_to 'Edit', edit_event_path(event) %></li>
-          <li><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-        </ul>
-      <% end %>
-    </li>
+  <% @events.each do |event| -%>
+    <%= render 'item', event: event %>
   <% end -%>
 </ul>
 
 <br />
 
-<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-  <%= link_to raw('<i class="mdi-content-add"></i>'), new_event_path,
-              class: 'btn-floating btn-large red' %>
-</div>
+<%= fab_to_new(new_event_path) %>

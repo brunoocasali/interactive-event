@@ -1,6 +1,6 @@
 <nav class="orange lighten-1" role="navigation">
   <div class="nav-wrapper container">
-    <%= link_to root_url, title: 'Go to homepage!' do %>
+    <%= link_to root_url, class: 'brand-logo white-text' do %>
       <i class="mdi-social-whatshot"></i>
     <% end -%>
     <ul class="right hide-on-med-and-down">
@@ -16,17 +16,30 @@
         <ul id='user-menu' class='dropdown-content text'>
           <li>
             <%= link_to edit_user_registration_path do %>
-              <i class="mdi-social-person circle"></i> profile
+              <i class="mdi-social-person circle"></i> <%= t('views.toolbar.profile') %>
             <% end %>
           </li>
           <li class="divider"></li>
           <li>
             <%= link_to destroy_user_session_path do %>
-              <i class="mdi-action-exit-to-app"></i> <%= t('devise.buttons.sign_out') %>
+              <i class="mdi-action-exit-to-app"></i> <%= t('devise.buttons.sign_out').camelize %>
             <% end %>
           </li>
         </ul>
       </li>
     </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+      <li>
+        <%= link_to t('views.toolbar.profile'), edit_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to t('devise.buttons.sign_out').capitalize, destroy_user_session_path %>
+      </li>
+    </ul>
+
+    <a href="#" data-activates="nav-mobile" class="button-collapse">
+      <i class="mdi-navigation-menu"></i>
+    </a>
   </div>
 </nav>

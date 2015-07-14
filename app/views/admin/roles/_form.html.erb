@@ -1,0 +1,23 @@
+<%= simple_form_for([:admin, @role]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="row">
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.input :name, class: 'validate' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.input :description %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.input :key %>
+      </div>
+    </div>
+  </div>
+
+  <%= fab_to_save back_url: admin_roles_url %>
+<% end %>

@@ -1,4 +1,4 @@
-class RolesController < ApplicationController
+class Admin::RolesController < ApplicationController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -18,7 +18,7 @@ class RolesController < ApplicationController
 
   def new
     @role = Role.new
-    respond_with(@role)
+    respond_with(:admin, @role)
   end
 
   def edit; end
@@ -26,17 +26,20 @@ class RolesController < ApplicationController
   def create
     @role = Role.new(role_params)
     @role.save
-    respond_with(@role)
+
+    respond_with(:admin,@role)
   end
 
   def update
     @role.update(role_params)
-    respond_with(@role)
+
+    respond_with(:admin, @role)
   end
 
   def destroy
     @role.destroy
-    respond_with(@role)
+
+    respond_with(:admin, @role)
   end
 
   private

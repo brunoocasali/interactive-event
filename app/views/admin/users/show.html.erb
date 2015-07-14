@@ -1,32 +1,37 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<h3 class="center-align"><%= @user.name %></h3>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<div class="divider"></div>
 
-<p>
-  <strong>Role:</strong>
-  <%= @user.role.name %>
-</p>
+<div class="flow-text">
+  <p>
+    <strong><%= ta User, :email %>:</strong>
+    <%= @user.email %>
+  </p>
 
-<p>
-  <strong>Joined on:</strong>
-  <%= @joined_on %>
-</p>
+  <p>
+    <strong><%= ta User, :phone %>:</strong>
+    <%= @user.phone %>
+  </p>
 
-<p>
-  <strong>Last logged in on:</strong>
-  <%= @last_login %>
-</p>
+  <p>
+    <strong><%= ta User, :role %>:</strong>
+    <%= @user.role.name %>
+  </p>
 
-<p>
-  <strong>No. times logged in:</strong>
-  <%= @user.sign_in_count %>
-</p>
+  <p>
+    <strong><%= t('views.users.joined_on') %>:</strong>
+    <%= @joined_on %>
+  </p>
 
-<%= link_to 'Edit', edit_admin_user_path(@user) %> |
-<%= link_to 'Back', admin_users_path %>
+  <p>
+    <strong><%= t('views.users.last_logged_in') %>:</strong>
+    <%= @last_login %>
+  </p>
+
+  <p>
+    <strong><%= t('views.users.no_times_logged') %>:</strong>
+    <%= @user.sign_in_count %>
+  </p>
+</div>
+
+<%= fab_to_edit url: edit_admin_user_path(@user), back_url: admin_users_path %>

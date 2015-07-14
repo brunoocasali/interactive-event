@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe RolesController, type: :controller do
+RSpec.describe Admin::RolesController, type: :controller do
+  render_views
 
   let(:valid_attributes) { attributes_for :role }
   let(:invalid_attributes) { attributes_for :invalid_role }
@@ -36,9 +37,9 @@ RSpec.describe RolesController, type: :controller do
   describe 'POST create' do
     describe 'with valid params' do
       it 'creates a new Role' do
-        expect {
+        expect do
           post :create, role: valid_attributes
-        }.to change(Role, :count).by(1)
+        end.to change(Role, :count).by(1)
       end
 
       it 'assigns a newly created role as @role' do
@@ -51,7 +52,7 @@ RSpec.describe RolesController, type: :controller do
       it 'redirects to the created role' do
         post :create, role: valid_attributes
 
-        expect(response).to redirect_to(Role.last)
+        expect(response).to redirect_to([:admin, Role.last])
       end
     end
 
@@ -98,7 +99,7 @@ RSpec.describe RolesController, type: :controller do
 
         put :update, id: role.to_param, role: valid_attributes
 
-        expect(response).to redirect_to(role)
+        expect(response).to redirect_to([:admin, role])
       end
     end
 
@@ -124,9 +125,9 @@ RSpec.describe RolesController, type: :controller do
   describe 'DELETE destroy' do
     it 'destroys the requested role' do
       role = create(:role, valid_attributes)
-      expect {
+      expect do
         delete :destroy, id: role.to_param
-      }.to change(Role, :count).by(-1)
+      end.to change(Role, :count).by(-1)
     end
 
     it 'redirects to the roles list' do
@@ -134,7 +135,7 @@ RSpec.describe RolesController, type: :controller do
 
       delete :destroy, id: role.to_param
 
-      expect(response).to redirect_to(roles_url)
+      expect(response).to redirect_to(admin_roles_url)
     end
   end
 end

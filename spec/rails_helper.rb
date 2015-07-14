@@ -28,7 +28,7 @@ Warden.test_mode!
 
 Capybara.default_wait_time = 5
 Capybara.javascript_driver = :poltergeist
-#Capybara::Screenshot.prune_strategy = { keep: 20 }
+# Capybara::Screenshot.prune_strategy = { keep: 20 }
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
@@ -50,4 +50,3 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.raise_errors_for_deprecations!
 end
-

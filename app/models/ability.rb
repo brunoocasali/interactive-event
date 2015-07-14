@@ -5,7 +5,7 @@ class Ability
     if user.root?
       can :manage, :all
     elsif user.admin?
-        can :manage, :all
+      can :manage, :all
     elsif user.common?
       can :read, Item
       can :create, Item

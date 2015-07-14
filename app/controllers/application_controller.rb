@@ -3,12 +3,14 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   protect_from_forgery with: :exception
 
-  rescue_from CanCan::AccessDenied do |exception|
+  responders :flash
+
+  rescue_from CanCan::AccessDenied do |_exception|
     redirect_to root_url, notice: 'Access denied!'
   end
 
-  def after_sign_in_path_for(resource)
-    (resource.admin? || resource.root?) ? admin_root_path : root_path
+  def after_sign_in_path_for(_resource)
+    admin_root_path
   end
 
   respond_to :html, :json

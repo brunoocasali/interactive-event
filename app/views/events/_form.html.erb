@@ -27,38 +27,24 @@
       <div class="col s12">
         <%= f.input :kind, collection: EventKind.to_a %>
       </div>
-    </div>
-    <!--<div class="row">-->
+      <!--<div class="row">-->
       <!--<div class="input-field col s12">-->
-        <!--<div class="file-field input-field">-->
-          <!--<input class="file-path validate" type="text"/>-->
-          <!--<div class="btn">-->
-            <!--<span>File</span>-->
-            <!--<%# f.input :image, as: :file, label: false %>-->
-          <!--</div>-->
-        <!--</div>-->
+      <!--<div class="file-field input-field">-->
+      <!--<input class="file-path validate" type="text"/>-->
+      <!--<div class="btn">-->
+      <!--<span>File</span>-->
+      <!--<%# f.input :image, as: :file, label: false %>-->
       <!--</div>-->
-    <!--</div>-->
-    <div class="row">
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
       <div class="input-field col s12">
-        <p><label for="services">Provedores de Busca:</label></p>
+        <p><label for="services"><%= ta Event, :services %></label></p>
         <%= f.input :services, as: :check_boxes, collection: ServiceKind.to_a,
-                    include_blank: false, label: false, checked: @event.services,
-                    item_wrapper_class: 'col s3' %>
+                    label: false, checked: @event.services, item_wrapper_class: 'col s3' %>
       </div>
     </div>
   </div>
 
-  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <%= button_tag(type: :submit, class: 'btn-floating btn-large red') do %>
-      <%= content_tag(:i, nil, class: 'mdi-navigation-check') %>
-    <% end %>
-    <ul>
-      <li>
-        <%= link_to raw('<i class="large mdi-navigation-arrow-back"></i>'),
-                    events_path, class: 'btn-floating green' %>
-      </li>
-    </ul>
-  </div>
-
+  <%= fab_to_save back_url: events_path %>
 <% end %>

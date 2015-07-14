@@ -4,7 +4,7 @@ module Search
       last = event.items.last.try(&:id)
 
       client.search(event.hash_tag, result_type: :recent).each_with_index do |tweet, i|
-        break if tweet.id.to_s.eql?(last) or i.eql?(500)
+        break if tweet.id.to_s.eql?(last) || i.eql?(500)
 
         event.items << make_a_item_by(tweet)
       end

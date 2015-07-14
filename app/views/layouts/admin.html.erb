@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin - Interactive Event</title>
+  <title>Admin - <%= t('views.project.name') %></title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
@@ -20,12 +20,6 @@
   <%= render 'layouts/shared/sidebar' %>
 </div>
 <%= javascript_include_tag 'application' %>
-<script>
-  $(function() {
-    <% if notice %>
-    toast('<%= notice %>', 4000);
-    <% end %>
-  });
-</script>
+<%= notices 6000 %>
 </body>
 </html>
