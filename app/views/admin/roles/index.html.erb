@@ -6,7 +6,7 @@
   <% @roles.each do |role| %>
     <li class="collection-item avatar waves-effect full-width">
       <%= link_to edit_admin_role_path(role), class: 'black-text' do -%>
-        <i class="mdi-social-mood circle"></i>
+        <i class="fa fa-diamond circle"></i>
         <span class="title"><%= role.name %></span>
 
         <p class="black-text">
@@ -14,11 +14,12 @@
           <%= role.description %>
         </p>
 
-        <h5 class="secondary-content red-text"> <%= role.key %>
-          <a href="#" data-activates='dropdown' class="dropdown-button">
-            <i class="black-text mdi-navigation-more-vert"></i>
+        <div class="secondary-content valign-wrapper">
+          <h5 class="hide-on-small-only"><%= role.key %></h5>
+          <a href="#" data-activates="dropdown" class="flow-text dropdown-button">
+            <i class="black-text mdi-navigation-more-vert valign"></i>
           </a>
-        </h5>
+        </div>
 
         <ul id="dropdown" class="dropdown-content">
           <li><%= link_to_destroy admin_role_path(role) %></li>
