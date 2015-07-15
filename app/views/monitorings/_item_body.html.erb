@@ -1,0 +1,16 @@
+<div class="row">
+  <% if item.image_link %>
+    <div class="col s12 m6 l6">
+      <p class="flow-text"><%= item.text %></p>
+    </div>
+    <div class="col s12 m6 l6">
+      <p>
+        <%= image_tag(item.image_link, size: '240x240', class: 'responsive') %>
+      </p>
+    </div>
+  <% else %>
+    <div class="col s12 m12 l12">
+      <p class="flow-text"><%= item.text %></p>
+    </div>
+  <% end %>
+</div>

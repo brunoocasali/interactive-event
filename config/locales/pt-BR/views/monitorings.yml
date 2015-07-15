@@ -2,3 +2,10 @@ pt-BR:
   views:
     monitorings:
       title: Monitoramento
+      approveds: Aprovados
+      candidates: Candidatos
+      initial_page: Página inicial de monitoramentos
+      present: Ver no Telão!
+      buttons:
+        remove: Remover
+        approve: Aprovar

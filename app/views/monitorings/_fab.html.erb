@@ -1,0 +1,10 @@
+<ul>
+  <li>
+    <%= link_to raw('<i class="large mdi-navigation-arrow-back"></i>'), monitoring_index_path,
+                class: 'btn-floating blue', title: t('views.monitorings.initial_page') %>
+  </li>
+  <li>
+    <%= link_to raw('<i class="large mdi-action-view-carousel"></i>'), display_url(@event.hash_tag),
+                class: 'btn-floating yellow', title: t('views.monitorings.present') %>
+  </li>
+</ul>

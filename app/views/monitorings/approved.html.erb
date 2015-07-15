@@ -1,42 +1,34 @@
-<div class="row">
-  <div class="col s4">
-    <h3 class="red-text"><%= @event.tag %></h3>
-  </div>
-  <div class="col s4">
-    <h3>Approved</h3>
-  </div>
-  <div class="col s4">
-    <p>
-      <%= link_to raw('<i class="mdi-hardware-keyboard-arrow-left left"></i>candidates'),
-                  candidates_monitoring_url, class: 'waves-effect waves-light btn-large' %>
-    </p>
-  </div>
-</div>
+<%= render 'header', title: t('views.monitorings.approveds'), event: @event %>
 
-<table class="striped">
-  <thead>
-  <tr>
-    <th>Author name</th>
-    <th>Text</th>
-    <th>Image</th>
-    <th colspan="1"></th>
-  </tr>
-  </thead>
-
-  <tbody>
+<ul class="collapsible" data-collapsible="accordion">
   <% @items.each do |item| %>
-    <tr>
-      <td><%= item.author.screen_name %></td>
-      <td><%= item.text %></td>
-      <td><%= image_tag(item.image_link, size: '50x40') %></td>
-      <td><%= button_to 'Remove!', destroy_item_monitoring_path(@event.hash_tag, item), class: 'red btn' %></td>
-    </tr>
+    <li>
+      <div class="collapsible-header">
+        <div class="row">
+          <div class="col s7 m10 l10">
+            <i class="mdi-<%= item.image_link ? 'image-photo-camera' : 'editor-format-align-justify' %>"></i>
+            <%= item.author.screen_name %>
+          </div>
+          <%= link_to t('views.monitorings.buttons.remove'), destroy_item_monitoring_path(@event.hash_tag, item), class: 'btn lighten-1 red' %>
+        </div>
+      </div>
+      <div class="collapsible-body">
+        <%= render 'item_body', item: item %>
+      </div>
+    </li>
   <% end %>
-  </tbody>
-</table>
+</ul>
 
 <div class="row">
   <div class="col offset-s3">
     <%= paginate @items %>
   </div>
+</div>
+
+<div class="fixed-action-btn fab-position ">
+  <%= link_to candidates_monitoring_url, title: t('views.monitorings.candidates'), class: 'btn-floating btn-large green' do %>
+    <i class="large mdi-action-search"></i>
+  <% end %>
+
+  <%= render 'fab' %>
 </div>
