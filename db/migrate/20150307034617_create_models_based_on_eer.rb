@@ -41,8 +41,6 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
       t.string :name, limit: 30
       t.string :phone, limit: 15
       t.references :role, index: true, foreign_key: true
-
-      t.timestamps null: false
     end
 
     add_index :users, :email,                unique: true
@@ -53,7 +51,7 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
     create_table :events do |t|
       t.string :hash_tag, null: false, limit: 75
       t.string :title, null: false, limit: 75
-      t.string :cover
+      t.string :cover, limit: 255
       t.datetime :start_at, null: false
       t.datetime :end_at, null: false
       t.integer :kind, null: false, index: true
@@ -79,11 +77,9 @@ class CreateModelsBasedOnEer < ActiveRecord::Migration
       t.column :id, :bigint, null: false, index: true
       t.integer :service, index: true, null: false
       t.string :name, null: false, limit: 50, default: ''
-      t.string :avatar
+      t.string :avatar, limit: 255
       t.string :screen_name, limit: 40, default: ''
       t.string :profile_url, default: ''
-
-      t.timestamps null: false
     end
 
     add_index :items, :id, unique: true

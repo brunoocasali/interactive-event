@@ -47,6 +47,6 @@ class EventsController < ApplicationController
 
   def remove_blank(params)
     params[:event][:services] ||= []
-    params[:event][:services].map!(&:to_i).reject { |i| i == 0 }
+    params[:event][:services].map!(&:to_i).reject! { |i| i == 0 }
   end
 end

@@ -1,7 +1,5 @@
 <h3 class="center-align"><%= @event.tag %></h3>
 
-<div class="divider"></div>
-
 <div class="flow-text">
   <p>
     <strong><%= ta Event, :title %>:</strong>
@@ -29,9 +27,9 @@
   </p>
 
   <% if @event.cover? %>
+    <strong class="left-align"><%= ta Event, :cover %>:</strong>
     <p>
-      <strong><%= ta Event, :cover %>:</strong>
-      <%= image_tag(@event.cover_url) %>
+      <%= image_tag(@event.cover_url(:thumb)) %>
     </p>
   <% end %>
 </div>

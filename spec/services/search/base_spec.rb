@@ -5,15 +5,17 @@ RSpec.describe Search::Base, type: :service do
     subject { described_class.new(create(:event)) }
 
     it 'need to respond' do
-      is_expected.to respond_to(:start_finder)
+      is_expected.to respond_to(:start_finder!)
     end
   end
 
-  describe '.start_finder' do
-    it 'receives an event by parameter' do
+  describe '.start_finder!' do
+    it 'uses an instance of base search class' do
       base = described_class.new(create(:event))
 
-      allow(base).to receive(:start_finder).with(no_args)
+      allow(base).to receive(:start_finder!).with(no_args)
+
+      base.start_finder!
     end
 
     it 'calls the starter of twitter service' do
@@ -29,7 +31,7 @@ RSpec.describe Search::Base, type: :service do
 
       expect(Search::TwitterService).to receive(:find_tweets_for).with(event, $twitter_client)
 
-      described_class.new(event)
+      described_class.new(event).start_finder!
     end
   end
 end

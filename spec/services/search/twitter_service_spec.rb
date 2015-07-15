@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Search::TwitterService, type: :service do
-  subject { Search::TwitterService }
+  subject { described_class }
 
   context 'class methods' do
     it { is_expected.to respond_to(:make_a_item_by) }
