@@ -3,7 +3,7 @@ module Search
     def self.find_tweets_for(event, client = $twitter_client)
       last = event.items.last.try(&:id)
 
-      client.search(event.hash_tag, result_type: :recent).each_with_index do |tweet, i|
+      client.search("#{event.hash_tag} -rt", result_type: :recent).each_with_index do |tweet, i|
         break if tweet.id.to_s.eql?(last) || i.eql?(500)
 
         event.items << make_a_item_by(tweet)

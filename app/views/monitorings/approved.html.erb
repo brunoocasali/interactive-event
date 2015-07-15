@@ -1,13 +1,4 @@
-<div class="row">
-  <div class="col s12 m8">
-    <h4 class="red-text"><%= @event.tag %></h4>
-  </div>
-</div>
-<div class="row">
-  <div class="col s12 m4">
-    <h5>Aprovados</h5>
-  </div>
-</div>
+<%= render 'header', title: t('views.monitorings.approveds'), event: @event %>
 
 <ul class="collapsible" data-collapsible="accordion">
   <% @items.each do |item| %>
@@ -18,26 +9,11 @@
             <i class="mdi-<%= item.image_link ? 'image-photo-camera' : 'editor-format-align-justify' %>"></i>
             <%= item.author.screen_name %>
           </div>
-          <%= link_to 'remover', destroy_item_monitoring_path(@event.hash_tag, item), class: 'btn lighten-1 red' %>
+          <%= link_to t('views.monitorings.buttons.remove'), destroy_item_monitoring_path(@event.hash_tag, item), class: 'btn lighten-1 red' %>
         </div>
       </div>
       <div class="collapsible-body">
-        <div class="row">
-          <% if item.image_link %>
-            <div class="col s12 m6 l6">
-              <p class="flow-text"><%= item.text %></p>
-            </div>
-            <div class="col s12 m6 l6">
-              <p>
-                <%= image_tag(item.image_link, size: '240x240', class: 'responsive') %>
-              </p>
-            </div>
-          <% else %>
-            <div class="col s12 m12 l12">
-              <p class="flow-text"><%= item.text %></p>
-            </div>
-          <% end %>
-        </div>
+        <%= render 'item_body', item: item %>
       </div>
     </li>
   <% end %>
@@ -50,18 +26,9 @@
 </div>
 
 <div class="fixed-action-btn fab-position ">
-  <%= link_to candidates_monitoring_url, title: 'candidatos!', class: 'btn-floating btn-large green' do %>
+  <%= link_to candidates_monitoring_url, title: t('views.monitorings.candidates'), class: 'btn-floating btn-large green' do %>
     <i class="large mdi-action-search"></i>
   <% end %>
-  <ul>
-    <li>
-      <%= link_to raw('<i class="large mdi-navigation-arrow-back"></i>'), monitoring_index_path,
-                  class: 'btn-floating blue', title: 'inicial de monitoramentos' %>
-    </li>
-    <li>
-      <%= link_to raw('<i class="large mdi-action-view-carousel"></i>'),
-                  display_url(@event.hash_tag),
-                  class: 'btn-floating yellow', title: 'Ver no telão!' %>
-    </li>
-  </ul>
+
+  <%= render 'fab' %>
 </div>
