@@ -40,8 +40,9 @@ class EventsController < ApplicationController
   def event_params
     remove_blank(params)
 
-    params.require(:event).permit(:hash_tag, :title, :image, :start_at,
-                                  :end_at, :kind, :user_id, services: [])
+    params.require(:event).permit(:hash_tag, :title, :remove_cover, :cover,
+                                  :start_at, :end_at, :kind, :cover_cache,
+                                  :user_id, services: [])
   end
 
   def remove_blank(params)

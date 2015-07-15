@@ -27,6 +27,13 @@
     <strong><%= ta Event, :user %>:</strong>
     <%= @event.user.name %>
   </p>
+
+  <% if @event.cover? %>
+    <p>
+      <strong><%= ta Event, :cover %>:</strong>
+      <%= image_tag(@event.cover_url) %>
+    </p>
+  <% end %>
 </div>
 
 <%= fab_to_edit url: edit_event_path(@event), back_url: events_path %>
