@@ -2,12 +2,12 @@
   <div class="row" style="margin-top: 15%">
     <div class="row">
       <div class="s12 valign-wrapper">
-        <div class="col s2">
-          <%= image_tag(@item.author.profile_image_url, class: 'circle responsive-img', style: 'width: 150px; height: 150px;') %>
+        <div class="col s2" style="background-size: auto 100%;">
+          <%= image_tag(@item.author.profile_image_url, class: 'circle responsive-img', style: 'width:200px;height: 200px') %>
         </div>
         <div class="col s10 ">
           <blockquote>
-            <p class="grey-text flow-text">
+            <p class="lighten-3 flow-text">
               <%= @item.text %>
             </p>
             <span class="blue-text flow-text"><%= @item.author.screen_name %></span>
