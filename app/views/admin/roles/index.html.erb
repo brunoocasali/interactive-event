@@ -6,7 +6,7 @@
   <% @roles.each do |role| %>
     <li class="collection-item avatar waves-effect full-width">
       <%= link_to edit_admin_role_path(role), class: 'black-text' do -%>
-        <i class="fa fa-diamond circle"></i>
+        <i class="<%= show_role_icon(role) %>"></i>
         <span class="title"><%= role.name %></span>
 
         <p class="black-text">
