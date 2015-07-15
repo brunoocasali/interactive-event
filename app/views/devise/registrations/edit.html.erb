@@ -1,31 +1,69 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="row">
+  <h4><%= t 'views.crud.edit', name: t('views.toolbar.profile') %></h4>
 
-<%= devise_error_messages! %>
+  <br/>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+  <div class="col s12 m12">
+    <%= devise_error_messages! %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+      <div class="row">
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.input :name, class: 'validate' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.input :email, as: :email, class: 'validate' %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.input :phone %>
+          </div>
+        </div>
+        <div class="row">
+          <div class=" col s12">
+            <%= f.association :role, collection: Role.all %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <%= f.input :password, autocomplete: 'off', hint: t('devise.hits.not_required'), required: false %>
+          </div>
+        </div>
 
-    <%= f.input :name, required: true %>
-    <%= f.input :phone, required: true %>
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+        <div class="row">
+          <div class="col s12">
+            <%= f.input :password_confirmation, required: false %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <%= f.input :current_password, hint: t('devise.hits.required_password'), required: true %>
+          </div>
+        </div>
+      </div>
+
+      <%= fab_to_save back_url: admin_users_url %>
+  <% end %>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+<div class="row">
+  <h5 class="red-text"><%= t('devise.titles.cancel_my_account') %></h5>
 
-<h3>Cancel my account</h3>
+  <p>Se sente infeliz? <%= link_to t('devise.buttons.cancel'), registration_path(resource_name), class: 'btn-sm red-text',
+                          data: { confirm: t('views.crud.delete') }, method: :delete %></p>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

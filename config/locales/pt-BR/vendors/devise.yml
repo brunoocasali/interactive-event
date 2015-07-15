@@ -56,12 +56,17 @@ pt-BR:
     buttons:
       sign_out: sair
       sign_in: Entrar
+      cancel: Cancelar Conta
     titles:
       forgot_your_pwd: Perdeu sua senha?
       change_your_pwd: Crie uma nova senha!
+      cancel_my_account: Cancele minha conta!
     fields:
       password_confirmation: Confirme sua senha
       password: Senha
+    hits:
+      required_password: Nós precisamos da sua senha atual para confimar as alterações.
+      not_required: Deixe em branco se não deseja mudar de senha.
   errors:
     messages:
       already_confirmed: "já foi confirmada, por favor faça login"
