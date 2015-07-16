@@ -41,16 +41,15 @@ main {
     width: 100% !important;
 }
 
-
-@media screen and (max-height: 2080px){
+@media screen and (max-height: 700px) {
     .min-body{
-        min-height: 60em;
+        min-height: 40em;
     }
 }
 
-@media screen and (max-height: 1024px){
+@media screen and (min-height: 700px) {
     .min-body{
-        min-height: 40em;
+        min-height: 56.6em;
     }
 }
 
