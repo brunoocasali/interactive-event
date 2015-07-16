@@ -16,7 +16,7 @@ RSpec.describe Search::TwitterService, type: :service do
 
       subject.find_tweets_for(event)
 
-      expect(event.items.count).to eq(100)
+      expect(event.items.count).to eq(99)
     end
   end
 
