@@ -4,6 +4,9 @@ require 'clockwork'
 
 include Clockwork
 
+Rails.logger.info "[#{Time.new.to_s(:long)}] -----------***- STARTED CLOCKWORK -***-----------\n"
+
+
 every(2.minutes, 'Finding new events') do
   Event.will_happen.each do |event|
     Delayed::Job.enqueue Search::Base.new(event).start_finder!
