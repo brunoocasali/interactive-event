@@ -1,16 +1,23 @@
 <div class="row">
-  <% if item.image_link %>
+  <% if item.image? %>
     <div class="col s12 m6 l6">
       <p class="flow-text"><%= item.text %></p>
     </div>
     <div class="col s12 m6 l6">
       <p>
-        <%= image_tag(item.image_link, size: '240x240', class: 'responsive') %>
+        <%= image_tag(item.image_url(:thumb), class: 'responsive-img') %>
       </p>
     </div>
   <% else %>
     <div class="col s12 m12 l12">
-      <p class="flow-text"><%= item.text %></p>
+      <div class="row valign-wrapper">
+        <div class="col s1 valign">
+          <%= image_tag(item.author.avatar_url(:desktop), class: 'circle responsive-img icon-footer') %>
+        </div>
+        <div class="col s11 valign">
+          <p class="flow-text"><%= item.text %></p>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

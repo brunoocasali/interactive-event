@@ -8,7 +8,7 @@ pt-BR:
       event:
         hash_tag: '#hashtag'
         title: Título
-        image: Imagem
+        cover: Imagem
         start_at: Inicia em
         end_at: Termina em
         kind: Tipo

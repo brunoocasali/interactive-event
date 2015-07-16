@@ -34,8 +34,8 @@ RSpec.describe Event, type: :model do
         .with_options(limit: 75, null: false)
     end
     it do
-      is_expected.to have_db_column(:image).of_type(:string)
-        .with_options(limit: 225)
+      is_expected.to have_db_column(:cover).of_type(:string)
+        .with_options(limit: 255)
     end
 
     it do

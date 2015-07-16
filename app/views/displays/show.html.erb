@@ -2,7 +2,6 @@
 
 <% if @event.items.size > 0 %>
 
-  <%= render 'text' %>
-  <%# render @item.image_link? ? 'image' : 'text' %>
+  <%= render @item.image? ? 'image' : 'text' %>
 
 <% end %>

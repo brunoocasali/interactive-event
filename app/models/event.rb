@@ -10,6 +10,8 @@ class Event < ActiveRecord::Base
 
   after_validation :drop_hash_tag
 
+  mount_uploader :cover, EventCoverUploader
+
   has_enumeration_for :kind, with: EventKind, create_helpers: true, required: true
 
   scope :will_happen, -> (date = DateTime.now) { where('start_at >= ?', date - 1) }

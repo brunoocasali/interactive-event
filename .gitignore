@@ -13,7 +13,7 @@ db/schema.rb
 config/database.yml
 config/unicorn.rb
 public/system/*
-public/upload/*
+public/uploads/*
 public/assets/*
 coverage
 .DS_Store

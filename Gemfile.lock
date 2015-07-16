@@ -38,23 +38,28 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    arel (6.0.0)
+    arel (6.0.2)
     ast (2.0.0)
-    astrolabe (1.3.0)
-      parser (>= 2.2.0.pre.3, < 3.0)
+    astrolabe (1.3.1)
+      parser (~> 2.2)
     awesome_print (1.6.1)
     bcrypt (3.1.10)
     buftok (0.2.0)
     builder (3.2.2)
     byebug (5.0.0)
       columnize (= 0.9.0)
-    cancancan (1.11.0)
+    cancancan (1.12.0)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     codeclimate-test-reporter (0.4.7)
       simplecov (>= 0.7.1, < 1.0.0)
     coffee-rails (4.1.0)
@@ -96,7 +101,7 @@ GEM
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
-    jbuilder (2.3.0)
+    jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (4.0.4)
@@ -114,6 +119,7 @@ GEM
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     mime-types (2.6.1)
+    mini_magick (4.2.7)
     mini_portile (0.6.2)
     minitest (5.7.0)
     multi_json (1.11.2)
@@ -127,7 +133,7 @@ GEM
       parallel
     parser (2.3.0.pre.2)
       ast (>= 1.1, < 3.0)
-    passenger (5.0.11)
+    passenger (5.0.14)
       rack
       rake (>= 0.8.1)
     pg (0.18.2)
@@ -196,7 +202,7 @@ GEM
       ruby-progressbar (~> 1.4)
     ruby-progressbar (1.7.5)
     rufus-scheduler (3.1.3)
-    sass (3.4.15)
+    sass (3.4.16)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
     simple_form (3.1.0)
@@ -248,6 +254,7 @@ DEPENDENCIES
   byebug!
   cancancan (~> 1.10)!
   capybara!
+  carrierwave!
   codeclimate-test-reporter!
   database_cleaner!
   devise!
@@ -259,6 +266,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)!
   jquery-rails!
   kaminari!
+  mini_magick!
   parallel_tests!
   passenger!
   pg!

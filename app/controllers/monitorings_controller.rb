@@ -16,14 +16,14 @@ class MonitoringsController < ApplicationController
 
   def approve
     @item.approved!
-    @item.save
+    @item.save!
 
     respond_with(@event, location: approved_monitoring_path(@event.hash_tag))
   end
 
   def destroy
     @item.removed!
-    @item.save
+    @item.save!
 
     respond_with(@event, location: approved_monitoring_path(@event.hash_tag))
   end

@@ -33,7 +33,7 @@ RSpec.describe Author, type: :model do
         .with_options(limit: 40)
     end
 
-    it { is_expected.to have_db_column(:profile_image_url).of_type(:string) }
+    it { is_expected.to have_db_column(:avatar).of_type(:string) }
     it { is_expected.to have_db_column(:profile_url).of_type(:string) }
   end
 

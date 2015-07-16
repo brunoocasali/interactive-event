@@ -1,51 +1,36 @@
-<div class="row" style="margin-top: 6%">
-  <div class="col s4">
-    <div class="row">
-      <div class="col s12 left">
-        <h3>RG2 Produções</h3>
-      </div>
-    </div>
+<div class="row">
+  <div class="col s5">
     <div class="row center">
       <div class="col s12">
         <p class="flow-text">
-          Quer ver a sua foto aqui? <br/>
+          Quer ver a sua foto aqui? <br />
           poste-a com a hashtag:
         </p>
       </div>
     </div>
     <div class="row center">
       <div class="col s12">
-        <h3>
-          <span class="red-text"><%= @item.event.tag %></span>
-        </h3>
+        <h3 class="red-text"><%= @item.event.tag %></h3>
       </div>
-    </div>
-    <div class="row">
-      &nbsp;
     </div>
     <div class="row">
       <div class="card-panel grey lighten-5 z-depth-1">
         <div class="row valign-wrapper">
           <div class="col s3">
-            <%= image_tag(@item.author.profile_image_url,
-                          class: 'circle responsive-img',
-                          style: 'margin-top: 15%; width: 150px; height: 150px;') %>
+            <%= image_tag(@item.author.avatar_url(:mobile), class: 'circle responsive-img' ) %>
           </div>
           <div class="col s9">
-            <span class="blue-text" style="font-size: 18px"><%= @item.author.screen_name %></span>
-            <br/>
-              <span style="font-size: 20px"><%= @item.text %>
-              </span>
+            <p class="blue-text" style="font-size: 18px"><%= @item.author.screen_name %></p>
+            <p class="black-text" style="font-size: 20px"><%= @item.text %></p>
           </div>
-        </div>
-        <div class="row right">
-          via: <span class="blue-text" style="text-decoration: underline"><%= @item.service_humanize %></span>
         </div>
       </div>
     </div>
   </div>
-  <div class="col s8">
-    <%= image_tag(@item.image_link, class: 'responsive-img', size: '1024x768') %>
-
+  <div class="col s7 hide-on-med-and-down center">
+    <%= image_tag(@item.image_url(:big), class: 'z-depth-3') %>
+  </div>
+  <div class="col s8 hide-on-med-and-up">
+    <%= image_tag(@item.image_url(:thumb), class: 'valign') %>
   </div>
 </div>

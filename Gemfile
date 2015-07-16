@@ -20,6 +20,9 @@ source 'https://rubygems.org' do
   gem 'rufus-scheduler'
   gem 'kaminari'
 
+  gem 'carrierwave'
+  gem 'mini_magick'
+
   group :development, :test do
     gem 'parallel_tests'
 

@@ -6,10 +6,11 @@
       <div class="collapsible-header">
         <div class="row">
           <div class="col s7 m10 l10">
-            <i class="mdi-<%= item.image_link ? 'image-photo-camera' : 'editor-format-align-justify' %>"></i>
+            <i class="mdi-<%= item.image? ? 'image-photo-camera' : 'editor-format-align-justify' %>"></i>
+            <i class="<%= service_as_icon(item) %>"></i>
             <%= item.author.screen_name %>
           </div>
-          <%= link_to t('views.monitorings.buttons.remove'), destroy_item_monitoring_path(@event.hash_tag, item), class: 'btn lighten-1 red' %>
+          <%= link_to t('views.monitorings.buttons.remove'), destroy_item_monitoring_path(@event.hash_tag, item), method: :delete, class: 'btn lighten-1 red' %>
         </div>
       </div>
       <div class="collapsible-body">

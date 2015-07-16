@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :item do
     id { Forgery('credit_card').number }
     text { Forgery(:basic).text }
-    image_link { Forgery(:internet).domain_name }
+    image { Forgery(:internet).domain_name }
 
     status { ItemStatus.list.sample }
     service { ServiceKind.list.sample }

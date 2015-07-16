@@ -7,9 +7,9 @@ class Item < ActiveRecord::Base
   validates :event, presence: true, associated: true
   validates :author, presence: true, associated: true
 
-  has_enumeration_for :status, with: ItemStatus, required: true,
-                               create_scopes: true, create_helpers: true
-  has_enumeration_for :service, with: ServiceKind, required: true, create_scopes: true
+  mount_uploader :image, SlideImageUploader
 
-  paginates_per 50
+  has_enumeration_for :status, with: ItemStatus, required: true, create_scopes: true,
+                      create_helpers: true
+  has_enumeration_for :service, with: ServiceKind, required: true, create_scopes: true
 end

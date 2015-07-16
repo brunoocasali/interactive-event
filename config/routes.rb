@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :monitoring, controller: :monitorings, only: :index, param: :hash_tag do
     member do
-      post 'destroy/:item_id', as: :destroy_item, to: 'monitorings#destroy'
+      delete 'destroy/:item_id', as: :destroy_item, to: 'monitorings#destroy'
       post 'approve/:item_id', as: :approve_item, to: 'monitorings#approve'
 
       get :approved

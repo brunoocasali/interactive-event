@@ -6,7 +6,8 @@
       <div class="collapsible-header">
         <div class="row">
           <div class="col s7 m10 l10">
-            <i class="mdi-<%= item.image_link ? 'image-photo-camera' : 'editor-format-align-justify' %>"></i>
+            <i class="mdi-<%= item.image? ? 'image-photo-camera' : 'editor-format-align-justify' %>"></i>
+            <i class="<%= service_as_icon(item) %>"></i>
             <%= item.author.screen_name %>
           </div>
           <%= link_to t('views.monitorings.buttons.approve'), approve_item_monitoring_path(@event.hash_tag, item), class: 'btn blue', method: :post %>
