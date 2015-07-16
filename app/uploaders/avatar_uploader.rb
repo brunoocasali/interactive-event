@@ -8,23 +8,23 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :big_screen do
-    process resize_to_fit: [250, 250]
+    process resize_to_fill: [250, 250]
   end
 
   version :desktop, from_version: :big_screen do
-    process resize_to_fit: [200, 200]
+    process resize_to_fill: [200, 200]
   end
 
   version :mobile, from_version: :desktop do
-    process resize_to_fit: [60, 60]
+    process resize_to_fill: [100, 100]
   end
 
-  version :thumb, from_version: :thumb do
-    process resize_to_fit: [50, 50]
+  version :thumb, from_version: :mobile do
+    process resize_to_fill: [50, 50]
   end
 
 
   def extension_white_list
-    %w(jpg jpeg png)
+    %w(gif jpg jpeg png)
   end
 end

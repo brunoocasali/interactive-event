@@ -26,8 +26,8 @@ RSpec.describe Item, type: :model do
     it { is_expected.to have_db_column(:text).of_type(:text) }
 
     it do
-      is_expected.to have_db_column(:image_link).of_type(:string)
-        .with_options(limit: 340)
+      is_expected.to have_db_column(:image).of_type(:string)
+        .with_options(limit: 255)
     end
   end
 

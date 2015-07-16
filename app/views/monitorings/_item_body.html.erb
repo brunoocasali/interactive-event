@@ -1,11 +1,11 @@
 <div class="row">
-  <% if item.image_link %>
+  <% if item.image? %>
     <div class="col s12 m6 l6">
       <p class="flow-text"><%= item.text %></p>
     </div>
     <div class="col s12 m6 l6">
       <p>
-        <%= image_tag(item.image_link, size: '240x240', class: 'responsive') %>
+        <%= image_tag(item.image_url(:thumb), class: 'responsive-img') %>
       </p>
     </div>
   <% else %>
