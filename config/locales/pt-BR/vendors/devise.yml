@@ -61,6 +61,10 @@ pt-BR:
       forgot_your_pwd: Perdeu sua senha?
       change_your_pwd: Crie uma nova senha!
       cancel_my_account: Cancele minha conta!
+      resend_confirmation: Reenviar instruções de confirmação
+      resend_unlock: Reenviar código de desbloqueio
+      did_not_receive_confimation: Não recebeu as instruções de confirmação?
+      did_not_receive_unlock: Não recebeu as instruções de desbloqueio?
     fields:
       password_confirmation: Confirme sua senha
       password: Senha
