@@ -20,7 +20,7 @@
       </div>
     </li>
   <% end.empty? %>
-    <h5 class="red-text lighten-2 center"><%= t('views.monitorings.no_candidates_items') %></h5>
+    <h5 class="red-text lighten-2 center"><%= t('views.monitorings.no_candidates_items', name: current_user.name, tag: @event.tag) %></h5>
   <% end %>
 </ul>
 
