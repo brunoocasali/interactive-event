@@ -8,8 +8,8 @@ scheduler.every '2m' do
       Search::Base.new(event).start_finder!
     end
 
-    rescue e
-      Rails.logger.info "--------------------------*****-------- ERROS #{e}"
+  rescue => e
+    Rails.logger.info "--------------------------*****-------- ERROS #{e}"
   end
 end
 
