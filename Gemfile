@@ -17,8 +17,7 @@ source 'https://rubygems.org' do
   gem 'cancancan', '~> 1.10'
   gem 'passenger'
   gem 'twitter'
-  gem 'clockwork'
-  gem 'delayed_job_active_record'
+  gem 'rufus-scheduler'
   gem 'kaminari'
 
   gem 'carrierwave'

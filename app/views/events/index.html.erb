@@ -2,12 +2,14 @@
 
 <br />
 
-<ul class="collection">
-  <% @events.each do |event| -%>
+<ul class="collection white z-depth-1">
+  <% if @events.each do |event| -%>
     <%= render 'item', event: event %>
-  <% end -%>
+  <% end.empty? %>
+    <h5 class="red-text lighten-2 center"><%= t('views.events.no_items') %></h5>
+  <% end %>
 </ul>
 
-<br class="" />
+<br />
 
 <%= fab_to_new(new_event_path) %>

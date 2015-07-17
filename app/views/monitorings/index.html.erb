@@ -2,8 +2,8 @@
 
 <br />
 
-<ul class="collection">
-  <% @events.each do |event| %>
+<ul class="collection white z-depth-1">
+  <% if @events.each do |event| %>
     <li class="collection-item avatar waves-effect full-width valign-wrapper">
       <%= link_to candidates_monitoring_url(event.hash_tag), class: 'black-text' do -%>
         <i class="<%= show_as_icon(event) %>"></i>
@@ -12,5 +12,7 @@
         <i class="secondary-content mdi-action-visibility small black-text"></i>
       <% end %>
     </li>
+  <% end.empty? %>
+    <h5 class="red-text lighten-2 center"><%= t('views.events.no_items') %></h5>
   <% end %>
 </ul>

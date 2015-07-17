@@ -1,7 +1,7 @@
 <%= render 'header', title: t('views.monitorings.candidates'), event: @event %>
 
 <ul class="collapsible" data-collapsible="accordion">
-  <% @items.each do |item| %>
+  <% if @items.each do |item| %>
     <li>
       <div class="collapsible-header">
         <div class="row">
@@ -10,13 +10,17 @@
             <i class="<%= service_as_icon(item) %>"></i>
             <%= item.author.screen_name %>
           </div>
-          <%= link_to t('views.monitorings.buttons.approve'), approve_item_monitoring_path(@event.hash_tag, item), class: 'btn blue', method: :post %>
+
+          <%= link_to t('views.monitorings.buttons.approve'), approve_item_monitoring_path(@event.hash_tag, item),
+                      class: 'btn blue', method: :post %>
         </div>
       </div>
       <div class="collapsible-body">
         <%= render 'item_body', item: item %>
       </div>
     </li>
+  <% end.empty? %>
+    <h5 class="red-text lighten-2 center"><%= t('views.monitorings.no_candidates_items') %></h5>
   <% end %>
 </ul>
 

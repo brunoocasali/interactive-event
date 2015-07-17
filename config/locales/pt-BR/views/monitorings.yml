@@ -9,3 +9,5 @@ pt-BR:
       buttons:
         remove: Remover
         approve: Aprovar
+      no_approved_items: Você está rigoroso(a) hoje, ainda não aprovou nenhum item!
+      no_candidates_items: "Humm, que coisa! agita isso aí %{name} e poste algo com %{tag} !!"
