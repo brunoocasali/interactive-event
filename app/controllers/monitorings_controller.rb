@@ -7,11 +7,11 @@ class MonitoringsController < ApplicationController
   end
 
   def approved
-    @items = @event.items.approved.page(params[:page]) if @event
+    @items = @event.items.approved.order(:created_at).page(params[:page]) if @event
   end
 
   def candidates
-    @items = @event.items.listed.page(params[:page]) if @event
+    @items = @event.items.listed.order(:created_at).page(params[:page]) if @event
   end
 
   def approve
