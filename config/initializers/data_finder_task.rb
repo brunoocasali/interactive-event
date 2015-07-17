@@ -6,7 +6,7 @@ scheduler.every '2m' do
   begin
     Event.will_happen.each do |event|
       Search::Base.new(event).start_finder!
-    rescue => e
+    rescue e
       Rails.logger.info "--------------------------*****-------- ERROS #{e}"
   end
 end
