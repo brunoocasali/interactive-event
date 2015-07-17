@@ -9,7 +9,7 @@ module Search
 
           begin
             event.items << make_a_item_by(tweet)
-          rescue Exception => e
+          rescue => e
             Rails.logger.info "[#{Time.new.to_s(:long)}] ----- ERROR at twitter: #{e.message} -----"
           end
         end
