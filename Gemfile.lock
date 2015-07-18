@@ -60,6 +60,9 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
+    carrierwave-dropbox (1.2.1)
+      carrierwave (~> 0.9)
+      dropbox-sdk (~> 1.6)
     codeclimate-test-reporter (0.4.7)
       simplecov (>= 0.7.1, < 1.0.0)
     coffee-rails (4.1.0)
@@ -82,6 +85,8 @@ GEM
     diff-lcs (1.2.5)
     docile (1.1.5)
     dotenv (2.0.2)
+    dropbox-sdk (1.6.4)
+      json
     enumerate_it (1.2.8)
       activesupport (>= 3.0.0)
     equalizer (0.0.11)
@@ -255,6 +260,7 @@ DEPENDENCIES
   cancancan (~> 1.10)!
   capybara!
   carrierwave!
+  carrierwave-dropbox!
   codeclimate-test-reporter!
   database_cleaner!
   devise!

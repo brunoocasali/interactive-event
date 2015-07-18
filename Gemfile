@@ -19,8 +19,8 @@ source 'https://rubygems.org' do
   gem 'twitter'
   gem 'rufus-scheduler'
   gem 'kaminari'
-
   gem 'carrierwave'
+  gem 'carrierwave-dropbox'
   gem 'mini_magick'
 
   group :development, :test do
