@@ -14,7 +14,7 @@ class Event < ActiveRecord::Base
 
   has_enumeration_for :kind, with: EventKind, create_helpers: true, required: true
 
-  scope :will_happen, -> (date = DateTime.now) { where('start_at >= ?', date - 1) }
+  scope :will_happen, -> (date = Date.today) { where(start_at: date.days_ago(3)..date.days_since(3)) }
 
   def self.current
     where(start_at: DateTime.yesterday..DateTime.now).first
