@@ -7,6 +7,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads-#{Rails.env}/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  def cache_dir
+    "#{Rails.root}/tmp/uploads"
+  end
+
   version :big_screen do
     process resize_to_fill: [250, 250]
   end

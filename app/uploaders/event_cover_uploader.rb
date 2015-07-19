@@ -7,6 +7,10 @@ class EventCoverUploader < CarrierWave::Uploader::Base
     "uploads-#{Rails.env}/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  def cache_dir
+    "#{Rails.root}/tmp/uploads"
+  end
+
   version :normal do
     process resize_to_fill: [800, 600]
   end
