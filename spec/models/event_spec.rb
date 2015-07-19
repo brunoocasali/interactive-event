@@ -59,9 +59,9 @@ RSpec.describe Event, type: :model do
 
       it 'needs to return some objects' do
         event = create(:event, start_at: DateTime.now + 1)
-        create(:event, start_at: DateTime.now - 2)
+        event2 = create(:event, start_at: DateTime.now - 2)
 
-        expect(described_class.will_happen).to match_array([event])
+        expect(described_class.will_happen).to match_array([event, event2])
       end
     end
 
