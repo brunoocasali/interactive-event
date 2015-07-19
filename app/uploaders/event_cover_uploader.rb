@@ -8,7 +8,7 @@ class EventCoverUploader < CarrierWave::Uploader::Base
   end
 
   def cache_dir
-    "#{Rails.root}/tmp/uploads"
+    '/tmp/uploads'
   end
 
   version :normal do

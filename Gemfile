@@ -4,6 +4,7 @@ source 'https://rubygems.org' do
   gem 'rails', '4.2.0'
 
   gem 'pg'
+  gem 'rack-cache'
   gem 'uglifier', '>= 1.3.0'
   gem 'enumerate_it'
   gem 'devise'
@@ -19,7 +20,6 @@ source 'https://rubygems.org' do
   gem 'twitter'
   gem 'clockwork'
   gem 'kaminari'
-
   gem 'newrelic_rpm'
   gem 'carrierwave'
   gem 'carrierwave-dropbox'

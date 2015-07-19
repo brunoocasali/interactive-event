@@ -148,6 +148,8 @@ GEM
     pg (0.18.2)
     powerpack (0.1.1)
     rack (1.6.4)
+    rack-cache (1.2)
+      rack (>= 0.4)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.0)
@@ -281,6 +283,7 @@ DEPENDENCIES
   parallel_tests!
   passenger!
   pg!
+  rack-cache!
   rails (= 4.2.0)!
   rails-assets-font-awesome (= 4.3.0)!
   rails-assets-jquery (= 2.1.3)!
