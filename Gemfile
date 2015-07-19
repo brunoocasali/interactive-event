@@ -17,8 +17,9 @@ source 'https://rubygems.org' do
   gem 'cancancan', '~> 1.10'
   gem 'passenger'
   gem 'twitter'
-  gem 'rufus-scheduler'
+  gem 'clockwork'
   gem 'kaminari'
+
   gem 'carrierwave'
   gem 'carrierwave-dropbox'
   gem 'mini_magick'

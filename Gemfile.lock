@@ -63,6 +63,9 @@ GEM
     carrierwave-dropbox (1.2.1)
       carrierwave (~> 0.9)
       dropbox-sdk (~> 1.6)
+    clockwork (1.2.0)
+      activesupport
+      tzinfo
     codeclimate-test-reporter (0.4.7)
       simplecov (>= 0.7.1, < 1.0.0)
     coffee-rails (4.1.0)
@@ -206,7 +209,6 @@ GEM
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.4)
     ruby-progressbar (1.7.5)
-    rufus-scheduler (3.1.3)
     sass (3.4.16)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
@@ -261,6 +263,7 @@ DEPENDENCIES
   capybara!
   carrierwave!
   carrierwave-dropbox!
+  clockwork!
   codeclimate-test-reporter!
   database_cleaner!
   devise!
@@ -284,7 +287,6 @@ DEPENDENCIES
   responders (~> 2.0.2)!
   rspec-rails (~> 3.1.0)!
   rubocop!
-  rufus-scheduler!
   sass!
   shoulda-matchers (~> 2.7.0)!
   simple_form (~> 3.1.0)!
