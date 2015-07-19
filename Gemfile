@@ -20,6 +20,7 @@ source 'https://rubygems.org' do
   gem 'clockwork'
   gem 'kaminari'
 
+  gem 'newrelic_rpm'
   gem 'carrierwave'
   gem 'carrierwave-dropbox'
   gem 'mini_magick'
