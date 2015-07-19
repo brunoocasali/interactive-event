@@ -1,1 +1,1 @@
-web: bundle exec passenger start -p $PORT --min-instances 1
+web: bundle exec passenger start -p $PORT --min-instances 2
