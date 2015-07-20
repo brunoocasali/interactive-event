@@ -15,17 +15,17 @@ class MonitoringsController < ApplicationController
   end
 
   def approve
-    @item.approved!
-    @item.save!
+    @item.update_attributes(status: ItemStatus::APPROVED)
 
-    respond_with(@event, location: approved_monitoring_path(@event.hash_tag))
+    respond_with(@event, location: candidates_monitoring_path(@event.hash_tag),
+                         notice: t('views.monitorings.actions.approve.approved', spawn: @item.service_spawn.to_s))
   end
 
   def destroy
-    @item.removed!
-    @item.save!
+    @item.update_attributes(status: ItemStatus::REMOVED)
 
-    respond_with(@event, location: approved_monitoring_path(@event.hash_tag))
+    respond_with(@event, location: approved_monitoring_path(@event.hash_tag),
+                         notice: t('views.monitorings.actions.remove.removed', spawn: @item.service_spawn.to_s))
   end
 
   private

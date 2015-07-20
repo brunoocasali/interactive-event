@@ -11,3 +11,9 @@ pt-BR:
         approve: Aprovar
       no_approved_items: Você está rigoroso(a) hoje, ainda não aprovou nenhum item!
       no_candidates_items: "Humm, que coisa! agita isso aí %{name} e poste algo com %{tag} !!"
+
+      actions:
+        approve:
+          approved: "%{spawn} aprovado(a) com sucesso."
+        remove:
+          removed: "%{spawn} removido(a) com sucesso."

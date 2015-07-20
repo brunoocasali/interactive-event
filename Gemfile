@@ -22,7 +22,7 @@ source 'https://rubygems.org' do
   gem 'kaminari'
   gem 'newrelic_rpm'
   gem 'carrierwave'
-  gem 'carrierwave-dropbox'
+  gem 'cloudinary'
   gem 'mini_magick'
 
   group :development, :test do

@@ -4,10 +4,6 @@ Rails.application.routes.draw do
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' },
                      controllers: { confirmations: 'confirmations' }
 
-  # scope :profiles do
-  #   get :dashboard, to: 'profiles#dashboard', as: :user_root
-  # end
-
   resources :monitoring, controller: :monitorings, only: :index, param: :hash_tag do
     member do
       delete 'destroy/:item_id', as: :destroy_item, to: 'monitorings#destroy'

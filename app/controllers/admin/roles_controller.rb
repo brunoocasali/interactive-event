@@ -27,7 +27,7 @@ class Admin::RolesController < ApplicationController
     @role = Role.new(role_params)
     @role.save
 
-    respond_with(:admin,@role)
+    respond_with(:admin, @role)
   end
 
   def update
