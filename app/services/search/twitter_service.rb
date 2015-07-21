@@ -8,9 +8,7 @@ module Search
           break if tweet.id.to_s.eql?(last) || i.eql?(100)
 
           begin
-            ActiveRecord::Base.transaction do
-              event.items << make_a_item_by(tweet)
-            end
+            ActiveRecord::Base.transaction { event.items << make_a_item_by(tweet) }
           rescue => e
             Rails.logger.info "----- ERROR at twitter: #{e.message} -----\n"
           end

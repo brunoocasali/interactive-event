@@ -1,3 +1,5 @@
-class Admin::WelcomeController < Admin::AdminController
-  def index; end
+module Admin
+  class WelcomeController < Admin::AdminController
+    def index; end
+  end
 end
