@@ -10,6 +10,7 @@ class Item < ActiveRecord::Base
   mount_uploader :image, SlideImageUploader
 
   has_enumeration_for :status, with: ItemStatus, required: true, create_scopes: true,
-                      create_helpers: true
-  has_enumeration_for :service, with: ServiceKind, required: true, create_scopes: true
+                               create_helpers: true
+  has_enumeration_for :service, with: ServiceKind, required: true, create_scopes: true,
+                                create_helpers: { polymorphic: { suffix: '_spawn' } }
 end

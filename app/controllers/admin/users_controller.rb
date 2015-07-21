@@ -1,61 +1,63 @@
-class Admin::UsersController < Admin::AdminController
-  load_and_authorize_resource
+module Admin
+  class UsersController < Admin::AdminController
+    load_and_authorize_resource
 
-  def index
-    @users = User.allowed
-  end
-
-  def show
-    @joined_on = @user.created_at.to_formatted_s(:short)
-    if @user.current_sign_in_at
-      @last_login = @user.current_sign_in_at.to_formatted_s(:short)
-    else
-      @last_login = 'nunca acessou!'
+    def index
+      @users = User.allowed
     end
 
-    respond_with([@user, @last_login, @joined_on],
-                 location: admin_user_path(@user))
-  end
+    def show
+      @joined_on = @user.created_at.to_formatted_s(:short)
+      if @user.current_sign_in_at
+        @last_login = @user.current_sign_in_at.to_formatted_s(:short)
+      else
+        @last_login = 'nunca acessou!'
+      end
 
-  def new; end
-
-  def edit; end
-
-  def create
-    @user.save
-
-    respond_with(:admin, @user)
-  end
-
-  def update
-    if user_params[:password].blank?
-      user_params.delete(:password)
-      user_params.delete(:password_confirmation)
+      respond_with([@user, @last_login, @joined_on],
+                   location: admin_user_path(@user))
     end
 
-    if needs_password?(@user, user_params)
-      @user.update(user_params)
-    else
-      @user.update_without_password(user_params)
+    def new; end
+
+    def edit; end
+
+    def create
+      @user.save
+
+      respond_with(:admin, @user)
     end
 
-    respond_with(:admin, @user)
-  end
+    def update
+      if user_params[:password].blank?
+        user_params.delete(:password)
+        user_params.delete(:password_confirmation)
+      end
 
-  def destroy
-    @user.destroy
+      if needs_password?(@user, user_params)
+        @user.update(user_params)
+      else
+        @user.update_without_password(user_params)
+      end
 
-    respond_with(:admin, @user)
-  end
+      respond_with(:admin, @user)
+    end
 
-  private
+    def destroy
+      @user.destroy
 
-  def needs_password?(_user, params)
-    params[:password].present?
-  end
+      respond_with(:admin, @user)
+    end
 
-  def user_params
-    params.require(:user).permit(:email, :phone, :password, :name, :role_id,
-                                 :password_confirmation)
+    private
+
+    def needs_password?(_user, params)
+      params[:password].present?
+    end
+
+    def user_params
+      params.require(:user).permit(:email, :phone, :password, :name, :role_id,
+                                   :password_confirmation)
+    end
   end
 end

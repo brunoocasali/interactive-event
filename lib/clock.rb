@@ -4,7 +4,7 @@ require 'clockwork'
 
 include Clockwork
 
-every(2.minutes, 'Running Event Finder.') do
+every(2.minutes, '-------------------***---- RUN: Event Finder!') do
   Event.will_happen.each do |event|
     Search::Base.new(event).start_finder!
   end

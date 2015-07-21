@@ -8,11 +8,9 @@ module Search
           break if tweet.id.to_s.eql?(last) || i.eql?(100)
 
           begin
-            ActiveRecord::Base.transaction do
-              event.items << make_a_item_by(tweet)
-            end
+            ActiveRecord::Base.transaction { event.items << make_a_item_by(tweet) }
           rescue => e
-            Rails.logger.info "[#{Time.new.to_s(:long)}] ----- ERROR at twitter: #{e.message} -----"
+            Rails.logger.info "----- ERROR at twitter: #{e.message} -----\n"
           end
         end
       end
@@ -33,7 +31,7 @@ module Search
 
       def make_an_author_by(user)
         author = Author.find_or_create_by!(id: user.id,
-                                           name: (user.name.nil? ? 'username!' : user.name),
+                                           name: user.try(&:name) || 'username',
                                            screen_name: "@#{user.screen_name}",
                                            profile_url: "https://twitter.com/#{user.screen_name}",
                                            service: ServiceKind::TWITTER)

@@ -9,12 +9,8 @@ class Ability
     elsif user.common?
       can :read, Item
       can :create, Item
-      can :update, Item do |item|
-        item.try(:user) == user
-      end
-      can :destroy, Item do |item|
-        item.try(:user) == user
-      end
+      can :update, Item { |item| item.try(:user) == user }
+      can :destroy, Item { |item| item.try(:user) == user }
     elsif user.common?
       can :read, Item
     end
