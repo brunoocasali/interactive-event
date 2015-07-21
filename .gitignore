@@ -25,3 +25,4 @@ stdout
 ### RubyMine ###
 ## Directory-based project format:
 .idea/
+cloudinary.yml
