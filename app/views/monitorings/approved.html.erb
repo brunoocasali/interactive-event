@@ -5,22 +5,29 @@
     <li>
       <div class="collapsible-header">
         <div class="row">
-          <div class="col s7 m10 l10">
+          <div class="col s12 m9 l10">
             <i class="mdi-<%= item.image? ? 'image-photo-camera' : 'editor-format-align-justify' %>"></i>
             <i class="<%= service_as_icon(item) %>"></i>
             <%= item.author.screen_name %>
           </div>
-
           <%= link_to t('views.monitorings.buttons.remove'), destroy_item_monitoring_path(@event.hash_tag, item),
-                      method: :delete, class: 'btn lighten-1 red' %>
+                      method: :delete, class: 'btn lighten-1 red hide-on-small-only' %>
         </div>
       </div>
       <div class="collapsible-body">
-        <%= render 'item_body', item: item %>
+        <div class="row">
+          <%= render 'item_body', item: item %>
+          <div class="col s12 center-align hide-on-med-and-up">
+            <%= link_to t('views.monitorings.buttons.remove'), destroy_item_monitoring_path(@event.hash_tag, item),
+                        class: 'btn lighten-1 red col s12', method: :delete %>
+          </div>
+        </div>
       </div>
     </li>
   <% end.empty? %>
-    <h5 class="red-text lighten-2 center"><%= t('views.monitorings.no_approved_items') %></h5>
+    <h5 class="red-text lighten-2 center">
+      <%= t('views.monitorings.no_approved_items') %>
+    </h5>
   <% end %>
 </ul>
 
@@ -30,7 +37,7 @@
   </div>
 </div>
 
-<div class="fixed-action-btn fab-position ">
+<div class="fixed-action-btn fab-position">
   <%= link_to candidates_monitoring_url, title: t('views.monitorings.candidates'), class: 'btn-floating btn-large green' do %>
     <i class="large mdi-action-search"></i>
   <% end %>

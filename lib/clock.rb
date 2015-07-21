@@ -5,7 +5,9 @@ require 'clockwork'
 include Clockwork
 
 every(2.minutes, '-------------------***---- RUN: Event Finder!') do
-  Event.will_happen.each do |event|
-    Search::Base.new(event).start_finder!
+  ActiveRecord::Base.connection_pool.with_connection do
+    Event.will_happen.each do |event|
+      Search::Base.new(event).start_finder!
+    end
   end
 end

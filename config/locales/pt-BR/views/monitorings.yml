@@ -1,6 +1,7 @@
 pt-BR:
   views:
     monitorings:
+      button: Monitorar
       title: Monitoramento
       approveds: Aprovados
       candidates: Candidatos

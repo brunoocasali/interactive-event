@@ -5,7 +5,7 @@
     <li>
       <div class="collapsible-header">
         <div class="row">
-          <div class="col s12 m9 l10 ">
+          <div class="col s12 m9 l10">
             <i class="mdi-<%= item.image? ? 'image-photo-camera' : 'editor-format-align-justify' %>"></i>
             <i class="<%= service_as_icon(item) %>"></i>
             <%= item.author.screen_name %>
@@ -15,7 +15,13 @@
         </div>
       </div>
       <div class="collapsible-body">
-        <%= render 'item_body', item: item %>
+        <div class="row">
+          <%= render 'item_body', item: item %>
+          <div class="col s12 center-align hide-on-med-and-up">
+            <%= link_to t('views.monitorings.buttons.approve'), approve_item_monitoring_path(@event.hash_tag, item),
+                        class: 'btn blue col s12', method: :post %>
+          </div>
+        </div>
       </div>
     </li>
   <% end.empty? %>
@@ -33,7 +39,7 @@
 
 <div class="fixed-action-btn fab-position">
   <%= link_to approved_monitoring_url, title: t('views.monitorings.approveds'), class: 'btn-floating btn-large green' do %>
-    <i class="large mdi-navigation-check"></i>
+    <i class="large mdi-action-done-all"></i>
   <% end %>
 
   <%= render 'fab' %>
