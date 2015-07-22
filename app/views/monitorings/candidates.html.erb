@@ -31,11 +31,7 @@
   <% end %>
 </ul>
 
-<div class="row">
-  <div class="col offset-s3">
-    <%= paginate @items %>
-  </div>
-</div>
+<%= render 'pagination' %>
 
 <div class="fixed-action-btn fab-position">
   <%= link_to approved_monitoring_url, title: t('views.monitorings.approveds'), class: 'btn-floating btn-large green' do %>

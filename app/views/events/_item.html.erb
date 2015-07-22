@@ -15,9 +15,10 @@
       </a>
     </div>
 
-    <ul id='dropdown' class='dropdown-content'>
+    <ul id="dropdown" class="dropdown-content">
       <li><%= link_to_edit edit_event_path(event) %></li>
       <li><%= link_to_destroy event %></li>
+      <li><%= link_to t('views.monitorings.button'), candidates_monitoring_url(event.hash_tag) %></li>
     </ul>
   <% end -%>
 </li>

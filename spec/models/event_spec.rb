@@ -22,29 +22,29 @@ RSpec.describe Event, type: :model do
   context 'model attributes' do
     it do
       is_expected.to have_db_column(:user_id).of_type(:integer)
-        .with_options(null: false)
+                         .with_options(null: false)
     end
 
     it do
       is_expected.to have_db_column(:hash_tag).of_type(:string)
-        .with_options(limit: 75, null: false)
+                         .with_options(limit: 75, null: false)
     end
     it do
       is_expected.to have_db_column(:title).of_type(:string)
-        .with_options(limit: 75, null: false)
+                         .with_options(limit: 75, null: false)
     end
     it do
       is_expected.to have_db_column(:cover).of_type(:string)
-        .with_options(limit: 255)
+                         .with_options(limit: 255)
     end
 
     it do
       is_expected.to have_db_column(:start_at).of_type(:datetime)
-        .with_options(null: false)
+                         .with_options(null: false)
     end
     it do
       is_expected.to have_db_column(:end_at).of_type(:datetime)
-        .with_options(null: false)
+                         .with_options(null: false)
     end
   end
 
@@ -65,6 +65,19 @@ RSpec.describe Event, type: :model do
       end
     end
 
+    describe '.current' do
+      it { expect(described_class).to respond_to(:current) }
+
+      it 'needs to return the current event' do
+        event = create(:event, start_at: DateTime.now, end_at: DateTime.now + 2.days)
+        create(:event, start_at: DateTime.now - 2.days)
+
+        expect(described_class.current).to eq(event)
+      end
+    end
+  end
+
+  context 'instance methods' do
     describe '#tweets' do
       subject { create(:event, services: %w(ServiceKind::TWITTER)) }
 

@@ -6,7 +6,9 @@
   <% if @events.each do |event| -%>
     <%= render 'item', event: event %>
   <% end.empty? %>
-    <h5 class="red-text lighten-2 center"><%= t('views.events.no_items') %></h5>
+    <h5 class="red-text lighten-2 center">
+      <%= t('views.events.no_items') %>
+    </h5>
   <% end %>
 </ul>
 
