@@ -1,11 +1,12 @@
-<%= simple_form_for(@contact) do |f| %>
+<%= simple_form_for(@contact, url: admin_contacts_url) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="row valign-wrapper">
+    <div class="col s8">
+      <%= f.input :email, class: 'flow-text light', placeholder: ta(User, :email), label: false %>
+    </div>
+    <div class="col s3">
+      <%= link_to 'Enviar', '#', class: 'btn blue valign', onclick: "$(this).closest('form').submit();" %>
+    </div>
   </div>
 <% end %>

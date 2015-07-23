@@ -12,13 +12,7 @@
     <% @contacts.each do |contact| %>
       <tr>
         <td><%= contact.email %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Contact', new_contact_path %>

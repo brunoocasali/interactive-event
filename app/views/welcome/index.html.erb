@@ -28,13 +28,10 @@
         <h5 class="header col s12 light"><%= t('views.project.description') %></h5>
       </div>
       <div class="row center">
-        <!-- login -->
-        <a href="#" id="download-button" class="btn-large waves-effect waves-light orange lighten-1">
+        <a href="#" class="btn-large waves-effect waves-light orange lighten-1">
           <%= t('views.project.started') %>
         </a>
       </div>
-      <br><br>
-
     </div>
   </div>
   <div class="parallax">
@@ -114,8 +111,8 @@
         </p>
       </div>
 
-      <div class="col s9 offset-s2">
-        <input type="email" placeholder="email"/>
+      <div class="col s9 offset-s2 light">
+        <%= render 'admin/contacts/form' %>
       </div>
     </div>
   </div>
