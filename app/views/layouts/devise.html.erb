@@ -13,7 +13,10 @@
 <div>
   <%= render 'layouts/shared/header' %>
 </div>
-<div class="min-body">
+<div class="container min-body hide-on-small-only">
+  <%= yield %>
+</div>
+<div class="min-body hide-on-med-and-up">
   <%= yield %>
 </div>
 <div>
