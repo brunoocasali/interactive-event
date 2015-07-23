@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      event:
+        one: Interessado
+        other: Interessados
+    attributes:
+      event:
+        email: Email
