@@ -3,13 +3,13 @@
     <i class="<%= show_as_icon(event) %>"></i>
     <span class="title"><%= event.title %></span>
 
-    <p class="grey-text valign-wrapper">
+    <p class="black-text valign-wrapper">
       <i class="mdi-action-today"></i>
       <span class="icon-toast"><%= l event.start_at.to_date, format: :short %></span>
     </p>
 
     <div class="secondary-content valign-wrapper">
-      <h5 class="hide-on-small-only"><%= event.tag  %></h5>
+      <h5 class="hide-on-small-only"><%= event.tag %></h5>
       <a href="#" data-activates="dropdown" class="flow-text dropdown-button">
         <i class="black-text mdi-navigation-more-vert valign"></i>
       </a>

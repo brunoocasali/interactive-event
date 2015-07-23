@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
     resources :users
     resources :roles, except: :show
+    resources :contacts, only: [:create, :index, :new]
   end
 
   devise_scope :user do

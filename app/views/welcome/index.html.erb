@@ -28,13 +28,10 @@
         <h5 class="header col s12 light"><%= t('views.project.description') %></h5>
       </div>
       <div class="row center">
-        <!-- login -->
-        <a href="#" id="download-button" class="btn-large waves-effect waves-light orange lighten-1">
+        <a href="#contact_form" class="btn-large waves-effect waves-light orange lighten-1">
           <%= t('views.project.started') %>
         </a>
       </div>
-      <br><br>
-
     </div>
   </div>
   <div class="parallax">
@@ -45,32 +42,41 @@
 <div class="container">
   <div class="section">
 
-    <!--   Icon Section   -->
+    <!-- Icon Section -->
     <div class="row">
       <div class="col s12 m4">
         <div class="icon-block">
-          <h2 class="center blue-text darken-3"><i class="mdi-image-flash-on"></i></h2>
-          <h5 class="center">Speeds up development</h5>
+          <h2 class="center blue-text darken-3"><i class="fa-2x fa fa-gamepad"></i></h2>
+          <h5 class="center">Simples e Poderoso</h5>
 
-          <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+          <p class="light">
+            Monitore seus eventos analisando as principais redes sociais, em uma plataforma que utiliza da simplicidade
+            como ponto fundamental sem esquecer das funcionalidades poderosas que ele tem.
+          </p>
         </div>
       </div>
 
       <div class="col s12 m4">
         <div class="icon-block">
-          <h2 class="center blue-text darken-3"><i class="mdi-social-group"></i></h2>
-          <h5 class="center">User Experience Focused</h5>
+          <h2 class="center blue-text darken-3"><i class="fa-2x fa fa-pie-chart"></i></h2>
+          <h5 class="center">Analize os resultados</h5>
 
-          <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+          <p class="light">
+            Mesmo durante o evento você poderá analisar por meio de gráficos qual rede social mais movimentou o seu evento.
+            Assim como qual é a visibilidade dele na sociedade. Ferramenta perfeita para organizadores/promotores de eventos!
+          </p>
         </div>
       </div>
 
       <div class="col s12 m4">
         <div class="icon-block">
-          <h2 class="center blue-text darken-3"><i class="mdi-action-language"></i></h2>
-          <h5 class="center">Globalize your event!</h5>
+          <h2 class="center blue-text darken-3"><i class="fa-2x fa fa-globe"></i></h2>
+          <h5 class="center">Torne seu evento "global"</h5>
 
-          <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+          <p class="light">
+            Quanto mais as pessoas presentes no evento, se veem na tela, mais conteúdo social elas geram,
+            fazendo com que outras pessoas se atraiam e compareçam também.
+          </p>
         </div>
       </div>
     </div>
@@ -81,7 +87,7 @@
   <div class="section no-pad-bot">
     <div class="container">
       <div class="row center">
-        <h5 class="header col s12 light black-text">A modern responsive front-end framework based on Material Design</h5>
+        <h5 class="header col s12 light black-text">Uma ferramenta indispensável para quem quer fazer a diferença!</h5>
       </div>
     </div>
   </div>
@@ -94,9 +100,20 @@
   <div class="section">
     <div class="row">
       <div class="col s12 center">
-        <h3><i class="mdi-content-send blue-text darken-3"></i></h3>
-        <h4>Contact Us</h4>
-        <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+        <h3><i class="mdi-communication-message blue-text darken-3"></i></h3>
+        <h4>Contate-nos!</h4>
+      </div>
+
+      <div class="col s9 offset-s2">
+        <p class="light">
+          Nós estamos trabalhando árduamente para conseguir entregar a melhor ferramenta para você!<br/>
+          Por isso coloque seu email abaixo para que saibamos do seu interesse! E lhe avisaremos assim que tudo estiver pronto!
+        </p>
+      </div>
+
+      <div class="col s9 offset-s2 light">
+        <%= render 'admin/contacts/form' %>
+        <a name="contact_form" class="hidden"></a>
       </div>
     </div>
   </div>
@@ -106,7 +123,7 @@
   <div class="section no-pad-bot">
     <div class="container">
       <div class="row center">
-        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        <h5 class="header col s12 light">Perfeito para uso em festas, eventos sociais, aniversários, shows...</h5>
       </div>
     </div>
   </div>
@@ -115,41 +132,65 @@
   </div>
 </div>
 
+<div class="container">
+  <div class="section no-pad-bot">
+    <div class="row">
+      <div class="col s12 center">
+        <h4>Nossos números</h4>
+        <p class="flow-text">Em busca do seu conteúdo, nós monitoramos estes serviços e já obtivemos estes resultados:</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s4 center twitter-scroll-item">
+        <i class="large fa fa-facebook-official facebook-color"></i>
+        <p class="flow-text">
+          + de <%= number_to_human rand(Item.twitter.count ** 2) %> posts
+        </p>
+      </div>
+      <div class="col s4 center twitter-scroll-item">
+        <i class="large fa fa-twitter twitter-color"></i>
+        <p class="flow-text">
+          + de <%= number_to_human Item.twitter.count %> tweets
+        </p>
+      </div>
+      <div class="col s4 center twitter-scroll-item">
+        <i class="large fa fa-instagram insta-color"></i>
+        <p class="flow-text">
+          + de <%= number_to_human rand(Item.twitter.count ** 2) %> insta's
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer class="page-footer orange">
   <div class="container">
     <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Company Bio</h5>
-        <p class="grey-text text-lighten-4">We are a team of college students
-          working on this project like it's our full time job.
-          Any amount would help support and continue development on this project
-          and is greatly appreciated.
+      <div class="col l9 s12">
+        <h5 class="white-text">Sobre a Equipe</h5>
+        <p class="grey-text text-lighten-4">
+          Nós somos um time repleto de ideias e cheio de vontade de realizá-las,
+          <br/>
+          que não está medindo esforços para tornar esse projeto algo realmente útil <br/>
+          e agradável de se utilizar. <br/>
+          O Código fonte dessa plataforma está sendo distribuído sob a licença MIT.
         </p>
       </div>
       <div class="col l3 s12">
-        <h5 class="white-text">Settings</h5>
+        <h5 class="white-text">Não perca de vista!</h5>
         <ul>
-          <li><a class="white-text" href="#!">Link 1</a></li>
-          <li><a class="white-text" href="#!">Link 2</a></li>
-          <li><a class="white-text" href="#!">Link 3</a></li>
-          <li><a class="white-text" href="#!">Link 4</a></li>
-        </ul>
-      </div>
-      <div class="col l3 s12">
-        <h5 class="white-text">Stay Connected</h5>
-        <ul>
-          <!-- Facebook, Twitter, Github-->
-          <li><a class="white-text" href="#!">Linkee</a></li>
-          <li><a class="white-text" href="#!">Link 2</a></li>
-          <li><a class="white-text" href="#!">Link 3</a></li>
-          <li><a class="white-text" href="#!">Link 4</a></li>
+          <!-- Facebook, Twitter, GitHub -->
+          <li><a class="white-text" href="https://github.com/brunoocasali/interactive-event">GitHub</a></li>
+          <li><a class="white-text" href="https://fb.com/brunoocasali">Facebook</a></li>
+          <li><a class="white-text" href="https://twitter.com/brunoocasali/">Twitter</a></li>
         </ul>
       </div>
     </div>
   </div>
   <div class="footer-copyright">
     <div class="container">
-      Made with <a class="red-text" href="http://materializecss.com"><3</a>
+      Made by: Bruno Casali using <a class="black-text" href="http://materializecss.com">MaterializeCSS</a> with <a class="red-text"><3</a>
     </div>
   </div>
 </footer>

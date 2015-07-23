@@ -17,8 +17,6 @@ module NoticeManagerHelper
       'mdi-action-done small green-text'
     when 'alert'
       'mdi-alert-warning small yellow-text'
-    else
-      'mdi-action-info small light-blue-text'
     end
   end
 end

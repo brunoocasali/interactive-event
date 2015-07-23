@@ -1,0 +1,15 @@
+<h4><%= tmp(Contact) %></h4>
+
+<br />
+
+<div class="collection">
+  <% @contacts.each do |contact| %>
+    <a href="#!" class="collection-item"><%= contact.email %></a>
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="col offset-l3 offset-m2 s12 m10 l9">
+    <%= paginate @contacts %>
+  </div>
+</div>

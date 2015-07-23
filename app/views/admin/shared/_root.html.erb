@@ -5,7 +5,18 @@
     <div class="card-panel pink">
       <div class="valign-wrapper">
         <i class="mdi-action-settings large"></i>
-        <h5 class="center-align center-block "><%= t('views.dashboard.role') %></h5>
+        <h5 class="center-align center-block"><%= t('views.dashboard.role') %></h5>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="col l6 s12 m6">
+  <%= link_to admin_contacts_url, class: 'white-text' do %>
+    <div class="card-panel black">
+      <div class="valign-wrapper">
+        <i class="mdi-action-assignment large"></i>
+        <h5 class="center-align center-block"><%= t('views.dashboard.contact') %></h5>
       </div>
     </div>
   <% end %>
