@@ -40,3 +40,14 @@ $('.profile-dropdown').dropdown({
         belowOrigin: true
     }
 );
+
+function showItem(selector){
+    $(selector).removeClass('hidden');
+}
+
+var options = [
+    {selector: '.twitter-scroll-item', offset: 200, callback: "showItem('.twitter-scroll-item')" },
+    {selector: '.facebook-scroll-item', offset: 200, callback: "showItem('.facebook-scroll-item')" },
+    {selector: '.instagram-scroll-item', offset: 200, callback: "showItem('.instagram-scroll-item')" }
+];
+scrollFire(options);
