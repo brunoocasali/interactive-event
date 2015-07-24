@@ -5,12 +5,12 @@
     <%= f.association :user, as: :hidden, input_html: { value: current_user_id } %>
     <div class="row">
       <div class="input-field col s12">
-        <%= f.input :hash_tag, class: 'validate' %>
+        <%= f.input :hash_tag, input_html: { class: 'validate' } %>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <%= f.input :title, class: 'validate' %>
+        <%= f.input :title, input_html: { class: 'validate' } %>
       </div>
     </div>
     <div class="row">
@@ -30,7 +30,7 @@
       <div class="input-field col s12">
         <div class="file-field input-field">
           <input class="file-path validate" type="text"/>
-          <%= f.input :cover, as: :file, class: 'btn validate' %>
+          <%= f.input :cover, as: :file, input_html: { class: 'btn validate' } %>
           <%= f.input :cover_cache, as: :hidden %>
         </div>
       </div>

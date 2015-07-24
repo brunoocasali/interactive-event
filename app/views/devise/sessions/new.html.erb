@@ -4,15 +4,17 @@
       <h2><%= t('devise.buttons.sign_in') %></h2>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+
         <div class="row">
           <div class="input-field col s12">
-            <%= f.input :email, autofocus: true, class: 'validate active' %>
+            <%= f.input :email, autofocus: true, input_html: { class: 'validate active' } %>
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col s12">
-            <%= f.input :password, class: 'validate', required: true %>
+            <%= f.input :password, required: true, input_html: { class: 'validate' } %>
           </div>
         </div>
 

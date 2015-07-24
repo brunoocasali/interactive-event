@@ -12,12 +12,12 @@
       <div class="row">
         <div class="row">
           <div class="input-field col s12">
-            <%= f.input :name, class: 'validate' %>
+            <%= f.input :name, input_html: { class: 'validate' } %>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <%= f.input :email, as: :email, class: 'validate' %>
+            <%= f.input :email, as: :email, input_html: { class: 'validate' } %>
           </div>
         </div>
         <div class="row">
