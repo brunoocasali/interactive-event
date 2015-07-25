@@ -69,8 +69,8 @@ RSpec.describe Event, type: :model do
       it { expect(described_class).to respond_to(:current) }
 
       it 'needs to return the current event' do
-        event = create(:event, start_at: DateTime.now, end_at: DateTime.now + 2.days)
-        create(:event, start_at: DateTime.now - 2.days)
+        event = create(:event, start_at: Time.zone.yesterday, end_at: Time.zone.now + 2.days)
+        create(:event, start_at: Time.zone.now - 2.days, end_at: Time.zone.yesterday)
 
         expect(described_class.current).to eq(event)
       end

@@ -17,7 +17,8 @@ class Event < ActiveRecord::Base
   scope :will_happen, -> (date = Date.today) { where(start_at: date.days_ago(3)..date.days_since(3)) }
 
   def self.current
-    where(start_at: Date.yesterday..Date.tomorrow).first
+    today = Time.zone.now.beginning_of_day
+    find_by('? >= "events".start_at AND ? <= "events".end_at', today, today)
   end
 
   def tweets
