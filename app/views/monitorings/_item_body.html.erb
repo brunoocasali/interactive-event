@@ -1,6 +1,6 @@
 <% if item.image? %>
   <div class="col s12 m6 l6">
-    <p class="flow-text"><%= item.text %></p>
+    <p class="flow-text"><%= truncate item.text, length: 200 %></p>
   </div>
   <div class="col s12 m6 l6">
     <p>
