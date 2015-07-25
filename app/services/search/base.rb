@@ -11,7 +11,11 @@ module Search
     end
 
     def find_with_twitter!
-      TwitterService.find_tweets_for(@event, $twitter_client)
+      TwitterService.find_tweets_for(@event)
+    end
+
+    def find_with_instagram!
+      InstagramService.find_media_items_for(@event)
     end
   end
 end

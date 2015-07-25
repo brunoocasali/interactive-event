@@ -29,7 +29,7 @@ RSpec.describe Search::Base, type: :service do
     it 'needs to call specific class' do
       event = create(:event, services: [ServiceKind::TWITTER])
 
-      expect(Search::TwitterService).to receive(:find_tweets_for).with(event, $twitter_client)
+      expect(Search::TwitterService).to receive(:find_tweets_for).with(event)
 
       described_class.new(event).start_finder!
     end

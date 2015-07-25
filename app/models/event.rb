@@ -25,6 +25,10 @@ class Event < ActiveRecord::Base
     items.twitter
   end
 
+  def medias
+    items.instagram
+  end
+
   def tag
     "##{hash_tag}"
   end
