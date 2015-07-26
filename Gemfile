@@ -21,6 +21,7 @@ source 'https://rubygems.org' do
   # Searches
   gem 'twitter'
   gem 'instagram'
+  gem 'koala', '~> 2.0'
 
   gem 'clockwork'
   gem 'kaminari'
