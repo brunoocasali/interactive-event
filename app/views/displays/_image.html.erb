@@ -21,7 +21,7 @@
           </div>
           <div class="col s9">
             <p class="blue-text" style="font-size: 18px"><%= @item.author.screen_name %></p>
-            <p class="black-text" style="font-size: 20px"><%= @item.text %></p>
+            <p class="black-text" style="font-size: 20px"><%= truncate @item.text, length: 200 %></p>
           </div>
         </div>
       </div>

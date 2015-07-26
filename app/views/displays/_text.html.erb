@@ -8,7 +8,7 @@
         <div class="col s10">
           <blockquote class="blockquote-orange">
             <p class="lighten-3 flow-text">
-              <%= @item.text %>
+              <%= truncate @item.text, length: 350 %>
             </p>
             <span class="blue-text flow-text"><%= @item.author.screen_name %></span>
           </blockquote>

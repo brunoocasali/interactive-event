@@ -13,4 +13,6 @@ class Item < ActiveRecord::Base
                                create_helpers: true
   has_enumeration_for :service, with: ServiceKind, required: true, create_scopes: true,
                                 create_helpers: { polymorphic: { suffix: '_spawn' } }
+
+  scope :ordered, -> { order('created_at DESC') }
 end

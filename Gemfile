@@ -17,7 +17,11 @@ source 'https://rubygems.org' do
   gem 'jquery-rails'
   gem 'cancancan', '~> 1.10'
   gem 'passenger'
+
+  # Searches
   gem 'twitter'
+  gem 'instagram'
+
   gem 'clockwork'
   gem 'kaminari'
   gem 'newrelic_rpm'

@@ -2,7 +2,7 @@ module Search
   class TwitterService
     class << self
       def find_tweets_for(event, client = $twitter_client)
-        last = event.items.last.try(&:id)
+        last = event.tweets.last.try(&:id)
 
         client.search("#{event.tag} -rt", result_type: :recent).each_with_index do |tweet, i|
           break if tweet.id.to_s.eql?(last) || i.eql?(100)
