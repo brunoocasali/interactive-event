@@ -3,7 +3,7 @@ class UserRegistration < ApplicationMailer
     @user = user
     @user.reset_password_token = Devise.token_generator.generate(User, :reset_password_token)
 
-    mail(to: user.unconfirmed_email, subject: I18n.t('mailers.user_registration.subject'),
+    mail(to: user.email, subject: I18n.t('mailers.user_registration.subject'),
          template_path: 'devise/mailer', template_name: 'first_instructions')
   end
 end
