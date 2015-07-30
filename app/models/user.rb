@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def send_admin_mail
-    UserRegistration.send_first_instructions(self).deliver
+    UserRegistration.first_instructions(self).deliver_now if Rails.env.production?
   end
 
   def admin?
