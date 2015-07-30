@@ -10,22 +10,34 @@ pt-BR:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
-    # Examples
-    # labels:
-    #   defaults:
-    #     password: 'Password'
-    #   user:
-    #     new:
-    #       email: 'E-mail to sign in.'
-    #     edit:
-    #       email: 'E-mail.'
-    # hints:
-    #   defaults:
-    #     username: 'User name to sign in.'
-    #     password: 'No special characters, please.'
-    # include_blanks:
-    #   defaults:
-    #     age: 'Rather not say'
-    # prompts:
-    #   defaults:
-    #     age: 'Select your age'
+
+    mask:
+      date:
+        format: '00/00/0000'
+        placeholder: '__/__/____'
+
+      time:
+        format: '00:00:00'
+        placeholder: '__:__:__'
+
+      datetime:
+        format: '00 00/0000 00:00:00'
+        placeholder: '__/__/____ __:__:__'
+
+      cellphone:
+        format: '(00) #0000-0000'
+        placeholder: '(__) _____-____'
+
+      phone:
+        format: '(00) 0000-0000'
+        placeholder: '(__) ____-____'
+
+      zipcode:
+        format: '00000-000'
+        placeholder: '_____-___'
+
+      currency:
+        format: '000.000.000.000.000,00'
+
+      percent:
+        format: '##0,00%'

@@ -142,19 +142,20 @@
     </div>
 
     <div class="row">
-      <div class="col s12 m4 l4 center twitter-scroll-item">
-        <i class="large fa fa-facebook-official facebook-color"></i>
-        <p class="flow-text">
-          + de <%= number_to_human rand(Item.twitter.count ** 2) %> posts
-        </p>
-      </div>
-      <div class="col s12 m4 l4 center twitter-scroll-item">
+      <!--<div class="col s12 m4 l4 center twitter-scroll-item">-->
+        <!--<i class="large fa fa-facebook-official facebook-color"></i>-->
+        <!--<p class="flow-text">-->
+          <!--+ de <%= number_to_human rand(Item.twitter.count ** 2) %> posts-->
+
+        <!--</p>-->
+      <!--</div>-->
+      <div class="col s12 m6 l6 center twitter-scroll-item">
         <i class="large fa fa-twitter twitter-color"></i>
         <p class="flow-text">
           + de <%= number_to_human Item.twitter.count %> tweets
         </p>
       </div>
-      <div class="col s12 m4 l4 center twitter-scroll-item">
+      <div class="col s12 m6 l6 center twitter-scroll-item">
         <i class="large fa fa-instagram insta-color"></i>
         <p class="flow-text">
           + de <%= number_to_human Item.instagram.count %> insta's

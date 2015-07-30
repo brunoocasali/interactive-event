@@ -18,7 +18,8 @@ $('.datepicker').pickadate({
     weekdaysLetter: [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ],
     today: 'Hoje',
     clear: 'Apagar',
-    close: 'Fechar'
+    close: 'Fechar',
+    format: 'd mmm, yyyy'
 });
 
 $('.dropdown-button').dropdown({

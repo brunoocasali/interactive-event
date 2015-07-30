@@ -6,13 +6,22 @@ class User < ActiveRecord::Base
   has_many :events
 
   validates :role, presence: true, associated: true
-  validates :phone, :name, :email, presence: true
+
+  validates :name,presence: true
+  validates :email, presence: true
+  validates :phone, presence: true
+
   before_save :assign_role
+  after_create :send_admin_mail
 
   scope :allowed, -> { where.not(role_id: [Role.find_by_key(:root)]) }
 
   def assign_role
     self.role = Role.find_by key: :common if role.nil?
+  end
+
+  def send_admin_mail
+    UserRegistration.first_instructions(self).deliver_now if Rails.env.production?
   end
 
   def admin?

@@ -1,6 +1,5 @@
 class ServiceKind < EnumerateIt::Base
-  # TODO: Uncomment and organize when create the methods at services/search/base.rb
-  associate_values twitter: 3, instagram: 2 #, facebook: 1
+  associate_values facebook: 1, instagram: 2, twitter: 3
 
   # Will generate a instance method like `@item.service_spawn.to_s`
   class Twitter
@@ -12,6 +11,12 @@ class ServiceKind < EnumerateIt::Base
   class Instagram
     def to_s
       ItemSpawn.t(ItemSpawn::MEDIA)
+    end
+  end
+
+  class Facebook
+    def to_s
+      ItemSpawn.t(ItemSpawn::POST)
     end
   end
 end

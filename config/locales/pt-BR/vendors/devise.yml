@@ -19,14 +19,11 @@ pt-BR:
       unconfirmed: "Você precisa confirmar sua conta antes de prosseguir."
     mailer:
       confirmation_instructions:
-        user:
-          subject: "Instruções para confirmação"
+        subject: "Confirme sua Conta - Evento Interativo"
       reset_password_instructions:
-        user:
-          subject: "Instruções para reiniciar sua senha"
+        subject: "Nova Senha - Evento Interativo"
       unlock_instructions:
-        user:
-          subject: "Instruções para destravar sua senha"
+        subject: "Desbloqueie sua Conta! - Evento Interativo"
     passwords:
       user:
         no_token: "Você não pode acessar essa página vindo do email para reiniciar sua senha. Se você está vindo do email para reiniciar sua senha, por favor, certifique-se de estar usando a URL correta."
