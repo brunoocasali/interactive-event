@@ -13,5 +13,6 @@
 //= require_self
 //= require jquery
 //= require jquery_ujs
+//= require jQuery-Mask-Plugin
 //= require materialize
 //= require_tree .
