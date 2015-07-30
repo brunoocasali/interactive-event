@@ -19,12 +19,7 @@
     </div>
     <div class="row">
       <div class=" col s12">
-        <%= f.association :role, collection: Role.all %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12">
-        <%= f.input :password, input_html: { class: 'validate' } %>
+        <%= f.association :role, collection: Role.all.reject { |r| r.key.eql? 'root' } %>
       </div>
     </div>
   </div>

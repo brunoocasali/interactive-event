@@ -4,6 +4,6 @@
 
 <p> Você acaba de ser cadastrado no app <a href="http://telao.herokuapp.com">Evento Interativo - Telão</a>. </p>
 
-<p> Clique no link abaixo para desbloquear sua conta: </p>
+<p> Clique no link abaixo para criar sua senha: </p>
 
-<p><%= link_to 'Desbloquear minha conta', unlock_url(@user, unlock_token: @user.unlock_token) %></p>
+<p><%= link_to 'Desbloquear minha conta', edit_password_url(@user, reset_password_token: @user.reset_password_token) %></p>

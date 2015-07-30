@@ -23,22 +23,14 @@ module Admin
     def edit; end
 
     def create
+      @user.password = Devise.friendly_token
       @user.save
 
       respond_with(:admin, @user)
     end
 
     def update
-      if user_params[:password].blank?
-        user_params.delete(:password)
-        user_params.delete(:password_confirmation)
-      end
-
-      if needs_password?(@user, user_params)
-        @user.update(user_params)
-      else
-        @user.update_without_password(user_params)
-      end
+      @user.update_without_password(user_params)
 
       respond_with(:admin, @user)
     end
@@ -56,8 +48,7 @@ module Admin
     end
 
     def user_params
-      params.require(:user).permit(:email, :phone, :password, :name, :role_id,
-                                   :password_confirmation)
+      params.require(:user).permit(:email, :phone, :name, :role_id)
     end
   end
 end
