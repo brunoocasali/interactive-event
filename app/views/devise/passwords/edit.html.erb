@@ -11,13 +11,13 @@
 
         <div class="row">
           <div class="input-field col s12">
-            <%= f.input :password, label: t('devise.fields.password'), class: 'validate', required: true, autofocus: true %>
+            <%= f.input :password, label: t('devise.fields.password'), input_html: { class: 'validate' }, required: true, autofocus: true %>
           </div>
         </div>
 
         <div class="row">
           <div class="input-field col s12">
-            <%= f.input :password_confirmation, label: t('devise.fields.password_confirmation'), required: true %>
+            <%= f.input :password_confirmation, label: t('devise.fields.password_confirmation'), required: true, input_html: { class: 'validate' } %>
           </div>
         </div>
 

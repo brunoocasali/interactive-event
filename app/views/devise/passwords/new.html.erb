@@ -8,7 +8,7 @@
 
         <div class="row">
           <div class="input-field col s12">
-            <%= f.input :email, autofocus: true, class: 'validate' %>
+            <%= f.input :email, as: :email, autofocus: true, input_html: { class: 'validate' } %>
           </div>
         </div>
 
