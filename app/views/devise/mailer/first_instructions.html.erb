@@ -1,0 +1,9 @@
+<h2>Seja Bem Vindo(a)!</h2>
+
+<p> Olá <%= @user.name %>, </p>
+
+<p> Você acaba de ser cadastrado no app <%= link_to request.base_url %> por: <%= current_user.name %>. </p>
+
+<p> Clique no link abaixo para desbloquear sua conta: </p>
+
+<p><%= link_to 'Desbloquear minha conta', unlock_url(@user, unlock_token: @user.unlock_token) %></p>

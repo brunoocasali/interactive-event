@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'errors/file_not_found'
-
-  get 'errors/unprocessable'
-
-  get 'errors/internal_server_error'
-
   root 'welcome#index'
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' },
