@@ -12,11 +12,8 @@ module CustomizedInputs
       convert_html_options(
           super_options: super,
           options: {
-              data: {
-                  mask_format: I18n.t('simple_form.mask.cellphone.format'),
-                  mask_placeholder: I18n.t('simple_form.mask.cellphone.placeholder')
-              },
-              class: 'mask'
+              data: { mask: I18n.t('simple_form.mask.cellphone.format') },
+              class: 'validate'
           }
       )
     end
