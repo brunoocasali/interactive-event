@@ -7,7 +7,7 @@ pt-BR:
       mark: '*'
 
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: "Por favor revise os seguintes problemas abaixo:"
 
     mask:
       date:
