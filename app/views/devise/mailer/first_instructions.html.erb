@@ -2,8 +2,8 @@
 
 <p> Olá <%= @user.name %>, </p>
 
-<p> Você acaba de ser cadastrado no app <a href="http://telao.herokuapp.com">Evento Interativo - Telão</a>. </p>
+<p> Você acaba de ser cadastrado(a) no app <a href="http://telao.herokuapp.com">Evento Interativo - Telão</a>. </p>
 
 <p> Clique no link abaixo para criar sua senha: </p>
 
-<p><%= link_to 'Criar minha senha!!', edit_password_url(@user, reset_password_token: @token) %></p>
+<p><%= link_to 'Criar minha senha!', edit_password_url(@user, reset_password_token: @token_raw) %></p>
