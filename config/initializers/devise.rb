@@ -11,6 +11,7 @@ Devise.setup do |config|
   config.confirm_within = 3.days
   config.reconfirmable = true
   config.remember_for = 2.months
+  config.allow_insecure_sign_in_after_confirmation = true
   config.expire_all_remember_me_on_sign_out = true
   config.password_length = 6..128
   config.timeout_in = 100.minutes
