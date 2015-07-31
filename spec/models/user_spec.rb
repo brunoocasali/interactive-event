@@ -72,35 +72,5 @@ RSpec.describe User, type: :model do
         expect(user.root?).to be_falsey
       end
     end
-
-    describe '#password_match?' do
-      context 'when a password is matched perfectly' do
-        it 'needs to be return no errors' do
-          user = create(:user, password: 'abcd1234', password_confirmation: 'abcd1234')
-
-          expect(user.password_match?).to be_truthy
-          expect(user.errors[:password]).to be_empty
-        end
-      end
-
-      context 'when a passwords is blank' do
-        it 'needs to be return a blank pwd error' do
-          user = create(:user, password: '', password_confirmation: '')
-
-          expect(user.password_match?).to be_falsey
-          expect(user.errors[:password]).to eq(["can't be blank"])
-          expect(user.errors[:password_confirmation]).to eq(["can't be blank"])
-        end
-      end
-
-      context 'when a passwords is different' do
-        it 'needs to be return a does not match error' do
-          user = create(:user, password: 'my awesome pwd', password_confirmation: 'confirmation')
-
-          expect(user.password_match?).to be_falsey
-          expect(user.errors[:password_confirmation]).to eq(['does not match password'])
-        end
-      end
-    end
   end
 end

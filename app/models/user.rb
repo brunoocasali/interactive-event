@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
-         :trackable, :validatable, :timeoutable, :lockable, :confirmable
+         :trackable, :validatable, :timeoutable, :lockable
 
   belongs_to :role
   has_many :events
@@ -34,10 +34,6 @@ class User < ActiveRecord::Base
 
   def common?
     role.name == 'Common'
-  end
-
-  def password_required?
-    super if confirmed?
   end
 
   def confirmation_required?

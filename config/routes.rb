@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' },
-                     controllers: { confirmations: 'confirmations' }
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout' }
 
   resources :monitoring, controller: :monitorings, only: :index, param: :hash_tag do
     member do
@@ -22,10 +21,6 @@ Rails.application.routes.draw do
     resources :users
     resources :roles, except: :show
     resources :contacts, only: [:create, :index, :new]
-  end
-
-  devise_scope :user do
-    patch :confirm, to: 'confirmations#confirm'
   end
 
   authenticated :user do
