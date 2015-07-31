@@ -23,14 +23,13 @@ class User < ActiveRecord::Base
   end
 
   def turn_new_user
-    _, enc = Devise.token_generator.generate(User, :reset_password_token)
+    @raw, enc = Devise.token_generator.generate(User, :reset_password_token)
     self.reset_password_sent_at = Time.now
     self.reset_password_token = enc
   end
 
   def send_admin_mail
-    UserRegistration.
-        first_instructions(self, self.reset_password_token).deliver_now if Rails.env.production?
+    UserRegistration.first_instructions(self, @raw).deliver_now if Rails.env.production?
   end
 
   def admin?
