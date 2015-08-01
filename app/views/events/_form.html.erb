@@ -5,12 +5,12 @@
     <%= f.association :user, as: :hidden, input_html: { value: current_user_id } %>
     <div class="row">
       <div class="input-field col s12">
-        <%= f.input :hash_tag, input_html: { class: 'validate' } %>
+        <%= f.input :hash_tag %>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <%= f.input :title, input_html: { class: 'validate' } %>
+        <%= f.input :title %>
       </div>
     </div>
     <div class="row">
@@ -25,7 +25,7 @@
     </div>
     <div class="row">
       <div class="col s12">
-        <%= f.input :kind, collection: EventKind.to_a %>
+        <%= f.input :kind, collection: EventKind.to_a, include_blank: 'Selecione o Tipo de Evento'  %>
       </div>
       <div class="input-field col s12">
         <div class="file-field input-field">
@@ -52,7 +52,7 @@
           </label>
         </p>
         <%= f.input :services, as: :check_boxes, collection: ServiceKind.to_a,
-                    label: false, checked: @event.services, item_wrapper_class: 'col s3' %>
+                    label: false, checked: @event.services, item_wrapper_class: 'col s4' %>
       </div>
     </div>
   </div>

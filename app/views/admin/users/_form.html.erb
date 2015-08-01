@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="row">
-      <div class=" col s12">
+      <div class="col s12">
         <%= f.association :role, collection: Role.all.reject { |r| r.key.eql? 'root' } %>
       </div>
     </div>
