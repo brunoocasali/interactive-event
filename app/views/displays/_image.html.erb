@@ -1,36 +1,38 @@
-<div class="row">
-  <div class="col s5">
-    <div class="row center">
-      <div class="col s12">
-        <p class="flow-text">
-          Quer ver a sua foto aqui? <br />
-          poste-a com a hashtag:
-        </p>
-      </div>
-    </div>
-    <div class="row center">
-      <div class="col s12">
-        <h3 class="red-text"><%= @item.event.tag %></h3>
-      </div>
-    </div>
-    <div class="row">
-      <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-          <div class="col s3">
-            <%= image_tag(@item.author.avatar_url(:big_screen), class: 'circle responsive-img' ) %>
+<div class="valign-wrapper">
+  <div class="row">
+    <div class="col s12 valign">
+      <div class="row">
+        <div class="card">
+          <div class="card-content">
+            <p style="font-size: 20px">
+              <span class="flow-text">
+                Você também quer aparecer aqui? poste algo com a hashtag:
+                <span class="red-text"><%= @item.event.tag %></span>
+              </span>
+            </p>
           </div>
-          <div class="col s9">
-            <p class="blue-text" style="font-size: 18px"><%= @item.author.screen_name %></p>
-            <p class="black-text" style="font-size: 20px"><%= truncate @item.text, length: 200 %></p>
+          <div class="card-image">
+            <%= image_tag(@item.image_url(:big), class: 'valign') %>
+            <span class="card-title" style="font-weight: 500"><%= @item.event.tag.upcase! %></span>
+          </div>
+          <div class="card-content">
+            <p class="black-text" style="font-size: 20px">
+              <%= highlight(truncate(@item.text, length: 200),
+                            @item.event.tag, highlighter: '<span class="red-text">\1</span>') %>
+            </p>
+          </div>
+          <div class="card-action">
+            <div class="row blue-text valign-wrapper">
+              <div class="col s10">
+                <span class="valign" style="font-size: 20px"><%= @item.author.screen_name %></span>
+              </div>
+              <div class="col s2">
+                <i class="<%= service_as_icon(@item) %> small valign"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col s7 hide-on-med-and-down center">
-    <%= image_tag(@item.image_url(:big), class: 'z-depth-3') %>
-  </div>
-  <div class="col s8 hide-on-med-and-up">
-    <%= image_tag(@item.image_url(:thumb), class: 'valign') %>
   </div>
 </div>
