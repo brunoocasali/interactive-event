@@ -3,9 +3,7 @@
     <p class="flow-text"><%= truncate item.text, length: 200 %></p>
   </div>
   <div class="col s12 m6 l6">
-    <p>
-      <%= image_tag(item.image_url(:thumb), class: 'responsive-img') %>
-    </p>
+    <p><%= image_tag(item.image_url(:big), class: 'responsive-img') %></p>
   </div>
 <% else %>
   <div class="col s12 m12 l12">
