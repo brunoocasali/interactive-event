@@ -182,7 +182,7 @@ GEM
     rails-assets-font-awesome (4.3.0)
     rails-assets-jQuery-Mask-Plugin (1.13.3)
     rails-assets-jquery (2.1.3)
-    rails-assets-materialize (0.97.0)
+    rails-assets-materialize (0.95.3)
       rails-assets-jquery (>= 2.1.1)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
@@ -314,7 +314,7 @@ DEPENDENCIES
   rails-assets-font-awesome (= 4.3.0)!
   rails-assets-jQuery-Mask-Plugin (= 1.13.3)!
   rails-assets-jquery (= 2.1.3)!
-  rails-assets-materialize (= 0.97)!
+  rails-assets-materialize (= 0.95.3)!
   rails_12factor!
   responders (~> 2.0.2)!
   rspec-rails (~> 3.1.0)!

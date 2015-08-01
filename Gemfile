@@ -54,7 +54,7 @@ source 'https://rubygems.org' do
 end
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-materialize', '0.97'
+  gem 'rails-assets-materialize', '0.95.3'
   gem 'rails-assets-jquery', '2.1.3'
   gem 'rails-assets-font-awesome', '4.3.0'
   gem 'rails-assets-jQuery-Mask-Plugin', '1.13.3'

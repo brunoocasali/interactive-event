@@ -10,12 +10,12 @@
 
     <div class="secondary-content valign-wrapper">
       <h5 class="hide-on-small-only"><%= event.tag %></h5>
-      <a href="#" data-activates="dropdown" class="flow-text dropdown-button">
+      <a href="#" data-activates="dropdown-<%= event.id %>" class="flow-text dropdown-button">
         <i class="black-text mdi-navigation-more-vert valign"></i>
       </a>
     </div>
 
-    <ul id="dropdown" class="dropdown-content">
+    <ul id="dropdown-<%= event.id %>" class="dropdown-content">
       <li><%= link_to_edit edit_event_path(event) %></li>
       <li><%= link_to_destroy event %></li>
       <li><%= link_to t('views.monitorings.button'), candidates_monitoring_url(event.hash_tag) %></li>
