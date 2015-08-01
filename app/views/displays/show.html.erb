@@ -1,7 +1,3 @@
 <% content_for :title, @event.tag %>
 
-<% if @event.items.size > 0 %>
-
-  <%= render @item.image? ? 'image' : 'text' %>
-
-<% end %>
+<%= render (@item.image? ? 'image' : 'text') if @item.present? %>

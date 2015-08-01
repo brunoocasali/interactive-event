@@ -5,7 +5,18 @@ class DisplaysController < ApplicationController
   layout 'display'
 
   def show
-    @item = @event.items.approved.sample
+    @item = if @event.items.approved.size == 1
+              @event.items.approved.first
+            else
+              @event.items.approved.after(session[:last_seen_id]).first
+            end
+
+    if @item.present?
+      @item.add_new_view!
+      session[:last_seen_id] = @item.id
+    end
+
+    respond_with(@item)
   end
 
   private
