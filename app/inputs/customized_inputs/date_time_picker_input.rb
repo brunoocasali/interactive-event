@@ -10,7 +10,7 @@ module CustomizedInputs
 
     def input_html_options
       value = @builder.object.send attribute_name
-      value = I18n.localize value, format: :pickdate if value.present?
+      value = I18n.localize value.to_date, format: :default if value.present?
 
       convert_html_options super_options: super,
                            options: {

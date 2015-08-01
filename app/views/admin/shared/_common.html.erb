@@ -1,5 +1,5 @@
 <% unless Event.current.nil? %>
-  <div class="col l6 s12 m6">
+  <div class="col l6 s12">
     <%= link_to display_url(Event.current.hash_tag), class: 'black-text' do %>
       <div class="card-panel">
         <div class="valign-wrapper">
@@ -11,7 +11,7 @@
   </div>
 <% end %>
 
-<div class="col l6 s12 m6">
+<div class="col l6 s12">
   <%= link_to monitoring_index_path, class: 'black-text' do %>
     <div class="card-panel yellow">
       <div class="valign-wrapper">

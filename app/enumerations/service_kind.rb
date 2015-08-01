@@ -1,5 +1,5 @@
 class ServiceKind < EnumerateIt::Base
-  associate_values facebook: 1, instagram: 2, twitter: 3
+  associate_values instagram: 2, twitter: 3
 
   # Will generate a instance method like `@item.service_spawn.to_s`
   class Twitter
@@ -11,12 +11,6 @@ class ServiceKind < EnumerateIt::Base
   class Instagram
     def to_s
       ItemSpawn.t(ItemSpawn::MEDIA)
-    end
-  end
-
-  class Facebook
-    def to_s
-      ItemSpawn.t(ItemSpawn::POST)
     end
   end
 end

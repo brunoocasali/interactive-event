@@ -19,7 +19,7 @@ $('.datepicker').pickadate({
     today: 'Hoje',
     clear: 'Apagar',
     close: 'Fechar',
-    format: 'd mmm, yyyy'
+    format: 'd/mm/yyyy'
 });
 
 $('.dropdown-button').dropdown({
