@@ -5,8 +5,7 @@ SimpleForm.setup do |config|
   # wrapper, change the order or even add your own to the
   # stack. The options given below are used to wrap the
   # whole input.
-  config.wrappers :default, class: :input,
-                            hint_class: :field_with_hint, error_class: :field_with_errors do |b|
+  config.wrappers :default, error_class: :invalid do |b|
     ## Extensions enabled by default
     # Any of these extensions can be disabled for a
     # given input by passing: `f.input EXTENSION_NAME => false`.
@@ -40,15 +39,15 @@ SimpleForm.setup do |config|
     b.optional :readonly
 
     ## Inputs
-    b.use :label_input
     b.use :hint,  wrap_with: { tag: :span, class: :hint }
-    b.use :error, class: 'validate invalid'
+    b.use :input, class: 'validate', error: { class: :invalid }
+    b.use :label
 
     ## full_messages_for
     # If you want to display the full error message for the attribute, you can
     # use the component :full_error, like:
     #
-    # b.use :full_error, wrap_with: { tag: :span, class: :error }
+    b.use :full_error, wrap_with: { tag: :span, class: 'red-text' }
   end
 
   # The default wrapper to be used by the FormBuilder.
@@ -72,7 +71,7 @@ SimpleForm.setup do |config|
   config.error_notification_tag = :div
 
   # CSS class to add for error notification helper.
-  config.error_notification_class = 'alert alert-danger'
+  config.error_notification_class = 'row red-text'
 
   # ID to add for error notification helper.
   # config.error_notification_id = nil
@@ -118,7 +117,7 @@ SimpleForm.setup do |config|
   # in this configuration, which is recommended due to some quirks from different browsers.
   # To stop SimpleForm from generating the novalidate option, enabling the HTML5 validations,
   # change this configuration to true.
-  config.browser_validations = false
+  config.browser_validations = true
 
   # Collection of methods to detect if a file type was given.
   # config.file_methods = [ :mounted_as, :file?, :public_filename ]
