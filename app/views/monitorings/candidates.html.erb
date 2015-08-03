@@ -2,12 +2,12 @@
 
 <ul class="collapsible" data-collapsible="accordion">
   <% if @items.each do |item| %>
-    <li data-id="<%= item.id %>" data-remote="true">
+    <li data-id="<%= item.id %>">
       <div class="collapsible-header">
         <div class="row">
           <div class="col s12 m9 l10">
             <i class="mdi-<%= item.image? ? 'image-photo-camera' : 'editor-format-align-justify' %>"></i>
-            <i class="<%= service_as_icon(item) %>"></i>
+            <i class="<%= service_as_icon(item.service) %>"></i>
             <%= item.author.screen_name %>
           </div>
           <%= link_to t('views.monitorings.buttons.approve'), approve_item_monitoring_path(@event.hash_tag, item),
@@ -20,6 +20,21 @@
           <div class="col s12 center-align hide-on-med-and-up">
             <%= link_to t('views.monitorings.buttons.approve'), approve_item_monitoring_path(@event.hash_tag, item),
                         class: 'btn blue col s12', method: :post %>
+          </div>
+          <div class="col s12 center-align">
+            <div class="preloader-wrapper big active" id="preloader-<%= item.id %>">
+              <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                  <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

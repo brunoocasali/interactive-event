@@ -1,10 +1,20 @@
 $('.collapsible > li').click(function () {
     var id = $(this).data('id');
+    var preloader = "#preloader-" + id;
+
+    $(preloader).show();
+
     $.getJSON('info/'+ id +'.json', function(data) {
         $('#text-' + id).text(data['text']);
-        $('#image-' + id).attr('src', data['image']['url']);
-        $('#avatar-' + id).attr('src', data['avatar']['url']);
-        console.log(data['image']['url']);
-        console.log(data['image']);
+        if(data['image']['url']){
+            $('#image-' + id).attr('src', data['image']['url']);
+        }
+        if(data['author']['avatar']){
+            $('#avatar-' + id).attr('src', data['author']['avatar']);
+        }
     });
+
+    setTimeout(function() {
+        $(preloader).hide();
+    }, 4000);
 });

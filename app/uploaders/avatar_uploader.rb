@@ -1,8 +1,17 @@
 class AvatarUploader < CarrierWave::Uploader::Base
-  include Cloudinary::CarrierWave
+  include CarrierWave::MiniMagick
+
+  storage :dropbox
+
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
 
   version :big_screen do
-    cloudinary_transformation effect: 'brightness:30', width: 250, height: 250,
-                              quality: 80, crop: :thumb, gravity: :face
+    process resize_to_fill: [250, 250]
+  end
+
+  def extension_white_list
+    %w(gif jpg jpeg png)
   end
 end
