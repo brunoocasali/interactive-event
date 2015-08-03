@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
       delete 'destroy/:item_id', as: :destroy_item, to: 'monitorings#destroy'
       post 'approve/:item_id', as: :approve_item, to: 'monitorings#approve'
+      get 'info/:item_id', as: :item_info, to: 'monitorings#info'
 
       get :approved
       get :candidates
