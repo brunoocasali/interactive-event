@@ -21,6 +21,21 @@
             <%= link_to t('views.monitorings.buttons.remove'), destroy_item_monitoring_path(@event.hash_tag, item),
                         class: 'btn lighten-1 red col s12', method: :delete %>
           </div>
+          <div class="col s12 center-align">
+            <div class="preloader-wrapper big active" id="preloader-<%= item.id %>">
+              <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                  <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </li>
