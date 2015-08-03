@@ -1,7 +1,5 @@
 module ServicesHelper
-  def service_as_icon(item)
-    service = item.service
-
+  def service_as_icon(service)
     case service
     when ServiceKind::TWITTER
       'fa fa-twitter twitter-color'

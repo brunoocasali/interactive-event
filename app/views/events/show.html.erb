@@ -24,6 +24,13 @@
   </p>
 
   <p>
+    <strong><%= ta Event, :services %>:</strong>
+    <% @event.services.map(&:to_i).each do |s| %>
+      <i class="<%= service_as_icon(s) %> small valign"></i>
+    <% end -%>
+  </p>
+
+  <p>
     <strong><%= ta Event, :user %>:</strong>
     <%= @event.user.name %>
   </p>

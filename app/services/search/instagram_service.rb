@@ -2,7 +2,7 @@ module Search
   class InstagramService
     class << self
       def find_media_items_for(event)
-        params = { count: 100, max_tag_id: event.medias.last.try(&:id) }
+        params = { count: 100, min_tag_id: event.medias.last.try(&:id) }
 
         Instagram.client.tag_recent_media(event.hash_tag, params).each do |media|
           begin
