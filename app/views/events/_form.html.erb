@@ -25,7 +25,7 @@
     </div>
     <div class="row">
       <div class="col s12">
-        <%= f.input :kind, collection: EventKind.to_a, include_blank: 'Selecione o tipo de evento'  %>
+        <%= f.input :kind, collection: EventKind.to_a, label: false, include_blank: 'Selecione o tipo de evento'  %>
       </div>
       <div class="input-field col s12">
         <div class="file-field input-field">
@@ -41,7 +41,6 @@
               <%= f.input :remove_cover, as: :boolean, label: t('carrierwave.buttons.remove', attr: ta(Event, :cover)) %>
             </div>
           </div>
-
           <%= image_tag(@event.cover_url(:thumb)) %>
         </div>
       <% end %>
