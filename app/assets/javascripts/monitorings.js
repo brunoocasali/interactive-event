@@ -6,11 +6,11 @@ $('.collapsible > li').click(function () {
 
     $.getJSON('info/'+ id +'.json', function(data) {
         $('#text-' + id).text(data['text']);
-        if(data['image']['url']){
-            $('#image-' + id).attr('src', data['image']['url']);
-        }
-        if(data['author']['avatar']){
-            $('#avatar-' + id).attr('src', data['author']['avatar']);
+        try{
+            $('#image-' + id).attr('src', data.image.url);
+            $('#avatar-' + id).attr('src', data.author.avatar);
+        }catch(e){
+            console.log("ERROR: "+ e);
         }
     });
 
