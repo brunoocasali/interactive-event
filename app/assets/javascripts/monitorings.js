@@ -2,7 +2,9 @@ $('.collapsible > li').click(function () {
     var id = $(this).data('id');
     var preloader = '#preloader-' + id;
 
-    $(preloader).show();
+    if ($(this).hasClass('active') == false) {
+        $(preloader).show();
+    }
 
     $.getJSON('info/'+ id +'.json', function(data) {
         $('#text-' + id).text(data.text);
@@ -14,7 +16,7 @@ $('.collapsible > li').click(function () {
         }
     });
 
-    setTimeout(function() {
+    setTimeout(function () {
         $(preloader).hide();
-    }, 4000);
+    }, 3200);
 });
