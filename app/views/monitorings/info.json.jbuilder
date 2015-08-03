@@ -1,4 +1,6 @@
-json.extract! @item, :id, :service, :text
+json.extract! @item, :id, :service
+
+json.set! :text, truncate(@item.text, length: 200)
 
 json.image do
   json.url @item.image_url(:big)
