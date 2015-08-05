@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require jQuery-Mask-Plugin
 //= require materialize
+//= require nprogress
 //= require_self
 //= require_tree .

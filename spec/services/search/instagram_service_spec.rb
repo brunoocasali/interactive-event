@@ -23,13 +23,12 @@ RSpec.describe Search::InstagramService, type: :service do
 
   describe '.make_a_item_by' do
     let(:media_item) do
-      Hashie::Mash.new({ id: '596008529309278208',
-                         caption: { text: 'a caption text for image' },
-                         user: {
-                             id: '1831819079',
-                             username: 'brunoocasali',
-                             full_name: 'Bruno Casali'
-                         }
+      Hashie::Mash.new(id: '596008529309278208',
+                       caption: { text: 'a caption text for image' },
+                       user: {
+                         id: '1831819079',
+                         username: 'brunoocasali',
+                         full_name: 'Bruno Casali'
                        })
     end
     let(:invalid_media_item) { nil }
@@ -61,13 +60,12 @@ RSpec.describe Search::InstagramService, type: :service do
 
   describe '.make_an_author_by' do
     let(:media_item) do
-      Hashie::Mash.new({ id: '596008529309278208',
-                         caption: { text: 'a caption text for image' },
-                         user: {
-                             id: '1831819079',
-                             username: 'brunoocasali',
-                             full_name: 'Bruno Casali'
-                         }
+      Hashie::Mash.new(id: '596008529309278208',
+                       caption: { text: 'a caption text for image' },
+                       user: {
+                         id: '1831819079',
+                         username: 'brunoocasali',
+                         full_name: 'Bruno Casali'
                        })
     end
     let(:invalid_media_item) { nil }

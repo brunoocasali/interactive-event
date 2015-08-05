@@ -22,29 +22,29 @@ RSpec.describe Event, type: :model do
   context 'model attributes' do
     it do
       is_expected.to have_db_column(:user_id).of_type(:integer)
-                         .with_options(null: false)
+        .with_options(null: false)
     end
 
     it do
       is_expected.to have_db_column(:hash_tag).of_type(:string)
-                         .with_options(limit: 75, null: false)
+        .with_options(limit: 75, null: false)
     end
     it do
       is_expected.to have_db_column(:title).of_type(:string)
-                         .with_options(limit: 75, null: false)
+        .with_options(limit: 75, null: false)
     end
     it do
       is_expected.to have_db_column(:cover).of_type(:string)
-                         .with_options(limit: 255)
+        .with_options(limit: 255)
     end
 
     it do
       is_expected.to have_db_column(:start_at).of_type(:datetime)
-                         .with_options(null: false)
+        .with_options(null: false)
     end
     it do
       is_expected.to have_db_column(:end_at).of_type(:datetime)
-                         .with_options(null: false)
+        .with_options(null: false)
     end
   end
 

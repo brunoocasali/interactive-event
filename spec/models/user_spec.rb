@@ -66,7 +66,7 @@ RSpec.describe User, type: :model do
 
     describe '#common?' do
       it 'needs to be a common' do
-        user = create(:user, role:  create(:role, name: 'Common'))
+        user = create(:user, role: create(:role, name: 'Common'))
 
         expect(user.common?).to be_truthy
         expect(user.root?).to be_falsey

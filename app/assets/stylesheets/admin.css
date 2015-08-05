@@ -23,6 +23,13 @@ p {
     padding: 0 15px;
 }
 
+.bg-displays{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 footer.page-footer {
     margin: 0;
 }

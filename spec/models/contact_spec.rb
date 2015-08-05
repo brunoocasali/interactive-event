@@ -14,4 +14,3 @@ RSpec.describe Contact, type: :model do
   context 'table indexes' do
   end
 end
-

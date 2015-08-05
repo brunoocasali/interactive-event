@@ -10,11 +10,11 @@ module CustomizedInputs
 
     def input_html_options
       convert_html_options(
-          super_options: super,
-          options: {
-              data: { mask: I18n.t('simple_form.mask.cellphone.format') },
-              class: 'validate'
-          }
+        super_options: super,
+        options: {
+          data: { mask: I18n.t('simple_form.mask.cellphone.format') },
+          class: 'validate'
+        }
       )
     end
   end

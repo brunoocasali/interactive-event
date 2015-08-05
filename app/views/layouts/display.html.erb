@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="bg-displays" style="background: url(<%= @event.cover_url %>) no-repeat center center fixed;">
 <head>
   <title><%= yield(:title) %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -10,9 +10,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="min-body" style="margin-top: 5%">
+  <%= yield %>
 
-<%= yield %>
+  <%= javascript_include_tag 'application' %>
 
-<%= javascript_include_tag 'application' %>
+  <script>
+    $(document).ready(function(){
+      var content = '<%= @event.items.approved.count > 50 ? 3 : 5 %>';
+      var rate = content == '3' ? 0.42 : 0.2;
+
+      NProgress.configure({ easing: 'ease', speed: 900, trickleRate: rate, trickleSpeed: 900 });
+
+      NProgress.start();
+    });
+  </script>
 </body>
 </html>
