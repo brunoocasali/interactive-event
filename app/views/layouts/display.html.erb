@@ -3,7 +3,6 @@
 <head>
   <title><%= yield(:title) %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <!--<meta http-equiv="refresh" content="<%= @event.items.approved.count > 50 ? 3 : 5 %>" />-->
 
   <%= favicon_link_tag %>
   <%= stylesheet_link_tag 'application', media: 'all'%>
@@ -16,12 +15,20 @@
 
   <script>
     $(document).ready(function(){
-      var content = '<%= @event.items.approved.count > 50 ? 3 : 5 %>';
-      var rate = content == '3' ? 0.42 : 0.2;
+      var content = <%= @event.items.approved.count > 50 ? 3000 : 5000 %>;
+      var rate = content == 3000 ? 0.42 : 0.2;
 
       NProgress.configure({ easing: 'ease', speed: 900, trickleRate: rate, trickleSpeed: 900 });
 
       NProgress.start();
+
+      setTimeout(function(){
+        window.location.reload(true);
+
+        setTimeout(function(){
+          NProgress.done();
+        }, 500);
+      }, content);
     });
   </script>
 </body>
