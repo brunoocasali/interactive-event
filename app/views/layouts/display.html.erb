@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="bg-displays" style="background: url(<%= @event.cover_url %>) no-repeat center center fixed;">
+<html>
 <head>
   <title><%= yield(:title) %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -7,8 +7,30 @@
   <%= favicon_link_tag %>
   <%= stylesheet_link_tag 'application', media: 'all'%>
   <%= csrf_meta_tags %>
+
+  <style>
+    html, body {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    #full-screen-background-image {
+      z-index: -999;
+      min-height: 98%;
+      width: 100%;
+      /*height: auto;*/
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+  </style>
+
 </head>
-<body class="min-body" style="margin-top: 5%">
+<body>
+  <%= image_tag @event.cover_url, id: 'full-screen-background-image' %>
+
   <%= yield %>
 
   <%= javascript_include_tag 'application' %>
@@ -18,17 +40,23 @@
       var content = <%= @event.items.approved.count > 50 ? 3000 : 5000 %>;
       var rate = content == 3000 ? 0.42 : 0.2;
 
-      NProgress.configure({ easing: 'ease', speed: 900, trickleRate: rate, trickleSpeed: 900 });
+      NProgress.configure({
+        easing: 'ease',
+        speed: 900,
+        trickleRate: rate,
+        trickleSpeed: 900,
+        template: '<div class="bar white-text" role="bar"><div class="peg white-text"></div></div>'
+      });
 
       NProgress.start();
 
-      setTimeout(function(){
-        window.location.reload(true);
-
-        setTimeout(function(){
-          NProgress.done();
-        }, 500);
-      }, content);
+//      setTimeout(function(){
+//        window.location.reload(true);
+//
+//        setTimeout(function(){
+//          NProgress.done();
+//        }, 500);
+//      }, content);
     });
   </script>
 </body>

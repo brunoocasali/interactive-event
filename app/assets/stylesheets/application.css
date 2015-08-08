@@ -19,3 +19,11 @@
  *= require_self
  *= require_tree .
  */
+
+#nprogress .bar {
+    background: #fff;
+}
+
+#nprogress .peg {
+    box-shadow: 0 0 10px #fff, 0 0 5px #fff;
+}
