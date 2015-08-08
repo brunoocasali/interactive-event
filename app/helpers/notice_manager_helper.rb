@@ -1,6 +1,6 @@
 module NoticeManagerHelper
   def notices(timeout)
-    flash.collect do |key, msg|
+    flash.reject { |_, m| m.eql? true }.collect do |key, msg|
       message = content_tag :span, class: 'valign-wrapper' do
         concat msg
         concat content_tag(:i, '', class: "icon-toast #{alert_class_finder(key)}")

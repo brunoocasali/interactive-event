@@ -37,6 +37,11 @@
 
   <script>
     $(document).ready(function(){
+
+      BackgroundCheck.init({
+        targets: '#card-image-title, #show-send-text, #show-text-content, #hashtag'
+      });
+
       var content = <%= @event.items.approved.count > 50 ? 3000 : 5000 %>;
       var rate = content == 3000 ? 0.42 : 0.2;
 

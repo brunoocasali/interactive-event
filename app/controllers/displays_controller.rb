@@ -5,6 +5,8 @@ class DisplaysController < ApplicationController
   layout 'display'
 
   def show
+    session[:send_your_content] ||= DateTime.now
+
     @item = if @event.items.approved.size == 1
               @event.items.approved.first
             else
@@ -14,6 +16,11 @@ class DisplaysController < ApplicationController
     if @item.present?
       @item.add_new_view!
       session[:last_seen_id] = @item.id
+    end
+
+    if 2.minutes.ago > session[:send_your_content].to_datetime
+      session[:send_your_content] = DateTime.now
+      @item = nil
     end
 
     respond_with(@item)
