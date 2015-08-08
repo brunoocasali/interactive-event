@@ -4,8 +4,8 @@
       <div class="row">
         <div class="card grey lighten-4">
           <div class="card-image">
-            <%= image_tag(@item.image_url(:big), class: 'valign img-responsive') %>
-            <span class="card-title" style="font-weight: 500"><%= @item.event.tag.upcase! %></span>
+            <%= image_tag(@item.image_url(:big), class: 'valign img-responsive', crossOrigin: 'anonymous') %>
+            <span class="card-title" id="card-image-title" style="font-weight: 500"><%= @item.event.tag.upcase! %></span>
           </div>
           <div class="card-content" style="padding: 1em 0 0 0">
             <div class="row valign-wrapper">
@@ -19,8 +19,8 @@
             <div class="row">
               <div class="col s12">
                 <span class="black-text" style="font-size: 20px">
-                  <%= highlight(truncate(@item.text, length: 200),
-                                @item.event.tag, highlighter: '<span class="red-text">\1</span>') %>
+                  <%= highlight(truncate(@item.text, length: 200), @item.event.tag,
+                                highlighter: "<span class=\"#{ color_by(@item.service) }\">\\1</span>") %>
                 </span>
               </div>
             </div>

@@ -27,7 +27,6 @@ source 'https://rubygems.org' do
   gem 'kaminari'
   gem 'newrelic_rpm'
   gem 'carrierwave'
-  # gem 'cloudinary'
   gem 'carrierwave-dropbox'
   gem 'mini_magick'
 
@@ -60,4 +59,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-font-awesome', '4.3.0'
   gem 'rails-assets-jQuery-Mask-Plugin', '1.13.3'
   gem 'rails-assets-nprogress'
+  # gem 'rails-assets-background-check', '1.2.2'
 end
