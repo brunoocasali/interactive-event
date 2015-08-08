@@ -5,13 +5,13 @@
     <li data-id="<%= item.id %>">
       <div class="collapsible-header">
         <div class="row">
-          <div class="col s12 m9 l10">
+          <div class="col s12 m10 l10">
             <i class="mdi-<%= item.image? ? 'image-photo-camera' : 'editor-format-align-justify' %>"></i>
             <i class="<%= service_as_icon(item.service) %>"></i>
             <%= item.author.screen_name %>
           </div>
           <%= link_to t('views.monitorings.buttons.approve'), approve_item_monitoring_path(@event.hash_tag, item),
-                      class: 'btn blue hide-on-small-only', method: :post %>
+                      class: 'btn l2 m2 blue hide-on-small-only', method: :post %>
         </div>
       </div>
       <div class="collapsible-body">

@@ -9,4 +9,15 @@ module ServicesHelper
       'fa fa-facebook-official facebook-color'
     end
   end
+
+  def color_by(service)
+    case service
+      when ServiceKind::TWITTER
+        'twitter-color'
+      when ServiceKind::INSTAGRAM
+        'insta-color'
+      else
+        'facebook-color'
+    end
+  end
 end

@@ -1,19 +1,18 @@
 <% if item.image? %>
   <div class="col s12 m6 l6">
-    <p class="flow-text" id="text-<%= item.id %>"><%# truncate item.text, length: 200 %></p>
+    <p class="flow-text" id="text-<%= item.id %>"></p>
+    <b class="flow-text" id="views-<%= item.id %>"></b>
   </div>
   <div class="col s12 m6 l6">
-    <p><img src="" id="image-<%= item.id %>" class="responsive-img"/> <%# image_tag(item.image_url(:big), class: 'responsive-img') %></p>
+    <p><img src="" id="image-<%= item.id %>" class="responsive-img"/></p>
   </div>
 <% else %>
-  <div class="col s12 m12 l12">
-    <div class="row valign-wrapper">
-      <div class="col s1 valign hide-on-small-only">
-        <img src="" id="avatar-<%= item.id %>" class="circle responsive-img icon-footer"/>
-      </div>
-      <div class="col s11 valign">
-        <p class="flow-text" id="text-<%= item.id %>"></p>
-      </div>
+  <div class="row center-align" style="margin-left: 15px; margin-top: 15px; padding: 0">
+    <div class="col s12 m2 l2">
+      <img src="" id="avatar-<%= item.id %>" class="circle responsive-img icon-footer" style="max-height: 140px"/>
+    </div>
+    <div class="col s12 m10 l10">
+      <p class="flow-text " id="text-<%= item.id %>"></p>
     </div>
   </div>
 <% end %>
